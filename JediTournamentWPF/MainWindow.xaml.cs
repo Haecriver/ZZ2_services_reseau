@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer;
+using EntitiesLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +22,39 @@ namespace JediTournamentWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BusinessManager manager;
+
         public MainWindow()
         {
             InitializeComponent();
+            manager = new BusinessManager();
         }
 
+        private void StadesButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Selector.Items.Clear();
+            Selector.ItemsSource = manager.getStades();
+        }
+
+        private void JedisButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Selector.Items.Clear();
+            Selector.ItemsSource = manager.getJedis();            
+        }
+
+        private void MatchsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Selector.ItemsSource = manager.getMatchs();
+        }
+
+        private void CaracteristiquesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Selector.ItemsSource = manager.getCaracteristics();
+        }
+
+        private void BonusButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

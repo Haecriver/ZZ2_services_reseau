@@ -32,14 +32,14 @@ namespace JediTournamentWPF
         {
             if (manager.CheckConnexionUser(LoginInput.Text.ToLower(), PasswordInput.Password))
             {
-                ErrorLabel.Visibility = System.Windows.Visibility.Hidden;
+                ErrorLabel.Visibility = Visibility.Hidden;
                 MainWindow win = new MainWindow();
                 win.Show();
                 this.Close();
             }
             else
             {
-                ErrorLabel.Visibility = System.Windows.Visibility.Visible;
+                ErrorLabel.Visibility = Visibility.Visible;
             }
         }
 

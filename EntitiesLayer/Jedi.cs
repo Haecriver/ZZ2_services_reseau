@@ -26,11 +26,16 @@ namespace EntitiesLayer
             get { return nom; }
         }
 
-        Jedi(int id, string _nom, bool sith, List<Caracteristique> lc) : base(id)
+        public Jedi(int id, string _nom, bool sith, List<Caracteristique> lc) : base(id)
         {
             nom = _nom;
             isSith = sith;
             caracteristiques = lc;
+        }
+
+        public override string ToString ()
+        {
+            return nom;
         }
     }
 }

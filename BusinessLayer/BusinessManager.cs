@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace BusinessLayer
 {
@@ -16,7 +17,7 @@ namespace BusinessLayer
             Data = new StubDataAccessLayer.DalManager();
         }
 
-        public List<String> printStades()
+        public List<string> getStades()
         {
             List<String> l = new List<string>();
             foreach (var st in Data.getAllStade())
@@ -26,7 +27,7 @@ namespace BusinessLayer
             return l;
         }
 
-        public List<String> printObscurJedis()
+        public List<string> getObscurJedis()
         {
             List<String> l = new List<string>();
             foreach (EntitiesLayer.Jedi je in Data.getAllJedi())
@@ -38,7 +39,12 @@ namespace BusinessLayer
             return l;
         }
 
-        public List<String> printJedis(int strengthPts, int lifePts)
+        public List<string> getJedis()
+        {
+            return getJedis(-1, -1);
+        }
+
+        public List<string> getJedis(int strengthPts, int lifePts)
         {
             List<String> l = new List<string>();
             int okay;
@@ -61,6 +67,21 @@ namespace BusinessLayer
                 }
             }
             return l;
+        }
+
+        public List<string> getMatchs()
+        {
+            List<string> l = new List<string>();
+            foreach (EntitiesLayer.Match ma in Data.getAllMatch())
+            {
+                l.Add(ma.ToString());
+            }
+            return l;
+        }
+
+        public List<string> getCaracteristics()
+        {
+            throw new NotImplementedException();
         }
 
         public void printSithMatchesOver200()
