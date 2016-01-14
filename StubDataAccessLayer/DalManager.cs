@@ -18,11 +18,27 @@ namespace StubDataAccessLayer
 
         public DalManager()
         {
-            allJedi = new List<Jedi>(2);
-            allMatch = new List<Match>(2);
-            allStade = new List<Stade>(2);
-            allCharacteristics = new List<Caracteristique>(2);
+            allJedi = new List<Jedi>();
+            List<Caracteristique> lc = new List<Caracteristique>();
+            lc.Add(new Caracteristique(1, EDefCaracteristique.Force, "Force", ETypeCaracteristique.Jedi, 90));
+            lc.Add(new Caracteristique(4, EDefCaracteristique.Sante, "Santé", ETypeCaracteristique.Jedi, 90));
+            allJedi.Add(new Jedi(0, "Luke", false, lc));
+            lc = new List<Caracteristique>();
+            lc.Add(new Caracteristique(2, EDefCaracteristique.Force, "Force", ETypeCaracteristique.Jedi, 95));
+            lc.Add(new Caracteristique(3, EDefCaracteristique.Sante, "Santé", ETypeCaracteristique.Jedi, 85));
+            allJedi.Add(new Jedi(1, "Anakin", true, lc));
+
+            allMatch = new List<Match>();
+
+            allStade = new List<Stade>();
+
+            allCharacteristics = new List<Caracteristique>();
+
             allUtilisateurs = new SortedDictionary<string, Utilisateur>();
+            allUtilisateurs["pierre-loup"] = new Utilisateur("Pissavy", "Pierre-Loup", "pierre-loup", "totoestbete");
+            allUtilisateurs["anne-lise"] = new Utilisateur("Michel", "Anne-Lise", "anne-lise", "moustache");
+            allUtilisateurs["pierre"] = new Utilisateur("Chevalier", "Pierre", "pierre", "jveuxdire");
+            allUtilisateurs["gael"] = new Utilisateur("Raux", "Gaël", "gael", "brest");
         }
 
         public List<Jedi> getAllJedi()

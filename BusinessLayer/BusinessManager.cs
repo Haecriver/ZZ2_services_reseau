@@ -21,14 +21,14 @@ namespace BusinessLayer
             List<Stade> stades = Data.getAllStade();
             IEnumerable<string> results = from stade in stades select stade.Planete + ' ' + stade.NbPlaces;
             return results;
-        }
+            }
 
         public IEnumerable<String> printObscurJedis()
         {
             List<Jedi> jedis = Data.getAllJedi();
             IEnumerable<string> results = from jedi in jedis where jedi.IsSith select jedi.Nom;
             return results;
-        }
+                }
 
         public IEnumerable<String> printJedis(int strengthPts, int lifePts)
         {
