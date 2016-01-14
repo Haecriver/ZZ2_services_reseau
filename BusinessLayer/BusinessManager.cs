@@ -16,57 +16,38 @@ namespace BusinessLayer
             Data = new StubDataAccessLayer.DalManager();
         }
 
-        public List<String> printStades()
+        public IEnumerable<String> printStades()
         {
-            List<String> l = new List<string>();
-            foreach (var st in Data.getAllStade())
-            {
-                l.Add(st.ToString());
-            }
-            return l;
+            List<Stade> stades = Data.getAllStade();
+            IEnumerable<string> results = from stade in stades select stade.Planete + ' ' + stade.NbPlaces;
+            return results;
         }
 
-        public List<String> printObscurJedis()
+        public IEnumerable<String> printObscurJedis()
         {
-            List<String> l = new List<string>();
-            foreach (EntitiesLayer.Jedi je in Data.getAllJedi())
-            {
-                if (je.IsSith) {
-                    l.Add(je.ToString());
-                }
-            }
-            return l;
+            List<Jedi> jedis = Data.getAllJedi();
+            IEnumerable<string> results = from jedi in jedis where jedi.IsSith select jedi.Nom;
+            return results;
         }
 
-        public List<String> printJedis(int strengthPts, int lifePts)
+        public IEnumerable<String> printJedis(int strengthPts, int lifePts)
         {
-            List<String> l = new List<string>();
-            int okay;
-            foreach (EntitiesLayer.Jedi je in Data.getAllJedi())
-            {
-                okay = 0;
-                foreach (EntitiesLayer.Caracteristique c in je.Caracteristiques)
-                {
-                    if (c.Definition == EntitiesLayer.EDefCaracteristique.Force && c.Valeur > strengthPts)
-                    {
-                        okay++;
-                    } else if (c.Definition == EntitiesLayer.EDefCaracteristique.Sante  && c.Valeur > lifePts)
-                    {
-                        okay++;
-                    }
-                }
-                if (okay == 2)
-                {
-                    l.Add(je.ToString());
-                }
-            }
-            return l;
+            List<Jedi> jedis = Data.getAllJedi();
+            IEnumerable<string> force = from jedi in jedis where jedi.Caracteristiques.Any(caract => (caract.Definition == EDefCaracteristique.Force && caract.Valeur > 3)) select jedi.Nom;
+            IEnumerable<string> sante = from jedi in jedis where jedi.Caracteristiques.Any(caract => (caract.Definition == EDefCaracteristique.Sante && caract.Valeur > 50)) select jedi.Nom;
+            IEnumerable<string> results = force.Intersect(sante);
+            return results;
         }
 
-        public void printSithMatchesOver200()
+        public IEnumerable<string> printSithMatchesOver200()
         {
-            throw new NotImplementedException();
+            List<Match> matches = Data.getAllMatch();
+            IEnumerable<string> places = from match in matches where match.Stade.NbPlaces > 200 select match.Stade.Planete + ' ' + match.Jedi1.Nom + ' ' + match.Jedi2.Nom;
+            IEnumerable<string> sith = from match in matches where match.Jedi1.IsSith && match.Jedi2.IsSith select match.Stade.Planete + ' ' + match.Jedi1.Nom + ' ' + match.Jedi2.Nom;
+            IEnumerable<string> results = places.Intersect(sith);
+            return results.ToList<String>();
         }
+
 
         public bool CheckConnexionUser(string login, string password)
         {
