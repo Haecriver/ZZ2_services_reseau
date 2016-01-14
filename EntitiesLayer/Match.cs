@@ -49,9 +49,14 @@ namespace EntitiesLayer
             set { stade = value; }
         }
 
-        public Match(int id, Jedi j1, Jedi j2) : base(id)
+
+        public Match(int pId,  int pIdJediVainqueur, Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(pId)
         {
-            throw new NotImplementedException();
+            idJediVainqueur = pIdJediVainqueur;
+            Jedi1 = pJedi1;
+            Jedi2 = pJedi2;
+            PhaseTournoi = pPhaseTournoi;
+            Stade = pStade;
         }
     }
 }

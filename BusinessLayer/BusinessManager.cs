@@ -16,21 +16,43 @@ namespace BusinessLayer
             Data = new StubDataAccessLayer.DalManager();
         }
 
-        public IEnumerable<String> printStades()
+        public IEnumerable<String> getStades()
         {
             List<Stade> stades = Data.getAllStade();
-            IEnumerable<string> results = from stade in stades select stade.Planete + ' ' + stade.NbPlaces;
+            IEnumerable<string> results = from stade in stades select stade.Planete + "(" + stade.NbPlaces + ")";
             return results;
-            }
+        }
 
-        public IEnumerable<String> printObscurJedis()
+        public IEnumerable<String> getJedis()
+        {
+            List<Jedi> jedis = Data.getAllJedi();
+            IEnumerable<string> results = from jedi in jedis select jedi.Nom;
+            return results;
+        }
+
+        public IEnumerable<String> getMatchs()
+        {
+            List<Match> matches = Data.getAllMatch();
+            IEnumerable<string> results = from match in matches select match.Jedi1+" vs "+ match.Jedi2+" in "+match.Stade.Planete;
+            return results;
+        }
+
+        public IEnumerable<String> getCaracteristics()
+        {
+            List<Caracteristique> caracteristics = Data.getAllCaracteristic();
+            IEnumerable<string> results = from caracteristic in caracteristics select caracteristic.Nom;
+            return results;
+        }
+
+
+        public IEnumerable<String> getObscurJedis()
         {
             List<Jedi> jedis = Data.getAllJedi();
             IEnumerable<string> results = from jedi in jedis where jedi.IsSith select jedi.Nom;
             return results;
                 }
 
-        public IEnumerable<String> printJedis(int strengthPts, int lifePts)
+        public IEnumerable<String> getJedis(int strengthPts, int lifePts)
         {
             List<Jedi> jedis = Data.getAllJedi();
             IEnumerable<string> force = from jedi in jedis where jedi.Caracteristiques.Any(caract => (caract.Definition == EDefCaracteristique.Force && caract.Valeur > 3)) select jedi.Nom;
@@ -39,7 +61,7 @@ namespace BusinessLayer
             return results;
         }
 
-        public IEnumerable<string> printSithMatchesOver200()
+        public IEnumerable<string> getSithMatchesOver200()
         {
             List<Match> matches = Data.getAllMatch();
             IEnumerable<string> places = from match in matches where match.Stade.NbPlaces > 200 select match.Stade.Planete + ' ' + match.Jedi1.Nom + ' ' + match.Jedi2.Nom;

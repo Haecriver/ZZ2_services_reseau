@@ -29,8 +29,9 @@ namespace EntitiesLayer
             set { planete = value; }
         }
 
-        public Stade(int id, int nbplaces, string planet) : base(id)
+        public Stade(int id, int nbplaces, string planet, List<Caracteristique> pcaracteristiques) : base(id)
         {
+            caracteristiques = pcaracteristiques;
             nbPlaces = nbplaces;
             planete = planet;
         }

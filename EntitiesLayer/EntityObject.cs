@@ -20,11 +20,13 @@ namespace EntitiesLayer
         }
         public bool Equals(EntityObject b)
         {
-            throw new NotImplementedException();
+            // TODO : Pas sur ...
+            return Id == b.Id;
         }
-        public int GetHashCode()
+        public override int GetHashCode()
         {
-            throw new NotImplementedException();
+            // TODO : Pas sur ...
+            return Id.GetHashCode();
         }
     }
 }

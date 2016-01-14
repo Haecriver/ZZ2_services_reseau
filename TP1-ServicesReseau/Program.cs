@@ -38,28 +38,28 @@ namespace TP1_ServicesReseau
 
                         break;
                     case 2:
-                        res = businessManager.printStades();
+                        res = businessManager.getStades();
                         foreach (String el in res)
                         {
                             Console.Out.WriteLine(el);
                         }
                         break;
                     case 3:
-                        res = businessManager.printObscurJedis();       //Ce sont des Sith pas des jedis obscurs !!
+                        res = businessManager.getObscurJedis();       //Ce sont des Sith pas des jedis obscurs !!
                         foreach (String el in res)
                         {
                             Console.Out.WriteLine(el);
                         }
                         break;
                     case 4:
-                        res = businessManager.printJedis(3,50);
+                        res = businessManager.getJedis(3,50);
                         foreach (String el in res)
                         {
                             Console.Out.WriteLine(el);
                         }
                         break;
                     case 5:
-                        res = businessManager.printSithMatchesOver200();
+                        res = businessManager.getSithMatchesOver200();
                         foreach (String el in res)
                         {
                             Console.Out.WriteLine(el);
