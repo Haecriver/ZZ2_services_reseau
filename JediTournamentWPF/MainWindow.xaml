@@ -22,13 +22,54 @@
             </Label.Background>
         </Label>
         <WrapPanel x:Name="ButtonsWP" Margin="39,50,38,49" Orientation="Vertical" Grid.Row="1">
-            <Button x:Name="JedisButton" Content="Jedis" Height="38" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="89" HorizontalAlignment="Left" Click="JedisButton_Click"/>
-            <Button x:Name="StadesButton" Content="Stades" Height="38" VerticalAlignment="Center" Click="StadesButton_Click"/>
-            <Button x:Name="MatchsButton" Content="Matchs" Height="38" VerticalAlignment="Center" Click="MatchsButton_Click"/>
-            <Button x:Name="CaracteristiquesButton" Content="Caractéristiques" Height="38" VerticalAlignment="Center" Click="CaracteristiquesButton_Click"/>
-            <Button x:Name="BonusButton" Content="Bonus" Height="38" VerticalAlignment="Center" Click="BonusButton_Click"/>
+            <Button x:Name="JedisButton" Content="Jedis" Height="38" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="89" HorizontalAlignment="Left" Click="JedisButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FFE44B12" Offset="1"/>
+                        <GradientStop Color="#FFEC8B8B" Offset="0.617"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="StadesButton" Content="Stades" Height="38" VerticalAlignment="Center" Click="StadesButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FFA370C7" Offset="0.507"/>
+                        <GradientStop Color="#FF592797" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="MatchsButton" Content="Matchs" Height="38" VerticalAlignment="Center" Click="MatchsButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FF5AAA9C" Offset="0.567"/>
+                        <GradientStop Color="#FF0A6454" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="CaracteristiquesButton" Content="Caractéristiques" Height="38" VerticalAlignment="Center" Click="CaracteristiquesButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FF627B9E" Offset="0.583"/>
+                        <GradientStop Color="#FF0A4C5B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="BonusButton" Content="Bonus" Height="38" VerticalAlignment="Center" Click="BonusButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FFA49718" Offset="1"/>
+                        <GradientStop Color="#FFE4DA73" Offset="0.363"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </WrapPanel>
         <GridSplitter x:Name="RightPanel" Grid.Column="1" HorizontalAlignment="Stretch" Margin="213,0,0,0" Grid.Row="1" Height="286" VerticalAlignment="Bottom" Background="{x:Null}"/>
-        <ListBox x:Name="Selector" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="198"/>
+        <ListBox x:Name="Selector" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="198" SelectionChanged="Selector_SelectionChanged"/>
+        <Image x:Name="yodapng" Margin="243,43,0,0" Source="75017_yoda.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" Height="198" VerticalAlignment="Top" HorizontalAlignment="Left" Width="161" Visibility="Hidden"/>
     </Grid>
 </Window>
