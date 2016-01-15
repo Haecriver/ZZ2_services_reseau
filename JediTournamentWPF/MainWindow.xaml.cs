@@ -24,6 +24,8 @@ namespace JediTournamentWPF
     {
         private static Clicked click = Clicked.Null;
         private BusinessManager manager;
+        bool bonus = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -58,7 +60,21 @@ namespace JediTournamentWPF
 
         private void BonusButton_Click(object sender, RoutedEventArgs e)
         {
+            bonus = !bonus;
+            if (bonus)
+            {
+                yodapng.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                yodapng.Visibility = Visibility.Hidden;
+            }
             click = Clicked.Bonus;
+        }
+
+        private void Selector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
