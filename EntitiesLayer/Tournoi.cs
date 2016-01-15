@@ -12,6 +12,7 @@ namespace EntitiesLayer
         public List<Match> Matchs
         {
           get { return matchs; }
+            set { matchs = value; }
         }
 
         private string nom;
@@ -21,6 +22,10 @@ namespace EntitiesLayer
             set { nom = value; }
         }
 
+        public Tournoi()
+        {
+
+        }
         public Tournoi(int id, List<Match> lm, string nom) : base(id)
         {
             matchs = lm;

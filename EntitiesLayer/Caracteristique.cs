@@ -25,26 +25,34 @@ namespace EntitiesLayer
         public EDefCaracteristique Definition
         {
             get { return definition; }
+            set { definition = value; }
         }
 
         private string nom;
         public string Nom
         {
             get { return nom; }
+            set { nom = value; }
         }
 
         private ETypeCaracteristique type;
         public ETypeCaracteristique Type
         {
             get { return type; }
+            set { type = value; }
         }
 
         private int valeur;
         public int Valeur
         {
             get { return valeur; }
+            set { valeur = value; }
         }
 
+        public Caracteristique()
+        {
+
+        }
         public Caracteristique(int id, EDefCaracteristique def, string _nom, ETypeCaracteristique _type, int _valeur) : base(id)
         {
             definition = def;

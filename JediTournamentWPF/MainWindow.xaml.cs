@@ -68,7 +68,13 @@ namespace JediTournamentWPF
 
         private void Selector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
+        }
 
+        private void ExportJedisButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Selector.Items.Clear();
+            manager.ExportJedis();
         }
     }
 }

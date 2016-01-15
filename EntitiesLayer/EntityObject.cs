@@ -12,8 +12,13 @@ namespace EntitiesLayer
         public int Id
         {
             get { return id; }
+            set { id = value; }
         }
 
+        public EntityObject()
+        {
+
+        }
         public EntityObject(int _id)
         {
             id = _id;

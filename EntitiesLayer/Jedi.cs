@@ -6,27 +6,36 @@ using System.Threading.Tasks;
 
 namespace EntitiesLayer
 {
+    [Serializable]
     public class Jedi : EntityObject
     {
         private List<Caracteristique> caracteristiques;
         public List<Caracteristique> Caracteristiques
         {
             get { return caracteristiques; }
-        }
+            set { caracteristiques = value; }
+        }        
 
         private bool isSith;
         public bool IsSith
         {
             get { return isSith; }
+            set { isSith = value; }
         }
 
         private string nom;
         public string Nom
         {
             get { return nom; }
+            set { nom = value; }
         }
 
-        public Jedi(int id, string _nom, bool sith, List<Caracteristique> lc) : base(id)
+        public Jedi()
+        {
+
+        }
+        public Jedi(int id, string _nom, bool sith, List<Caracteristique> lc)
+            : base(id)
         {
             nom = _nom;
             isSith = sith;

@@ -23,6 +23,10 @@ namespace EntitiesLayer
             set { score = value; }
         }
 
+        public Joueur()
+        {
+
+        }
         public Joueur(int id, string no, int sc)
             : base(id)
         {

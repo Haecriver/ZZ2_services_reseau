@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using EntitiesLayer;
 
 namespace StubDataAccessLayer
@@ -90,6 +89,7 @@ namespace StubDataAccessLayer
         {
             return allCharacteristics;
         }
+
 
         public Utilisateur getUtilisateurByLogin(string login) {
             try
