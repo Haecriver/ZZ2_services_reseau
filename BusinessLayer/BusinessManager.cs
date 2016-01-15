@@ -5,9 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+ 
 
 namespace BusinessLayer
 {
+    public enum Clicked
+    {
+        Jedis,
+        Stades,
+        Matchs,
+        Caracteristiques,
+        Bonus,
+        Null
+    };
     public class BusinessManager
     {
         private StubDataAccessLayer.DalManager Data;
@@ -71,12 +81,39 @@ namespace BusinessLayer
             return results.ToList<String>();
         }
 
-        public void ExportJedis()
+        public void ExportXML(Clicked click)
         {
-            System.IO.StreamWriter stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\test.txt");
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Jedi>));
-            serializer.Serialize(stream, Data.getAllJedi());
-            stream.Close();
+            System.IO.StreamWriter stream;
+            XmlSerializer ser;
+            switch(click)
+            {
+                case (Clicked.Jedis):
+                    stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeJedis.txt");
+                    ser = new XmlSerializer(typeof(List<Jedi>));
+                    ser.Serialize(stream, Data.getAllJedi());
+                    stream.Close();
+                    break;
+                case (Clicked.Stades):
+                    stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeStades.txt");
+                    ser = new XmlSerializer(typeof(List<Stade>));
+                    ser.Serialize(stream, Data.getAllStade());
+                    stream.Close();
+                    break;
+                case (Clicked.Matchs):
+                    stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeMatchs.txt");
+                    ser = new XmlSerializer(typeof(List<Match>));
+                    ser.Serialize(stream, Data.getAllMatch());
+                    stream.Close();
+                    break;
+                case (Clicked.Caracteristiques):
+                    stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeCaracteristiques.txt");
+                    ser = new XmlSerializer(typeof(List<Caracteristique>));
+                    ser.Serialize(stream, Data.getAllCaracteristic());
+                    stream.Close();
+                    break;
+                default:
+                    break;
+            }
         }
 
         public bool CheckConnexionUser(string login, string password)

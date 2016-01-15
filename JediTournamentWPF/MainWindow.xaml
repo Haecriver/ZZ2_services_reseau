@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Name="Jedi_Tournament_2016" x:Class="JediTournamentWPF.MainWindow"
         Title="Jedi Tournament 2016" HorizontalAlignment="Center" VerticalAlignment="Center" d:DesignHeight="360.491" d:DesignWidth="600.353">
-    <Grid Background="#FF888A91">
+    <Grid Background="#FF888A91" Margin="0,0,0,-30">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="145*"/>
             <ColumnDefinition Width="372*"/>
@@ -28,9 +28,9 @@
             <Button x:Name="CaracteristiquesButton" Content="Caractéristiques" Height="38" VerticalAlignment="Center" Click="CaracteristiquesButton_Click"/>
             <Button x:Name="BonusButton" Content="Bonus" Height="38" VerticalAlignment="Center" Click="BonusButton_Click"/>
         </WrapPanel>
-        <WrapPanel x:Name="ButtonsExp" Margin="104,50,10,49" Grid.Row="1">
-            <Button x:Name="ExportJedis" Content="Export" Margin="0,15" Height="23" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="50" HorizontalAlignment="Left" Click="ExportJedisButton_Click"/>
-        </WrapPanel>
+        <Grid x:Name="ButtonExport" Margin="10,279,218,0" Grid.Row="1" Grid.Column="1">
+            <Button x:Name="Export" Content="Export" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="100" Click="ExportButton_Click"/>
+        </Grid>
         <GridSplitter x:Name="RightPanel" Grid.Column="1" HorizontalAlignment="Stretch" Margin="213,0,0,0" Grid.Row="1" Height="286" VerticalAlignment="Bottom" Background="{x:Null}"/>
         <ListBox x:Name="Selector" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="198"/>
     </Grid>

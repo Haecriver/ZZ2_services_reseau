@@ -22,6 +22,7 @@ namespace JediTournamentWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static Clicked click = Clicked.Null;
         private BusinessManager manager;
         public MainWindow()
         {
@@ -32,34 +33,40 @@ namespace JediTournamentWPF
         private void StadesButton_Click(object sender, RoutedEventArgs e)
         {
             //Selector.Items.Clear();
+            click = Clicked.Stades;
             Selector.ItemsSource = manager.getStades();
         }
 
         private void JedisButton_Click(object sender, RoutedEventArgs e)
         {
             //Selector.Items.Clear();
+            click = Clicked.Jedis;
             Selector.ItemsSource = manager.getJedis();            
         }
 
         private void MatchsButton_Click(object sender, RoutedEventArgs e)
         {
+            click = Clicked.Matchs;
             Selector.ItemsSource = manager.getMatchs();
         }
 
         private void CaracteristiquesButton_Click(object sender, RoutedEventArgs e)
         {
+            click = Clicked.Caracteristiques;
             Selector.ItemsSource = manager.getCaracteristics();
         }
 
         private void BonusButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            click = Clicked.Bonus;
         }
 
-        private void ExportJedisButton_Click(object sender, RoutedEventArgs e)
+        private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
             //Selector.Items.Clear();
-            manager.ExportJedis();
+            manager.ExportXML(click);
+                
+            
         }
     }
 }
