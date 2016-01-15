@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BusinessLayer
 {
@@ -70,6 +71,13 @@ namespace BusinessLayer
             return results.ToList<String>();
         }
 
+        public void ExportJedis()
+        {
+            System.IO.StreamWriter stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\test.txt");
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Jedi>));
+            serializer.Serialize(stream, Data.getAllJedi());
+            stream.Close();
+        }
 
         public bool CheckConnexionUser(string login, string password)
         {

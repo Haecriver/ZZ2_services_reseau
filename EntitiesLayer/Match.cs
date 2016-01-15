@@ -19,6 +19,7 @@ namespace EntitiesLayer
         public int IdJediVainqueur
         {
             get { return idJediVainqueur; }
+            set { idJediVainqueur = value; }
         }
 
         private Jedi jedi1;
@@ -49,7 +50,10 @@ namespace EntitiesLayer
             set { stade = value; }
         }
 
+        public Match()
+        {
 
+        }
         public Match(int pId,  int pIdJediVainqueur, Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(pId)
         {
             idJediVainqueur = pIdJediVainqueur;

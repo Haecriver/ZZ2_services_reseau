@@ -36,6 +36,10 @@ namespace EntitiesLayer
             set { password = value; }
         }
 
+        public Utilisateur()
+        {
+
+        }
         public Utilisateur(string _nom, string _prenom, string _login, string _password)
         {
             nom = _nom;

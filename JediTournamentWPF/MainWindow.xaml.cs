@@ -23,7 +23,6 @@ namespace JediTournamentWPF
     public partial class MainWindow : Window
     {
         private BusinessManager manager;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -55,6 +54,12 @@ namespace JediTournamentWPF
         private void BonusButton_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void ExportJedisButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Selector.Items.Clear();
+            manager.ExportJedis();
         }
     }
 }
