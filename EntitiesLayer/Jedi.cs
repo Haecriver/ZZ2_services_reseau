@@ -44,7 +44,13 @@ namespace EntitiesLayer
 
         public override string ToString ()
         {
-            return nom;
+            string s=Nom + "\n";
+            IEnumerable<string> results = from caracteristic in Caracteristiques select caracteristic.ToString();
+            foreach(string el in results)
+            {
+                s += el + "\n";
+            }
+            return s;
         }
     }
 }

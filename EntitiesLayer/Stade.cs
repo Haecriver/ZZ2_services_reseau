@@ -39,5 +39,16 @@ namespace EntitiesLayer
             nbPlaces = nbplaces;
             planete = planet;
         }
+
+        public override string ToString()
+        {
+            string s = Planete + "\n";
+            IEnumerable<string> results = from caracteristic in Caracteristiques select caracteristic.ToString();
+            foreach (string el in results)
+            {
+                s += el + "\n";
+            }
+            return s;
+        }
     }
 }

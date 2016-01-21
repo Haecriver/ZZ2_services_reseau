@@ -8,10 +8,10 @@ namespace EntitiesLayer
 {
     public enum EDefCaracteristique
     {
-        Force,
-        Defense,
-        Sante,
-        Chance
+        Force=0,
+        Defense=1,
+        Sante=3,
+        Chance=2
     }
 
     public enum ETypeCaracteristique
@@ -59,6 +59,11 @@ namespace EntitiesLayer
             nom = _nom;
             type = _type;
             valeur = _valeur;
+        }
+
+        public override string ToString()
+        {
+            return Nom + " in " + definition + " : " + valeur;
         }
     }
 }

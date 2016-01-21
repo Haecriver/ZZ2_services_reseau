@@ -54,6 +54,7 @@ namespace EntitiesLayer
         {
 
         }
+
         public Match(int pId,  Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(pId)
         {
             idJediVainqueur = -1;

@@ -32,6 +32,41 @@ namespace BusinessLayer
         public List<Match> getMatches() { return data.getAllMatch(); }
         public List<Caracteristique> getCaracteristique() { return data.getAllCaracteristic(); }
 
+        public void playTestMatch()
+        {
+            Match match = data.getAllMatch()[0];
+            PlayingMatch pMatch = new PlayingMatch(match);
+            int i = 0;
+
+            //Description match
+            Console.Out.WriteLine("Match Test on {0}", match.Stade.Planete);
+            Console.Out.WriteLine(match.Stade.ToString());
+
+            Console.Out.WriteLine("{0} contre {1}", match.Jedi1.Nom, match.Jedi2.Nom);
+            Console.Out.WriteLine(match.Jedi1.ToString());
+            Console.Out.WriteLine(match.Jedi2.ToString());
+
+            while (!pMatch.MatchOver)
+            {
+                // Ici utilisation d'un choix Automatique (aléatoire)
+                EDefCaracteristique j1Caract = pMatch.automaticChoose();
+                EDefCaracteristique j2Caract = pMatch.automaticChoose();
+
+                pMatch.playTurn(j1Caract, j2Caract);
+                Console.Out.WriteLine("--------------------------", i);
+                Console.Out.WriteLine("Tour {0}", i);
+                Console.Out.WriteLine("{0} utilise : {1}", match.Jedi1.Nom, j1Caract.ToString());
+                Console.Out.WriteLine("{0} utilise : {1}", match.Jedi2.Nom,j2Caract.ToString());
+                Console.Out.WriteLine("{0} inflige {1} degats a {2}", pMatch.WinnerJedi.Nom, pMatch.DammageInfliged, pMatch.LooserJedi.Nom);
+                Console.Out.WriteLine("Point de vie restant a {0} : {1}", match.Jedi1.Nom, pMatch.Jedi1.HpJedi);
+                Console.Out.WriteLine("Point de vie restant a {0} : {1}", match.Jedi2.Nom, pMatch.Jedi2.HpJedi);
+                i++;
+            }
+            //Resultat
+            Console.Out.WriteLine("Match termine, gagnant : {0}", match.IdJediVainqueur);
+            Console.Out.WriteLine("({0} = {1}, {2} = {3})", match.Jedi1.Nom, match.Jedi1.Id,match.Jedi2.Nom,match.Jedi2.Id);
+        }
+
         public IEnumerable<String> getStringStades()
         {
             List<Stade> stades = data.getAllStade();

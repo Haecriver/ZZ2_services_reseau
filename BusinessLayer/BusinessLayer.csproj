@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessManager.cs" />
+    <Compile Include="PlayingJedi.cs" />
+    <Compile Include="PlayingMatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

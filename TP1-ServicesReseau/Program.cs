@@ -26,7 +26,8 @@ namespace TP1_ServicesReseau
                 Console.Out.WriteLine("3 - All siths");
                 Console.Out.WriteLine("4 - Jedi 3 F 50 HP");
                 Console.Out.WriteLine("5 - Match 200 places siths");
-                Console.Out.WriteLine("6 - Exit");
+                Console.Out.WriteLine("6 - Play !");
+                Console.Out.WriteLine("7 - Exit");
                 input = int.Parse(Console.In.ReadLine());
                 switch (input)
                 {
@@ -66,6 +67,9 @@ namespace TP1_ServicesReseau
                         }
                         break;
                     case 6:
+                        businessManager.playTestMatch(); 
+                        break;
+                    case 7:
                         end = true;
                         break;
                     default:
