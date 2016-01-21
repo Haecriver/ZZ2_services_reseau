@@ -54,9 +54,9 @@ namespace EntitiesLayer
         {
 
         }
-        public Match(int pId,  int pIdJediVainqueur, Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(pId)
+        public Match(int pId,  Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(pId)
         {
-            idJediVainqueur = pIdJediVainqueur;
+            idJediVainqueur = -1;
             Jedi1 = pJedi1;
             Jedi2 = pJedi2;
             PhaseTournoi = pPhaseTournoi;

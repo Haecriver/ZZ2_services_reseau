@@ -51,7 +51,7 @@ namespace StubDataAccessLayer
 
             // Ajout de Matchs
             allMatch = new List<Match>();
-            allMatch.Add(new Match(1, 2, allJedi[0], allJedi[2], EPhaseTournoi.Finale, allStade[0]));
+            allMatch.Add(new Match(1, allJedi[0], allJedi[2], EPhaseTournoi.Finale, allStade[0]));
             
             // Ajout d'Utilisateur
             allUtilisateurs = new SortedDictionary<string, Utilisateur>();

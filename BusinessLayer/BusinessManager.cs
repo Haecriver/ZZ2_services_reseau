@@ -20,61 +20,66 @@ namespace BusinessLayer
     };
     public class BusinessManager
     {
-        private StubDataAccessLayer.DalManager Data;
+        private StubDataAccessLayer.DalManager data;
 
         public BusinessManager()
         {
-            Data = new StubDataAccessLayer.DalManager();
+            data = new StubDataAccessLayer.DalManager();
         }
 
-        public IEnumerable<String> getStades()
+        public List<Stade> getStades()  {return data.getAllStade();}
+        public List<Jedi> getJedis() { return data.getAllJedi(); }
+        public List<Match> getMatches() { return data.getAllMatch(); }
+        public List<Caracteristique> getCaracteristique() { return data.getAllCaracteristic(); }
+
+        public IEnumerable<String> getStringStades()
         {
-            List<Stade> stades = Data.getAllStade();
+            List<Stade> stades = data.getAllStade();
             IEnumerable<string> results = from stade in stades select stade.Planete + "(" + stade.NbPlaces + ")";
             return results;
         }
 
-        public IEnumerable<String> getJedis()
+        public IEnumerable<String> getStringJedis()
         {
-            List<Jedi> jedis = Data.getAllJedi();
+            List<Jedi> jedis = data.getAllJedi();
             IEnumerable<string> results = from jedi in jedis select jedi.Nom;
             return results;
         }
 
-        public IEnumerable<String> getMatchs()
+        public IEnumerable<String> getStringMatchs()
         {
-            List<Match> matches = Data.getAllMatch();
+            List<Match> matches = data.getAllMatch();
             IEnumerable<string> results = from match in matches select match.Jedi1+" vs "+ match.Jedi2+" in "+match.Stade.Planete;
             return results;
         }
 
-        public IEnumerable<String> getCaracteristics()
+        public IEnumerable<String> getStringCaracteristics()
         {
-            List<Caracteristique> caracteristics = Data.getAllCaracteristic();
+            List<Caracteristique> caracteristics = data.getAllCaracteristic();
             IEnumerable<string> results = from caracteristic in caracteristics select caracteristic.Nom;
             return results;
         }
 
 
-        public IEnumerable<String> getObscurJedis()
+        public IEnumerable<String> getStringObscurJedis()
         {
-            List<Jedi> jedis = Data.getAllJedi();
+            List<Jedi> jedis = data.getAllJedi();
             IEnumerable<string> results = from jedi in jedis where jedi.IsSith select jedi.Nom;
             return results;
-                }
+        }
 
-        public IEnumerable<String> getJedis(int strengthPts, int lifePts)
+        public IEnumerable<String> getStringJedis(int strengthPts, int lifePts)
         {
-            List<Jedi> jedis = Data.getAllJedi();
+            List<Jedi> jedis = data.getAllJedi();
             IEnumerable<string> force = from jedi in jedis where jedi.Caracteristiques.Any(caract => (caract.Definition == EDefCaracteristique.Force && caract.Valeur > 3)) select jedi.Nom;
             IEnumerable<string> sante = from jedi in jedis where jedi.Caracteristiques.Any(caract => (caract.Definition == EDefCaracteristique.Sante && caract.Valeur > 50)) select jedi.Nom;
             IEnumerable<string> results = force.Intersect(sante);
             return results;
         }
 
-        public IEnumerable<string> getSithMatchesOver200()
+        public IEnumerable<string> getStringSithMatchesOver200()
         {
-            List<Match> matches = Data.getAllMatch();
+            List<Match> matches = data.getAllMatch();
             IEnumerable<string> places = from match in matches where match.Stade.NbPlaces > 200 select match.Stade.Planete + ' ' + match.Jedi1.Nom + ' ' + match.Jedi2.Nom;
             IEnumerable<string> sith = from match in matches where match.Jedi1.IsSith && match.Jedi2.IsSith select match.Stade.Planete + ' ' + match.Jedi1.Nom + ' ' + match.Jedi2.Nom;
             IEnumerable<string> results = places.Intersect(sith);
@@ -90,25 +95,25 @@ namespace BusinessLayer
                 case (Clicked.Jedis):
                     stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeJedis.txt");
                     ser = new XmlSerializer(typeof(List<Jedi>));
-                    ser.Serialize(stream, Data.getAllJedi());
+                    ser.Serialize(stream, data.getAllJedi());
                     stream.Close();
                     break;
                 case (Clicked.Stades):
                     stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeStades.txt");
                     ser = new XmlSerializer(typeof(List<Stade>));
-                    ser.Serialize(stream, Data.getAllStade());
+                    ser.Serialize(stream, data.getAllStade());
                     stream.Close();
                     break;
                 case (Clicked.Matchs):
                     stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeMatchs.txt");
                     ser = new XmlSerializer(typeof(List<Match>));
-                    ser.Serialize(stream, Data.getAllMatch());
+                    ser.Serialize(stream, data.getAllMatch());
                     stream.Close();
                     break;
                 case (Clicked.Caracteristiques):
                     stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeCaracteristiques.txt");
                     ser = new XmlSerializer(typeof(List<Caracteristique>));
-                    ser.Serialize(stream, Data.getAllCaracteristic());
+                    ser.Serialize(stream, data.getAllCaracteristic());
                     stream.Close();
                     break;
                 default:
@@ -121,7 +126,7 @@ namespace BusinessLayer
             bool result;
             try
             {
-                Utilisateur u = Data.getUtilisateurByLogin(login);
+                Utilisateur u = data.getUtilisateurByLogin(login);
                 result = (u.Password == password);
             }
             catch (NullReferenceException)

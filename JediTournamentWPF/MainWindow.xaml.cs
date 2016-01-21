@@ -36,7 +36,7 @@ namespace JediTournamentWPF
         {
             //Selector.Items.Clear();
             click = Clicked.Stades;
-            Selector.ItemsSource = manager.getStades();
+            Selector.ItemsSource = manager.getStringStades();
         }
 
         private void JedisButton_Click(object sender, RoutedEventArgs e)
@@ -49,13 +49,13 @@ namespace JediTournamentWPF
         private void MatchsButton_Click(object sender, RoutedEventArgs e)
         {
             click = Clicked.Matchs;
-            Selector.ItemsSource = manager.getMatchs();
+            Selector.ItemsSource = manager.getStringMatchs();
         }
 
         private void CaracteristiquesButton_Click(object sender, RoutedEventArgs e)
         {
             click = Clicked.Caracteristiques;
-            Selector.ItemsSource = manager.getCaracteristics();
+            Selector.ItemsSource = manager.getStringCaracteristics();
         }
 
         private void BonusButton_Click(object sender, RoutedEventArgs e)

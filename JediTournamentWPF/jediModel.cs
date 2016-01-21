@@ -15,8 +15,8 @@ namespace JediTournamentWPF
         private BusinessManager manager;
         private List<Jedi> allJedi;
         
-        public JediModel(){
-            manager = new BusinessManager();
+        public JediModel(BusinessManager manager){
+            this.manager = manager;
             allJedi = manager.getJedis();
         }
 
