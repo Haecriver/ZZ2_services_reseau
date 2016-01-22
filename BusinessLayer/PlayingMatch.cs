@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntitiesLayer;
-using System.Linq;
 
 
 namespace BusinessLayer
@@ -33,7 +32,7 @@ namespace BusinessLayer
         Null
     }
     
-    class PlayingMatch
+    public class PlayingMatch
     {
         // Base de pv des Jedi
         public static readonly int baseHP = 30;

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace JediTournamentWPF
 {
@@ -80,7 +81,10 @@ namespace JediTournamentWPF
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
             //Selector.Items.Clear();
-            manager.ExportXML(click);
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            folderBrowser.Description = "Choisissez où créer le fichier.\nAttention, si le fichier existe déjà, il sera remplacé !";
+            folderBrowser.ShowDialog();
+            manager.ExportXML(click, folderBrowser.SelectedPath);
                 
             
         }

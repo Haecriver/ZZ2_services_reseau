@@ -7,7 +7,7 @@ using EntitiesLayer;
 
 namespace BusinessLayer
 {
-    class PlayingJedi
+    public class PlayingJedi
     {
         private int hpJedi;
         private int caractForce;
