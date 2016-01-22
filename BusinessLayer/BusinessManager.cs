@@ -121,32 +121,32 @@ namespace BusinessLayer
             return results.ToList<String>();
         }
 
-        public void ExportXML(Clicked click)
+        public void ExportXML(Clicked click, String path)
         {
             System.IO.StreamWriter stream;
             XmlSerializer ser;
             switch(click)
             {
                 case (Clicked.Jedis):
-                    stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeJedis.txt");
+                    stream = new System.IO.StreamWriter(@path+"\\ListeJedis.txt");
                     ser = new XmlSerializer(typeof(List<Jedi>));
                     ser.Serialize(stream, data.getAllJedi());
                     stream.Close();
                     break;
                 case (Clicked.Stades):
-                    stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeStades.txt");
+                    stream = new System.IO.StreamWriter(@path+"\\ListeStades.txt");
                     ser = new XmlSerializer(typeof(List<Stade>));
                     ser.Serialize(stream, data.getAllStade());
                     stream.Close();
                     break;
                 case (Clicked.Matchs):
-                    stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeMatchs.txt");
+                    stream = new System.IO.StreamWriter(@path+"\\ListeMatchs.txt");
                     ser = new XmlSerializer(typeof(List<Match>));
                     ser.Serialize(stream, data.getAllMatch());
                     stream.Close();
                     break;
                 case (Clicked.Caracteristiques):
-                    stream = new System.IO.StreamWriter(@"C:\Users\garaux\Desktop\ListeCaracteristiques.txt");
+                    stream = new System.IO.StreamWriter(@path+"\\ListeCaracteristiques.txt");
                     ser = new XmlSerializer(typeof(List<Caracteristique>));
                     ser.Serialize(stream, data.getAllCaracteristic());
                     stream.Close();
