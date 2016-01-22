@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntitiesLayer;
-using System.Linq;
 
 
 namespace BusinessLayer
@@ -25,7 +24,15 @@ namespace BusinessLayer
     /* différence                                                        */
     /*********************************************************************/
 
-    class PlayingMatch
+    enum RepShiFuMi
+    {
+        Egalite,
+        J1Gagnant,
+        J2Gagnant,
+        Null
+    }
+    
+    public class PlayingMatch
     {
         // Base de pv des Jedi
         public static readonly int baseHP = 30;
@@ -100,7 +107,7 @@ namespace BusinessLayer
                 int scoreJ2 = 0;
 
                 // 1 pour J1, 2 pour J2, 0 sinon
-                int vainqueurShiFuMi = 0;
+                RepShiFuMi vainqueurShiFuMi = 0;
 
                 //Calcul de la valeur de score
                 try
@@ -122,11 +129,11 @@ namespace BusinessLayer
                 }
 
                 // Calcul final du score
-                if(vainqueurShiFuMi == 1)
+                if (vainqueurShiFuMi == RepShiFuMi.J1Gagnant)
                 {
                     scoreJ1 *= multiplicator;
                 }
-                if (vainqueurShiFuMi == 2)
+                if (vainqueurShiFuMi == RepShiFuMi.J2Gagnant)
                 {
                     scoreJ2 *= multiplicator;
                 }
@@ -169,28 +176,6 @@ namespace BusinessLayer
             }
         }
 
-        // TODO mettre en static ?
-        /*  public EDefCaracteristique automaticChoose()
-          {
-              EDefCaracteristique res;
-              int rand = (new Random(DateTime.Now.Second)).Next() % 3;
-              switch (rand)
-              {
-                  case 0:
-                      res = EDefCaracteristique.Chance;
-                      break;
-                  case 1:
-                      res = EDefCaracteristique.Defense;
-                      break;
-                  case 2:
-                      res = EDefCaracteristique.Force;
-                      break;
-                  default:
-                      res = EDefCaracteristique.Sante; //N'arrive jamais
-                      break;
-              }
-              return res;
-          }*/
         public EDefCaracteristique automaticChoose()
         {
             return (EDefCaracteristique)(rand.Next()%3);
@@ -223,38 +208,38 @@ namespace BusinessLayer
             return score;
         }
 
-        private int shiFuMi(EDefCaracteristique choosenCaract1, EDefCaracteristique choosenCaract2)
+        private RepShiFuMi shiFuMi(EDefCaracteristique choosenCaract1, EDefCaracteristique choosenCaract2)
         {
-            int vainqueurShiFuMi = -1;
+            RepShiFuMi vainqueurShiFuMi = RepShiFuMi.Null;
             if (choosenCaract1 == choosenCaract2)
             {
-                vainqueurShiFuMi = 0;
+                vainqueurShiFuMi = RepShiFuMi.Egalite;
             }
             else
             {
                 switch (choosenCaract1)
                 {
                     case EDefCaracteristique.Force:
-                        vainqueurShiFuMi = 1;
+                        vainqueurShiFuMi = RepShiFuMi.J1Gagnant;
                         if (choosenCaract2 == EDefCaracteristique.Chance)
                         {
-                            vainqueurShiFuMi = 2;
+                            vainqueurShiFuMi = RepShiFuMi.J2Gagnant;
                         }
                         break;
 
                     case EDefCaracteristique.Chance:
-                        vainqueurShiFuMi = 1;
+                        vainqueurShiFuMi = RepShiFuMi.J1Gagnant;
                         if (choosenCaract2 == EDefCaracteristique.Defense)
                         {
-                            vainqueurShiFuMi = 2;
+                            vainqueurShiFuMi = RepShiFuMi.J2Gagnant;
                         }
                         break;
 
                     case EDefCaracteristique.Defense:
-                        vainqueurShiFuMi = 1;
+                        vainqueurShiFuMi = RepShiFuMi.J1Gagnant;
                         if (choosenCaract2 == EDefCaracteristique.Force)
                         {
-                            vainqueurShiFuMi = 2;
+                            vainqueurShiFuMi = RepShiFuMi.J2Gagnant;
                         }
                         break;
 
