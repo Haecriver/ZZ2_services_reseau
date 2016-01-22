@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>e6af084a-f962-4e48-986d-283f1e663f40</ProjectGuid>
+    <ProjectGuid>{97BF04E3-126C-43E7-9413-352FF8BEA21D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BusinessLayer.Tests</RootNamespace>
@@ -50,8 +50,23 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="PlayingJediTests.cs" />
+    <Compile Include="PlayingMatchTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{01fe3568-4c1b-44aa-a1bb-61fd71aef459}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
+      <Project>{e8321158-7ebe-4dfa-933a-9225c7972d7b}</Project>
+      <Name>EntitiesLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StubDataAccessLayer\StubDataAccessLayer.csproj">
+      <Project>{3ccc6172-6e99-4610-ac28-40e14dee1a96}</Project>
+      <Name>StubDataAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
