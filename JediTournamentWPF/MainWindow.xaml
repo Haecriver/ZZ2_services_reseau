@@ -1,7 +1,7 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Name="Jedi_Tournament_2016" x:Class="JediTournamentWPF.MainWindow"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:JediTournamentWPF" mc:Ignorable="d" x:Name="Jedi_Tournament_2016" x:Class="JediTournamentWPF.MainWindow"
         Title="Jedi Tournament 2016" HorizontalAlignment="Center" VerticalAlignment="Center" d:DesignHeight="360.491" d:DesignWidth="600.353">
     <Grid Background="#FF888A91" Margin="0,0,0,-30">
         <Grid.ColumnDefinitions>
@@ -74,5 +74,6 @@
         <GridSplitter x:Name="RightPanel" Grid.Column="1" HorizontalAlignment="Stretch" Margin="213,0,0,0" Grid.Row="1" Height="286" VerticalAlignment="Bottom" Background="{x:Null}"/>
         <ListBox x:Name="Selector" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="198" SelectionChanged="Selector_SelectionChanged"/>
         <Image x:Name="yodapng" Margin="243,43,0,0" Source="75017_yoda.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" Height="198" VerticalAlignment="Top" HorizontalAlignment="Left" Width="161" Visibility="Hidden"/>
+        <Viewbox x:Name="Editor" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="231,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="173"/>
     </Grid>
 </Window>

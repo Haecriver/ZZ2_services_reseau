@@ -6,18 +6,74 @@ using System.Threading.Tasks;
 using BiblioWPF.ViewModel;
 using EntitiesLayer;
 using BusinessLayer;
+using System.ComponentModel;
+using System.Drawing;
+using System.Collections.ObjectModel;
 
 namespace JediTournamentWPF
 {
     
-    public class JediModel : ViewModelBase
+    public class JediModel : ViewModelBase, INotifyPropertyChanged
     {
-        private BusinessManager manager;
-        private List<Jedi> allJedi;
+        private Jedi jedi;
         
-        public JediModel(BusinessManager manager){
-            this.manager = manager;
-            allJedi = manager.getJedis();
+        public JediModel(Jedi jedi_){
+            jedi = jedi_;
+        }
+
+        public String Nom 
+        {
+            get
+            {
+                return jedi.Nom;
+            }
+
+            set
+            {
+                jedi.Nom = value;
+                OnPropertyChanged("Nom");
+            }
+        }
+
+        public bool Sith
+        {
+            get
+            {
+                return jedi.IsSith;
+            }
+            set
+            {
+                jedi.IsSith = value;
+                OnPropertyChanged("Sith");
+            }
+        }
+
+        public ObservableCollection<Caracteristique> Caracteristiques
+        {
+            get
+            {
+                return new ObservableCollection<Caracteristique>(jedi.Caracteristiques);
+            }
+            set
+            {
+                jedi.Caracteristiques = value.ToList<Caracteristique>();
+                OnPropertyChanged("Caracteristiques");
+            }
+        }
+
+
+        public Bitmap Image
+        {
+            get
+            {
+                return new Bitmap(jedi.Image);
+            }
+            set
+            {
+                jedi.Image = value.ToString();
+                OnPropertyChanged("Image");
+                //TODO: recuperer l'image
+            }
         }
 
     }

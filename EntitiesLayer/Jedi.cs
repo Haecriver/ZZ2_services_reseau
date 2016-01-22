@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace EntitiesLayer
 {
     [Serializable]
     public class Jedi : EntityObject
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private List<Caracteristique> caracteristiques;
         public List<Caracteristique> Caracteristiques
         {
             get { return caracteristiques; }
-            set { caracteristiques = value; }
+            set { 
+                caracteristiques = value;
+            }
         }        
 
         private bool isSith;
@@ -27,7 +33,9 @@ namespace EntitiesLayer
         public string Nom
         {
             get { return nom; }
-            set { nom = value; }
+            set {
+                nom = value;
+            }
         }
 
         public Jedi()
@@ -44,13 +52,26 @@ namespace EntitiesLayer
 
         public override string ToString ()
         {
-            string s=Nom + "\n";
+            string s = Nom + "\n";
             IEnumerable<string> results = from caracteristic in Caracteristiques select caracteristic.ToString();
             foreach(string el in results)
             {
                 s += el + "\n";
             }
             return s;
+        }
+
+        private String image;
+        public String Image 
+        {
+            get
+            {
+                return image;
+            }
+            set
+            {
+                image = value;
+            }
         }
     }
 }

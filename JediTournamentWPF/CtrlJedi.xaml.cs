@@ -13,16 +13,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using EntitiesLayer;
+using JediTournamentWPF;
+using System.Collections.ObjectModel;
+
 namespace JediTournamentWPF
 {
     /// <summary>
     /// Logique d'interaction pour UserControl1.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class CtrlJedi : UserControl
     {
-        public UserControl1()
+        private JediModel jedi;
+
+        public CtrlJedi()
         {
             InitializeComponent();
+
+        }
+        public CtrlJedi(Jedi jedi_)
+        {
+            InitializeComponent();
+            //jedi = new JediModel(jedi_);
         }
     }
 }
