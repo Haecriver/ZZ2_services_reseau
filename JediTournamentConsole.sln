@@ -13,6 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesLayer", "EntitiesLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediTournamentWPF", "JediTournamentWPF\JediTournamentWPF.csproj", "{D8547065-8640-4DF8-94DF-583A00AE210A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{8DB5B237-D1B3-481C-838E-4F9B51305F49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseDeDonnees", "BaseDeDonnees", "{389F610A-8CEA-4DFE-B7E7-90E447471276}"
+	ProjectSection(SolutionItems) = preProject
+		BaseDeDonnees\bdd_jedi_tournament.mdf = BaseDeDonnees\bdd_jedi_tournament.mdf
+		BaseDeDonnees\bdd_jedi_tournament_log.ldf = BaseDeDonnees\bdd_jedi_tournament_log.ldf
+		BaseDeDonnees\SQLQuery1.sql = BaseDeDonnees\SQLQuery1.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +48,10 @@ Global
 		{D8547065-8640-4DF8-94DF-583A00AE210A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8547065-8640-4DF8-94DF-583A00AE210A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8547065-8640-4DF8-94DF-583A00AE210A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DB5B237-D1B3-481C-838E-4F9B51305F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB5B237-D1B3-481C-838E-4F9B51305F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB5B237-D1B3-481C-838E-4F9B51305F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB5B237-D1B3-481C-838E-4F9B51305F49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

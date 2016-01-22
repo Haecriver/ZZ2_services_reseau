@@ -7,7 +7,7 @@ using EntitiesLayer;
 
 namespace StubDataAccessLayer
 {
-    public class DalManager
+    public class StubDalManager
     {
         private List<Jedi> allJedi;
         private List<Match> allMatch;
@@ -63,7 +63,7 @@ namespace StubDataAccessLayer
             allUtilisateurs["begarco"] = new Utilisateur("Garcon", "Benoit", "begarco", "suce"); // l'intru
         }
 
-        public DalManager()
+        public StubDalManager()
         {
             stuber();
         }

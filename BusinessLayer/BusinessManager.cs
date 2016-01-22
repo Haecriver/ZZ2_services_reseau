@@ -20,11 +20,11 @@ namespace BusinessLayer
     };
     public class BusinessManager
     {
-        private StubDataAccessLayer.DalManager data;
+        private StubDataAccessLayer.StubDalManager data;
 
         public BusinessManager()
         {
-            data = new StubDataAccessLayer.DalManager();
+            data = new StubDataAccessLayer.StubDalManager();
         }
 
         public List<Stade> getStades()  {return data.getAllStade();}
