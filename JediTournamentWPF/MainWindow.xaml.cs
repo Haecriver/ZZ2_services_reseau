@@ -78,12 +78,12 @@ namespace JediTournamentWPF
             
         }
 
-        private void Selector_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
+        //private void Selector_MouseDoubleClick(object sender, MouseEventArgs e)
+        //{
             //UserControl1 uctl = new UserControl1(((Jedi) Selector.SelectedItem));
             //Window win = new Window();
             //win.
-        }
+        //}
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
