@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using EntitiesLayer;
 using BusinessLayer;
 
 namespace TP1_ServicesReseau
@@ -17,6 +18,10 @@ namespace TP1_ServicesReseau
             int input;
             bool end = false;
             IEnumerable<string> res;
+
+            Console.Out.WriteLine("Test connection");
+            List<Jedi> list = businessManager.testBDD();
+            Console.Out.WriteLine(list[0].ToString());
 
             while (!end)
             {

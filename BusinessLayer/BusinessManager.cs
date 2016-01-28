@@ -1,11 +1,11 @@
-﻿using EntitiesLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
- 
+
+using EntitiesLayer;
 
 namespace BusinessLayer
 {
@@ -21,10 +21,18 @@ namespace BusinessLayer
     public class BusinessManager
     {
         private StubDataAccessLayer.StubDalManager data;
+        private DataAccessLayer.DalManager testData;
+
+        public List<Jedi> testBDD()
+        {
+            return testData.testBDD();
+        }
+
 
         public BusinessManager()
         {
             data = new StubDataAccessLayer.StubDalManager();
+            testData = DataAccessLayer.DalManager.Instance;
         }
 
         public List<Stade> getStades()  {return data.getAllStade();}

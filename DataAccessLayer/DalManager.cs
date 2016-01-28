@@ -37,7 +37,7 @@ namespace DataAccessLayer
                     {
                         if (instance == null)
                         {
-                            return new DalManager();
+                            instance = new DalManager();
                         }
                     }
                 }
@@ -50,5 +50,9 @@ namespace DataAccessLayer
             get { return usingDal; }
         }
 
+        public List<Jedi> testBDD()
+        {
+            return usingDal.testBDD();
+        }
     }
 }

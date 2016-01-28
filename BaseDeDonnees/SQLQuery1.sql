@@ -1,40 +1,45 @@
-﻿/*CREATE TABLE jedis(
-	numjedi int,
-	name varchar,
-	issith bit,
-	numcaracteristic int
-);
+﻿DROP TABLE jedis;
+DROP TABLE caracteristics;
+DROP TABLE match;
+DROP TABLE stade;
+DROP TABLE utilisateur;
 
 CREATE TABLE caracteristics(
 	numcaract int, 
-	type varchar,
-	nom varchar, 
+	typecar varchar(255),
+	nom varchar(255), 
 	valeur int
+);
+
+CREATE TABLE jedis(
+	numjedi int,
+	name varchar(255),
+	issith bit,
+	numcaracteristic int
 );
 
 CREATE TABLE match(
 	nummatch int, 
 	numjedi1 int, 
 	numjedi2 int, 
-	phase varchar, 
+	phase varchar(255), 
 	numstade int
 );
 
 CREATE TABLE stade(
 	numstade int, 
 	nbplace int, 
-	planete varchar, 
+	planete varchar(255), 
 	numcaracteristic int
 );
 
 CREATE TABLE utilisateur(
-	nom varchar, 
-	prenom varchar, 
-	login varchar, 
-	password varchar
-);*/
+	nom varchar(255), 
+	prenom varchar(255), 
+	loginuser varchar(255), 
+	passworduser varchar(255)
+);
 
-INSERT INTO jedis(numjedi, name, issith, numcaracteristic)
- VALUES
- (1, 'Armand', 0, 24);
+INSERT INTO jedis VALUES (1, 'Armand', 0, null);
 
+SELECT * FROM jedis;
