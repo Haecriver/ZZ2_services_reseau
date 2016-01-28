@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediTournamentConsole", "TP1-ServicesReseau\JediTournamentConsole.csproj", "{7B901674-0E52-4FA8-B009-F9F28CDC4488}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{01FE3568-4C1B-44AA-A1BB-61FD71AEF459}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StubDataAccessLayer", "StubDataAccessLayer\StubDataAccessLayer.csproj", "{3CCC6172-6E99-4610-AC28-40E14DEE1A96}"
@@ -24,16 +22,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseDeDonnees", "BaseDeDonn
 		BaseDeDonnees\FillingTables.sql = BaseDeDonnees\FillingTables.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediTournamentConsole", "JediTournamentConsole\JediTournamentConsole.csproj", "{7B901674-0E52-4FA8-B009-F9F28CDC4488}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7B901674-0E52-4FA8-B009-F9F28CDC4488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B901674-0E52-4FA8-B009-F9F28CDC4488}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B901674-0E52-4FA8-B009-F9F28CDC4488}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B901674-0E52-4FA8-B009-F9F28CDC4488}.Release|Any CPU.Build.0 = Release|Any CPU
 		{01FE3568-4C1B-44AA-A1BB-61FD71AEF459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{01FE3568-4C1B-44AA-A1BB-61FD71AEF459}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01FE3568-4C1B-44AA-A1BB-61FD71AEF459}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,6 +50,10 @@ Global
 		{8DB5B237-D1B3-481C-838E-4F9B51305F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DB5B237-D1B3-481C-838E-4F9B51305F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DB5B237-D1B3-481C-838E-4F9B51305F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B901674-0E52-4FA8-B009-F9F28CDC4488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B901674-0E52-4FA8-B009-F9F28CDC4488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B901674-0E52-4FA8-B009-F9F28CDC4488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B901674-0E52-4FA8-B009-F9F28CDC4488}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

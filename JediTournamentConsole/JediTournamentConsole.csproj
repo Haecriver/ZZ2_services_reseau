@@ -7,8 +7,8 @@
     <ProjectGuid>{7B901674-0E52-4FA8-B009-F9F28CDC4488}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TP1_ServicesReseau</RootNamespace>
-    <AssemblyName>TP1-ServicesReseau</AssemblyName>
+    <RootNamespace>JediTournamentConsole</RootNamespace>
+    <AssemblyName>JediTournamentConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

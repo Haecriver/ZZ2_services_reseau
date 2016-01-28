@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using EntitiesLayer;
 using BusinessLayer;
 
-namespace TP1_ServicesReseau
+namespace JediTournamentConsole
 {
     class Program
     {
