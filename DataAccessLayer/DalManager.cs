@@ -45,14 +45,45 @@ namespace DataAccessLayer
             }
         }
 
-        public IDAL UsingDal
-        {
-            get { return usingDal; }
-        }
-
-        public List<Jedi> testBDD()
+        public Jedi testBDD()
         {
             return usingDal.testBDD();
+        }
+
+        public List<Jedi> getAllJedi()
+        {
+            return usingDal.getAllJedi();
+        }
+
+        public List<Match> getAllMatch()
+        {
+
+            return usingDal.getAllMatch();
+        }
+
+        public List<Stade> getAllStade()
+        {
+
+            return usingDal.getAllStade();
+        }
+
+        public List<Caracteristique> getAllCaracteristic()
+        {
+            return usingDal.getAllCaracteristic();
+        }
+
+
+        public Utilisateur getUtilisateurByLogin(string login)
+        {
+            try
+            {
+                return usingDal.getUtilisateurByLogin(login);
+            }
+            catch (KeyNotFoundException)
+            {
+                return null;
+            }
+
         }
     }
 }

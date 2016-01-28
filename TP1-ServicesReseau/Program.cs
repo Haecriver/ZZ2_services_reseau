@@ -20,8 +20,8 @@ namespace TP1_ServicesReseau
             IEnumerable<string> res;
 
             Console.Out.WriteLine("Test connection");
-            List<Jedi> list = businessManager.testBDD();
-            Console.Out.WriteLine(list[0].ToString());
+            Jedi jedi = businessManager.testBDD();
+            Console.Out.WriteLine(jedi.ToString());
 
             while (!end)
             {

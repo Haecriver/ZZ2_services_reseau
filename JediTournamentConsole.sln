@@ -19,6 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseDeDonnees", "BaseDeDonn
 	ProjectSection(SolutionItems) = preProject
 		BaseDeDonnees\bdd_jedi_tournament.mdf = BaseDeDonnees\bdd_jedi_tournament.mdf
 		BaseDeDonnees\bdd_jedi_tournament_log.ldf = BaseDeDonnees\bdd_jedi_tournament_log.ldf
+		BaseDeDonnees\ClearTables.sql = BaseDeDonnees\ClearTables.sql
+		BaseDeDonnees\CreationTables.sql = BaseDeDonnees\CreationTables.sql
+		BaseDeDonnees\FillingTables.sql = BaseDeDonnees\FillingTables.sql
 	EndProjectSection
 EndProject
 Global

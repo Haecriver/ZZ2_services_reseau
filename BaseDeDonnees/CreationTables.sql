@@ -1,20 +1,19 @@
-﻿DROP TABLE jedis;
-DROP TABLE caracteristics;
-DROP TABLE match;
-DROP TABLE stade;
-DROP TABLE utilisateur;
-
-CREATE TABLE caracteristics(
+﻿CREATE TABLE caracteristic(
 	numcaract int, 
-	typecar varchar(255),
+	def varchar(255),
 	nom varchar(255), 
+	typecar varchar(255),
 	valeur int
 );
 
-CREATE TABLE jedis(
+CREATE TABLE jedi(
 	numjedi int,
-	name varchar(255),
-	issith bit,
+	nom varchar(255),
+	sith bit
+);
+
+CREATE TABLE link_jedi_caracteristic(
+	numjedi int,
 	numcaracteristic int
 );
 
@@ -30,6 +29,10 @@ CREATE TABLE stade(
 	numstade int, 
 	nbplace int, 
 	planete varchar(255), 
+);
+
+CREATE TABLE link_stade_caracteristic(
+	numstade int,
 	numcaracteristic int
 );
 
@@ -40,6 +43,3 @@ CREATE TABLE utilisateur(
 	passworduser varchar(255)
 );
 
-INSERT INTO jedis VALUES (1, 'Armand', 0, null);
-
-SELECT * FROM jedis;

@@ -20,19 +20,19 @@ namespace BusinessLayer
     };
     public class BusinessManager
     {
-        private StubDataAccessLayer.StubDalManager data;
-        private DataAccessLayer.DalManager testData;
+        private StubDataAccessLayer.StubDalManager stubData;
+        private DataAccessLayer.DalManager data;
 
-        public List<Jedi> testBDD()
+        public Jedi testBDD()
         {
-            return testData.testBDD();
+            return data.testBDD();
         }
 
 
         public BusinessManager()
         {
-            data = new StubDataAccessLayer.StubDalManager();
-            testData = DataAccessLayer.DalManager.Instance;
+            data =  DataAccessLayer.DalManager.Instance;
+            stubData = new StubDataAccessLayer.StubDalManager();
         }
 
         public List<Stade> getStades()  {return data.getAllStade();}

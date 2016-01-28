@@ -11,7 +11,7 @@ namespace EntitiesLayer
         Force=0,
         Defense=1,
         Sante=3,
-        Chance=2
+        Chance=2        
     }
 
     public enum ETypeCaracteristique
@@ -64,6 +64,46 @@ namespace EntitiesLayer
         public override string ToString()
         {
             return Nom + " in " + definition + " : " + valeur;
+        }
+
+        public static EDefCaracteristique stringToEDef(string str)
+        {
+            EDefCaracteristique res;
+            switch (str)
+            {
+                case "Force":
+                    res = EDefCaracteristique.Force;
+                    break;
+                case "Defense":
+                    res = EDefCaracteristique.Defense;
+                    break;
+                case "Sante":
+                    res = EDefCaracteristique.Sante;
+                    break;
+                case "Chance":
+                    res = EDefCaracteristique.Chance;
+                    break;
+                default:
+                    throw new Exception("Bad input, this def is not defined");
+            }
+            return res;
+        }
+
+        public static ETypeCaracteristique stringToEType(string str)
+        {
+            ETypeCaracteristique res;
+            switch (str)
+            {
+                case "Jedi":
+                    res = ETypeCaracteristique.Jedi;
+                    break;
+                case "Stade":
+                    res = ETypeCaracteristique.Stade;
+                    break;
+                default:
+                    throw new Exception("Bad input, this type is not defined");
+            }
+            return res;
         }
     }
 }

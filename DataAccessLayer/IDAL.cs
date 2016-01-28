@@ -10,7 +10,14 @@ namespace DataAccessLayer
 {
     public interface IDAL
     {
-        List<Jedi> testBDD();
+        Jedi testBDD();
+        List<Jedi> getAllJedi();
+        List<Match> getAllMatch();
+        List<Stade> getAllStade();
+        List<Caracteristique> getAllCaracteristic();
+        List<Utilisateur> getAllUtilisateur();
+        Utilisateur getUtilisateurByLogin(string login);
+
     }
 
 }

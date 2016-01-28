@@ -63,5 +63,28 @@ namespace EntitiesLayer
             PhaseTournoi = pPhaseTournoi;
             Stade = pStade;
         }
+
+        public static EPhaseTournoi stringToEPhase(string str)
+        {
+            EPhaseTournoi res;
+            switch (str)
+            {
+                case "HuitiemeFinale":
+                    res = EPhaseTournoi.HuitiemeFinale;
+                    break;
+                case "QuartFinale":
+                    res = EPhaseTournoi.QuartFinale;
+                    break;
+                case "DemiFinale":
+                    res = EPhaseTournoi.DemiFinale;
+                    break;
+                case "Finale":
+                    res = EPhaseTournoi.Finale;
+                    break;
+                default:
+                    throw new Exception("Bad input, this phase is not defined");
+            }
+            return res;
+        }
     }
 }
