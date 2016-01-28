@@ -217,5 +217,30 @@ namespace DataAccessLayer
             }
             return res;
         }
+
+      /*  public void addJedi(Jedi jedi)
+        {
+
+        }
+
+        public void addMatch(Match match)
+        {
+
+        }
+
+        public void addStade(Stade stade)
+        {
+
+        }
+
+        public void addCaracteristique(Caracteristique caracteristique)
+        {
+
+        }
+
+        public void addUtilisateur(Utilisateur utilisateur)
+        {
+
+        }*/
     }
 }

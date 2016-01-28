@@ -18,6 +18,12 @@ namespace DataAccessLayer
         List<Utilisateur> getAllUtilisateur();
         Utilisateur getUtilisateurByLogin(string login);
 
+      /*  void addJedi(Jedi jedi);
+        void addMatch(Match match);
+        void addStade(Stade stade);
+        void addCaracteristique(Caracteristique caracteristique);
+        void addUtilisateur(Utilisateur utilisateur);*/
+
     }
 
 }
