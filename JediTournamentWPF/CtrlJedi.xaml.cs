@@ -24,8 +24,6 @@ namespace JediTournamentWPF
     /// </summary>
     public partial class CtrlJedi : UserControl
     {
-        private JediModel jedi;
-
         public CtrlJedi()
         {
             InitializeComponent();
@@ -34,7 +32,7 @@ namespace JediTournamentWPF
         public CtrlJedi(Jedi jedi_)
         {
             InitializeComponent();
-            //jedi = new JediModel(jedi_);
+            this.DataContext = jedi_;
         }
     }
 }

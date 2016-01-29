@@ -17,7 +17,7 @@ namespace DataAccessLayer
         public DALSqlServer()
         {
             // this.connectionString="Data Source=(localdb)\\Projects;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
-            connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\Pierre\\Documents\\GitHub\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament.mdf; Integrated Security = True; Connect Timeout = 30";
+            connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\pipissavy\\Source\\Repos\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament2.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection connection = new SqlConnection(connectionString);
             // Test de la connection
             try

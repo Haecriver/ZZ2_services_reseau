@@ -78,13 +78,6 @@ namespace JediTournamentWPF
             
         }
 
-        //private void Selector_MouseDoubleClick(object sender, MouseEventArgs e)
-        //{
-            //UserControl1 uctl = new UserControl1(((Jedi) Selector.SelectedItem));
-            //Window win = new Window();
-            //win.
-        //}
-
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
             //Selector.Items.Clear();
@@ -92,8 +85,14 @@ namespace JediTournamentWPF
             folderBrowser.Description = "Choisissez où créer le fichier.\nAttention, si le fichier existe déjà, il sera remplacé !";
             folderBrowser.ShowDialog();
             manager.ExportXML(click, folderBrowser.SelectedPath);
-                
-            
+        }
+
+        private void Selector_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine(Selector.SelectedItem);
+            Jedi j = (Jedi)Selector.SelectedItem;
+            //Window win = new Window { Title = "Fiche Jedi", Content = new CtrlJedi(j) };
+            //win.Show();
         }
     }
 }
