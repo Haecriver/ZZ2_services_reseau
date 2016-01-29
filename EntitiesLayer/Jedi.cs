@@ -76,5 +76,10 @@ namespace EntitiesLayer
                 image = value;
             }
         }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
     }
 }

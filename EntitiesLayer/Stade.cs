@@ -50,5 +50,10 @@ namespace EntitiesLayer
             }
             return s;
         }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿CREATE TABLE caracteristic(
-	numcaract int, 
+	numcaract int NOT NULL PRIMARY KEY, 
 	def varchar(255),
 	nom varchar(255), 
 	typecar varchar(255),
@@ -7,18 +7,19 @@
 );
 
 CREATE TABLE jedi(
-	numjedi int,
+	numjedi int NOT NULL PRIMARY KEY,
 	nom varchar(255),
 	sith bit
 );
 
 CREATE TABLE link_jedi_caracteristic(
-	numjedi int,
-	numcaracteristic int
+	numjedi int NOT NULL,
+	numcaracteristic int NOT NULL,
+	CONSTRAINT pk_jedi_caract PRIMARY KEY (numjedi,numcaracteristic)
 );
 
 CREATE TABLE match(
-	nummatch int, 
+	nummatch int NOT NULL PRIMARY KEY, 
 	numjedi1 int, 
 	numjedi2 int, 
 	phase varchar(255), 
@@ -26,20 +27,21 @@ CREATE TABLE match(
 );
 
 CREATE TABLE stade(
-	numstade int, 
+	numstade int NOT NULL PRIMARY KEY, 
 	nbplace int, 
 	planete varchar(255), 
 );
 
 CREATE TABLE link_stade_caracteristic(
-	numstade int,
-	numcaracteristic int
+	numstade int NOT NULL,
+	numcaracteristic int NOT NULL,
+	CONSTRAINT pk_stade_caract PRIMARY KEY (numstade,numcaracteristic)
 );
 
 CREATE TABLE utilisateur(
 	nom varchar(255), 
 	prenom varchar(255), 
-	loginuser varchar(255), 
+	loginuser varchar(255) NOT NULL PRIMARY KEY, 
 	passworduser varchar(255)
 );
 

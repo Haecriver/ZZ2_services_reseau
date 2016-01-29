@@ -86,5 +86,9 @@ namespace EntitiesLayer
             }
             return res;
         }
+        public override int GetHashCode()
+        {
+            return Id;
+        }
     }
 }

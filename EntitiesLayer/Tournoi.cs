@@ -31,5 +31,10 @@ namespace EntitiesLayer
             matchs = lm;
             Nom = nom;
         }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
     }
 }

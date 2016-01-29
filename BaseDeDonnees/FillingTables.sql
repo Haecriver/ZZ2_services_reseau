@@ -80,9 +80,9 @@ INSERT INTO link_stade_caracteristic VALUES (5,21);
 INSERT INTO match VALUES (1,3,4,'Finale',5);
 
 /*Creation des users*/
-INSERT INTO utilisateur VALUES ( 'Pissavy', 'Pierre-Loup', 'pierre-loup', 'totoestbete');
+/*INSERT INTO utilisateur VALUES ( 'Pissavy', 'Pierre-Loup', 'pierre-loup', 'totoestbete');
 INSERT INTO utilisateur VALUES ( 'Michel', 'Anne-Lise', 'anne-lise', 'moustache');
 INSERT INTO utilisateur VALUES ( 'Chevalier', 'Pierre', 'pierre', 'jveuxdire');
 INSERT INTO utilisateur VALUES ( 'Raux', 'Gaël', 'gael', 'brest');
             
-INSERT INTO utilisateur VALUES ( 'Garcon', 'Benoit', 'begarco', 'suce'); /* l'intru*/
+INSERT INTO utilisateur VALUES ( 'Garcon', 'Benoit', 'begarco', 'suce'); /* l'intru*/*/

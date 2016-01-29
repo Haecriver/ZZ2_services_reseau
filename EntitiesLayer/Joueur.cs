@@ -33,5 +33,10 @@ namespace EntitiesLayer
             nom = no;
             score = sc;
         }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
     }
 }

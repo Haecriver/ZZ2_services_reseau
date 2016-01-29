@@ -45,32 +45,12 @@ namespace DataAccessLayer
             }
         }
 
-        public Jedi testBDD()
-        {
-            return usingDal.testBDD();
-        }
-
-        public List<Jedi> getAllJedi()
-        {
-            return usingDal.getAllJedi();
-        }
-
-        public List<Match> getAllMatch()
-        {
-
-            return usingDal.getAllMatch();
-        }
-
-        public List<Stade> getAllStade()
-        {
-
-            return usingDal.getAllStade();
-        }
-
-        public List<Caracteristique> getAllCaracteristic()
-        {
-            return usingDal.getAllCaracteristic();
-        }
+        public Jedi testBDD(){ return usingDal.testBDD();}
+        public List<Jedi> getAllJedi(){return usingDal.getAllJedi();}
+        public List<Match> getAllMatch() { return usingDal.getAllMatch(); }
+        public List<Stade> getAllStade() { return usingDal.getAllStade(); }
+        public List<Caracteristique> getAllCaracteristic() { return usingDal.getAllCaracteristic(); }
+        public List<Utilisateur> getAllUtilisateur() { return usingDal.getAllUtilisateur(); }
 
 
         public Utilisateur getUtilisateurByLogin(string login)
@@ -85,5 +65,11 @@ namespace DataAccessLayer
             }
 
         }
+
+        public void updateJedi(List<Jedi> jedis) { usingDal.updateJedi(jedis); }
+        public void updateMatch(List<Match> matches) { usingDal.updateMatch(matches); }
+        public void updateStade(List<Stade> stades) { usingDal.updateStade(stades); }
+        public void updateCaracteristique(List<Caracteristique> caracteristiques) { usingDal.updateCaracteristique(caracteristiques); }
+        public void updateUtilisateur(List<Utilisateur> utilisateurs) { usingDal.updateUtilisateur(utilisateurs); }
     }
 }

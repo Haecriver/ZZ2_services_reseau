@@ -47,6 +47,5 @@ namespace EntitiesLayer
             login = _login;
             password = _password;
         }
-
     }
 }
