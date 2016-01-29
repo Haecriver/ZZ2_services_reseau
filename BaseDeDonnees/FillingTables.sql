@@ -53,7 +53,7 @@ INSERT INTO link_jedi_caracteristic VALUES (3,10);
 INSERT INTO link_jedi_caracteristic VALUES (3,13);
 INSERT INTO link_jedi_caracteristic VALUES (3,16);
 
-INSERT INTO jedi VALUES (3,'JarJar',1);
+INSERT INTO jedi VALUES (4,'JarJar',1);
 INSERT INTO link_jedi_caracteristic VALUES (4,1);
 INSERT INTO link_jedi_caracteristic VALUES (4,5);
 INSERT INTO link_jedi_caracteristic VALUES (4,14);
@@ -80,9 +80,9 @@ INSERT INTO link_stade_caracteristic VALUES (5,21);
 INSERT INTO match VALUES (1,3,4,'Finale',5);
 
 /*Creation des users*/
-/*INSERT INTO utilisateur VALUES ( 'Pissavy', 'Pierre-Loup', 'pierre-loup', 'totoestbete');
-INSERT INTO utilisateur VALUES ( 'Michel', 'Anne-Lise', 'anne-lise', 'moustache');
-INSERT INTO utilisateur VALUES ( 'Chevalier', 'Pierre', 'pierre', 'jveuxdire');
-INSERT INTO utilisateur VALUES ( 'Raux', 'Gaël', 'gael', 'brest');
+INSERT INTO utilisateur VALUES ( 1,'Pissavy', 'Pierre-Loup', 'pierre-loup', '7713171214110574628179941158658824220234100233');
+INSERT INTO utilisateur VALUES ( 2,'Michel', 'Anne-Lise', 'anne-lise', '12916199140682391079923112232164102223981571488011890');
+INSERT INTO utilisateur VALUES ( 3,'Chevalier', 'Pierre', 'pierre', '2401021318310619256116541193723344131559617824019430');
+INSERT INTO utilisateur VALUES ( 4,'Raux', 'Gaël', 'gael', '123106311952523078187380202221896801648561198');
             
-INSERT INTO utilisateur VALUES ( 'Garcon', 'Benoit', 'begarco', 'suce'); /* l'intru*/*/
+INSERT INTO utilisateur VALUES ( 5,'Garcon', 'Benoit', 'begarco', '174751664024916112120513931501462532411992882123115'); /* l'intru*/

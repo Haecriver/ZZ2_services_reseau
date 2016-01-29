@@ -17,8 +17,8 @@ namespace DataAccessLayer
 
         public DALSqlServer()
         {
-            // this.connectionString="Data Source=(localdb)\\Projects;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
-            connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\"+user+"\\Source\\Repos\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament2.mdf;Integrated Security=True;Connect Timeout=30";
+          //  connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\"+user+"\\Source\\Repos\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament2.mdf;Integrated Security=True;Connect Timeout=30";
+            connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\Pierre\\Documents\\GitHub\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament_20142.mdf; Integrated Security = True; Connect Timeout = 30";
             SqlConnection connection = new SqlConnection(connectionString);
             // Test de la connection
             try
@@ -261,10 +261,11 @@ namespace DataAccessLayer
             foreach (DataRow row in users_en_dur.Rows) // Loop over the rows.
             {
                 //STUB
-                users.Add(new Utilisateur((string)row.ItemArray.ElementAt(0),
+                users.Add(new Utilisateur((int)row.ItemArray.ElementAt(0),
                         (string)row.ItemArray.ElementAt(1),
                         (string)row.ItemArray.ElementAt(2),
-                        (string)row.ItemArray.ElementAt(3)));
+                        (string)row.ItemArray.ElementAt(3),
+                        (string)row.ItemArray.ElementAt(4)));
             }
             return users;
         }
@@ -277,10 +278,11 @@ namespace DataAccessLayer
             foreach (DataRow row in users_en_dur.Rows) // Loop over the rows.
             {
                 //STUB
-                users.Add(new Utilisateur((string)row.ItemArray.ElementAt(0),
+                users.Add(new Utilisateur((int)row.ItemArray.ElementAt(0),
                         (string)row.ItemArray.ElementAt(1),
                         (string)row.ItemArray.ElementAt(2),
-                        (string)row.ItemArray.ElementAt(3)));
+                        (string)row.ItemArray.ElementAt(3),
+                        (string)row.ItemArray.ElementAt(4)));
             }
 
             try {
@@ -403,6 +405,7 @@ namespace DataAccessLayer
         public void updateUtilisateur(List<Utilisateur> utilisateurs)
         {
             DataTable dataTableUtilisateur = new DataTable();
+            dataTableUtilisateur.Columns.Add("numuser", typeof(int));
             dataTableUtilisateur.Columns.Add("nom", typeof(string));
             dataTableUtilisateur.Columns.Add("prenom", typeof(string));
             dataTableUtilisateur.Columns.Add("loginuser", typeof(string));
@@ -410,7 +413,8 @@ namespace DataAccessLayer
 
             foreach (Utilisateur utilisateur in utilisateurs)
             {
-                dataTableUtilisateur.Rows.Add(utilisateur.Nom,
+                dataTableUtilisateur.Rows.Add(utilisateur.Id,
+                    utilisateur.Nom,
                     utilisateur.Prenom,
                     utilisateur.Login,
                     HashSH1.GetSHA1HashData(utilisateur.Password));

@@ -36,12 +36,20 @@ namespace EntitiesLayer
             set { password = value; }
         }
 
+        private int id;
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         public Utilisateur()
         {
 
         }
-        public Utilisateur(string _nom, string _prenom, string _login, string _password)
+        public Utilisateur(int _id,string _nom, string _prenom, string _login, string _password)
         {
+            id = _id;
             nom = _nom;
             prenom = _prenom;
             login = _login;
