@@ -39,9 +39,10 @@ CREATE TABLE link_stade_caracteristic(
 );
 
 CREATE TABLE utilisateur(
+	numuser int NOT NULL PRIMARY KEY,
 	nom varchar(255), 
 	prenom varchar(255), 
-	loginuser varchar(255) NOT NULL PRIMARY KEY, 
+	loginuser varchar(255),
 	passworduser varchar(255)
 );
 

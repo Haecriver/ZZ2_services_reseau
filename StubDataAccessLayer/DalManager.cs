@@ -55,12 +55,12 @@ namespace StubDataAccessLayer
             
             // Ajout d'Utilisateur
             allUtilisateurs = new SortedDictionary<string, Utilisateur>();
-            allUtilisateurs["pierre-loup"] = new Utilisateur("Pissavy", "Pierre-Loup", "pierre-loup", "totoestbete");
-            allUtilisateurs["anne-lise"] = new Utilisateur("Michel", "Anne-Lise", "anne-lise", "moustache");
-            allUtilisateurs["pierre"] = new Utilisateur("Chevalier", "Pierre", "pierre", "jveuxdire");
-            allUtilisateurs["gael"] = new Utilisateur("Raux", "Gaël", "gael", "brest");
+            allUtilisateurs["pierre-loup"] = new Utilisateur(1,"Pissavy", "Pierre-Loup", "pierre-loup", "totoestbete");
+            allUtilisateurs["anne-lise"] = new Utilisateur(2,"Michel", "Anne-Lise", "anne-lise", "moustache");
+            allUtilisateurs["pierre"] = new Utilisateur(3,"Chevalier", "Pierre", "pierre", "jveuxdire");
+            allUtilisateurs["gael"] = new Utilisateur(4,"Raux", "Gaël", "gael", "brest");
             
-            allUtilisateurs["begarco"] = new Utilisateur("Garcon", "Benoit", "begarco", "suce"); // l'intru
+            allUtilisateurs["begarco"] = new Utilisateur(5,"Garcon", "Benoit", "begarco", "suce"); // l'intru
         }
 
         public StubDalManager()
@@ -100,6 +100,11 @@ namespace StubDataAccessLayer
             {
                 return null;
             }
+
+        }
+
+        public void test()
+        {
 
         }
     }
