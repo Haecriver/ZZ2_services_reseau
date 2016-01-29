@@ -15,11 +15,17 @@ namespace JediTournamentConsole
         {
             BusinessManager businessManager = new BusinessManager();
 
-          /*  businessManager.chiffrer();
+           /* List<Utilisateur> allUtilisateurs = new List<Utilisateur>();
+            allUtilisateurs.Add(new Utilisateur("Pissavy", "Pierre-Loup", "pierre-loup", "totoestbete"));
+            allUtilisateurs.Add(new Utilisateur("Michel", "Anne-Lise", "anne-lise", "moustache"));
+            allUtilisateurs.Add(new Utilisateur("Chevalier", "Pierre", "pierre", "jveuxdire"));
+            allUtilisateurs.Add(new Utilisateur("Raux", "Gaël", "gael", "brest"));
+
+            businessManager.updateUtilisateur(allUtilisateurs);*/
 
             List<Jedi> jedis = businessManager.getJedis();
             jedis.Add(new Jedi(18, "caca", false, null));
-            businessManager.updateJedi(jedis);*/
+            businessManager.updateJedi(jedis);
 
             
             int input;

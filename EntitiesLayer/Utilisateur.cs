@@ -8,13 +8,6 @@ namespace EntitiesLayer
 {
     public class Utilisateur
     {
-        private int id;
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
         private string nom;
         public string Nom
         {
@@ -47,19 +40,12 @@ namespace EntitiesLayer
         {
 
         }
-        public Utilisateur(int _id,string _nom, string _prenom, string _login, string _password)
+        public Utilisateur(string _nom, string _prenom, string _login, string _password)
         {
-            id = _id;
             nom = _nom;
             prenom = _prenom;
             login = _login;
             password = _password;
         }
-
-        public override string ToString()
-        {
-            return Id +" "+ Nom + " " + Prenom + " " + Login + " " + Password;
-        }
-
     }
 }
