@@ -23,14 +23,15 @@ namespace JediTournamentWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+
         private static Clicked click = Clicked.Null;
         private BusinessManager manager;
+        private JedisListModel jedis;
         bool bonus = false;
 
         public MainWindow()
         {
             InitializeComponent();
-            manager = new BusinessManager();
         }
 
         private void StadesButton_Click(object sender, RoutedEventArgs e)
@@ -44,7 +45,8 @@ namespace JediTournamentWPF
         {
             //Selector.Items.Clear();
             click = Clicked.Jedis;
-            Selector.ItemsSource = manager.getJedis();            
+            Selector.DataContext = jedis;
+            Selector.ItemsSource = jedis.Jedis;
         }
 
         private void MatchsButton_Click(object sender, RoutedEventArgs e)
@@ -89,10 +91,29 @@ namespace JediTournamentWPF
 
         private void Selector_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine(Selector.SelectedItem);
-            Jedi j = (Jedi)Selector.SelectedItem;
-            //Window win = new Window { Title = "Fiche Jedi", Content = new CtrlJedi(j) };
-            //win.Show();
+            //Console.WriteLine(Selector.SelectedItem);
+            if (click == Clicked.Jedis) 
+            {
+                //Jedi j = (Jedi)Selector.SelectedItem;
+                Fiche_Jedi win = new Fiche_Jedi((JediModel)Selector.SelectedItem);
+                win.ModifyJediClicked += win_ModifyJediClicked;
+                win.Show();
+            }
+        }
+
+        void win_ModifyJediClicked(string obj)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+        private void Jedi_Tournament_2016_Loaded(object sender, RoutedEventArgs e)
+        {
+            manager = new BusinessManager();
+            jedis = new JedisListModel(manager.getJedis());
+            
         }
     }
 }

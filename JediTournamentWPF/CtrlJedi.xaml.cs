@@ -19,15 +19,11 @@ using System.Collections.ObjectModel;
 
 namespace JediTournamentWPF
 {
-    /// <summary>
-    /// Logique d'interaction pour UserControl1.xaml
-    /// </summary>
     public partial class CtrlJedi : UserControl
     {
         public CtrlJedi()
         {
             InitializeComponent();
-
         }
         public CtrlJedi(Jedi jedi_)
         {

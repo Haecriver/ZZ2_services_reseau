@@ -61,6 +61,10 @@ namespace JediTournamentWPF
             }
         }
 
+        public override String ToString()
+        {
+            return jedi.ToString();
+        }
 
         public Bitmap Image
         {
