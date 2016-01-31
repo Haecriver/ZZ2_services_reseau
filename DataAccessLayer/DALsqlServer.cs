@@ -18,7 +18,7 @@ namespace DataAccessLayer
         public DALSqlServer()
         {
           //  connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\"+user+"\\Source\\Repos\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament2.mdf;Integrated Security=True;Connect Timeout=30";
-            connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\Pierre\\Documents\\GitHub\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament_20142.mdf; Integrated Security = True; Connect Timeout = 30";
+            connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Pierre\\Documents\\GitHub\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament_2014.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection connection = new SqlConnection(connectionString);
             // Test de la connection
             try
@@ -178,9 +178,9 @@ namespace DataAccessLayer
                 int stadeId = (int)row.ItemArray.ElementAt(0);
 
                 List<Caracteristique> caracts = new List<Caracteristique>();
-                DataTable caracts_en_dur = SelectByDataAdapter("SELECT * FROM caracteristic,link_jedi_caracteristic" +
-                                                               " WHERE caracteristic.numcaract = link_jedi_caracteristic.numcaracteristic" +
-                                                               " AND link_jedi_caracteristic.numjedi =" + stadeId + ";");
+                DataTable caracts_en_dur = SelectByDataAdapter("SELECT * FROM caracteristic,link_stade_caracteristic" +
+                                                               " WHERE caracteristic.numcaract = link_stade_caracteristic.numcaracteristic" +
+                                                               " AND link_stade_caracteristic.numstade =" + stadeId + ";");
                 foreach (DataRow row2 in caracts_en_dur.Rows) // Loop over the rows.
                 {
                     caracts.Add(new Caracteristique((int)row2.ItemArray.ElementAt(0),
@@ -207,9 +207,9 @@ namespace DataAccessLayer
             foreach (DataRow row in stade_en_dur.Rows) // Loop over the rows.
             {
                 List<Caracteristique> caracts = new List<Caracteristique>();
-                DataTable caracts_en_dur = SelectByDataAdapter("SELECT * FROM caracteristic,link_jedi_caracteristic" +
-                                                               " WHERE caracteristic.numcaract = link_jedi_caracteristic.numcaracteristic" +
-                                                               " AND link_jedi_caracteristic.numjedi =" + stadeId + ";");
+                DataTable caracts_en_dur = SelectByDataAdapter("SELECT * FROM caracteristic,link_stade_caracteristic" +
+                                                               " WHERE caracteristic.numcaract = link_stade_caracteristic.numcaracteristic" +
+                                                               " AND link_stade_caracteristic.numstade =" + stadeId + ";");
                 foreach (DataRow row2 in caracts_en_dur.Rows) // Loop over the rows.
                 {
                     caracts.Add(new Caracteristique((int)row2.ItemArray.ElementAt(0),
@@ -417,7 +417,7 @@ namespace DataAccessLayer
                     utilisateur.Nom,
                     utilisateur.Prenom,
                     utilisateur.Login,
-                    HashSH1.GetSHA1HashData(utilisateur.Password));
+                    utilisateur.Password);
             }
             UpdateByCommandBuilder("SELECT * FROM utilisateur;", dataTableUtilisateur);
         }

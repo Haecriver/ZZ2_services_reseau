@@ -78,7 +78,7 @@ namespace BusinessLayer
                 i++;
             }
             //Resultat
-            Console.Out.WriteLine("Match termine, gagnant : {0}", match.IdJediVainqueur);
+            Console.Out.WriteLine("Match termine, gagnant : {0}", match.JediVainqueur.ToString());
             Console.Out.WriteLine("({0} = {1}, {2} = {3})", match.Jedi1.Nom, match.Jedi1.Id,match.Jedi2.Nom,match.Jedi2.Id);
         }
 
@@ -177,7 +177,8 @@ namespace BusinessLayer
             try
             {
                 Utilisateur u = data.getUtilisateurByLogin(login);
-                result = (u.Password == password);
+                result = (u.Password
+                    == EntitiesLayer.HashSH1.GetSHA1HashData(password));
             }
             catch (NullReferenceException)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.Security.Cryptography;
 
-namespace DataAccessLayer
+namespace EntitiesLayer
 {
     public static class HashSH1{
         public static string GetSHA1HashData(string data)

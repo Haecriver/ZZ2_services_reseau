@@ -35,7 +35,7 @@ namespace BusinessLayer
     public class PlayingMatch
     {
         // Base de pv des Jedi
-        public static readonly int baseHP = 30;
+        public static readonly int baseHP = 100;
 
         // Mutiplicateur Pierre/Feuille/Ciseau
         private const int multiplicator = 5;
@@ -60,7 +60,7 @@ namespace BusinessLayer
 
         public PlayingMatch(Match match)
         {
-            if (match.IdJediVainqueur != -1)
+            if (match.JediVainqueur != null)
             {
                 throw new Exception("Error : Match already run !");
             }
@@ -166,7 +166,7 @@ namespace BusinessLayer
                 if (Jedi1.HpJedi <= 0 || Jedi2.HpJedi <= 0)
                 {
                     matchOver = true;
-                    match.IdJediVainqueur = winnerJedi.Id;
+                    match.JediVainqueur = winnerJedi;
                 }
 
             }
