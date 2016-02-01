@@ -101,9 +101,11 @@ namespace JediTournamentWPF
             }
         }
 
-        void win_ModifyJediClicked(string obj)
+        void win_ModifyJediClicked(JediModel j)
         {
-            throw new NotImplementedException();
+            int index = Selector.SelectedIndex;
+            jedis.Jedis.RemoveAt(index);
+            jedis.Jedis.Insert(index,j);
         }
 
 
