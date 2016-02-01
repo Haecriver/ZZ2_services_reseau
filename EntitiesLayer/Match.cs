@@ -15,11 +15,11 @@ namespace EntitiesLayer
     }
     public class Match : EntityObject
     {
-        private int idJediVainqueur;
-        public int IdJediVainqueur
+        private Jedi jediVainqueur;
+        public Jedi JediVainqueur
         {
-            get { return idJediVainqueur; }
-            set { idJediVainqueur = value; }
+            get { return jediVainqueur; }
+            set { jediVainqueur = value; }
         }
 
         private Jedi jedi1;
@@ -57,7 +57,7 @@ namespace EntitiesLayer
 
         public Match(int pId,  Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(pId)
         {
-            idJediVainqueur = -1;
+            JediVainqueur = null;
             Jedi1 = pJedi1;
             Jedi2 = pJedi2;
             PhaseTournoi = pPhaseTournoi;

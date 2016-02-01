@@ -53,7 +53,7 @@ namespace EntitiesLayer
             nom = _nom;
             prenom = _prenom;
             login = _login;
-            password = _password;
+            password = HashSH1.GetSHA1HashData(_password);
         }
     }
 }

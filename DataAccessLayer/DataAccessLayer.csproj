@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="DalManager.cs" />
     <Compile Include="DALSqlServer.cs" />
-    <Compile Include="HashSH1.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

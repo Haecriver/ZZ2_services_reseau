@@ -1,6 +1,9 @@
 ﻿INSERT INTO jedi VALUES (0, 'Armand', 0);	/*Jedi de test*/
+INSERT INTO link_jedi_caracteristic VALUES (0,0);
 
 /*Caratetitiques Jedis*/
+INSERT INTO caracteristic VALUES (0, 'Chance', 'Rien', 'Jedi', 0);
+
 INSERT INTO caracteristic VALUES (1, 'Chance', 'Amateur de la force', 'Jedi', 20);
 INSERT INTO caracteristic VALUES (2, 'Chance', 'Disciple de la force', 'Jedi', 40);
 INSERT INTO caracteristic VALUES (3, 'Chance', 'Maitre de la force', 'Jedi', 60);
@@ -10,9 +13,9 @@ INSERT INTO caracteristic VALUES (5, 'Defense', 'Agilite', 'Jedi', 20);
 INSERT INTO caracteristic VALUES (6, 'Defense', 'Acrobate', 'Jedi', 40);
 INSERT INTO caracteristic VALUES (7, 'Defense', 'Rodrigez!', 'Jedi', 60);
 
-INSERT INTO caracteristic VALUES (8, 'Defense', 'Endurance', 'Jedi', 20);
-INSERT INTO caracteristic VALUES (9, 'Defense', 'Robustesse', 'Jedi', 40);
-INSERT INTO caracteristic VALUES (10, 'Defense', 'Wookie', 'Jedi', 60);
+INSERT INTO caracteristic VALUES (8, 'Sante', 'Endurance', 'Jedi', 20);
+INSERT INTO caracteristic VALUES (9, 'Sante', 'Robustesse', 'Jedi', 40);
+INSERT INTO caracteristic VALUES (10, 'Sante', 'Wookie', 'Jedi', 60);
 
 INSERT INTO caracteristic VALUES (11, 'Sante', 'Armure legere', 'Jedi', 20);
 INSERT INTO caracteristic VALUES (12, 'Sante', 'Armure lourde', 'Jedi', 40);
@@ -24,6 +27,7 @@ INSERT INTO caracteristic VALUES (16, 'Force', 'Badassitude', 'Jedi', 60);
 INSERT INTO caracteristic VALUES (17, 'Force', 'Entrainement avec Yoda', 'Jedi', 50);
 
 INSERT INTO caracteristic VALUES (23,'Chance','Technique de l homme bourre','Jedi',100);
+INSERT INTO caracteristic VALUES (24, 'Chance', 'Personnage principal', 'Jedi', 80);
 
 /*Caracteritique Stades*/
 INSERT INTO caracteristic VALUES (18, 'Chance', 'Lave', 'Stade', -20);
@@ -42,13 +46,15 @@ INSERT INTO link_jedi_caracteristic VALUES (1,17);
 
 INSERT INTO jedi VALUES (2,'Darth Vader',1);
 INSERT INTO link_jedi_caracteristic VALUES (2,3);
-INSERT INTO link_jedi_caracteristic VALUES (2,4);
+INSERT INTO link_jedi_caracteristic VALUES (2,5);
 INSERT INTO link_jedi_caracteristic VALUES (2,9);
-INSERT INTO link_jedi_caracteristic VALUES (2,13);
+INSERT INTO link_jedi_caracteristic VALUES (2,12);
 INSERT INTO link_jedi_caracteristic VALUES (2,16);
+INSERT INTO link_jedi_caracteristic VALUES (2,4);
 
 INSERT INTO jedi VALUES (3,'Benjamin',0);
 INSERT INTO link_jedi_caracteristic VALUES (3,3);
+INSERT INTO link_jedi_caracteristic VALUES (3,7);
 INSERT INTO link_jedi_caracteristic VALUES (3,10);
 INSERT INTO link_jedi_caracteristic VALUES (3,13);
 INSERT INTO link_jedi_caracteristic VALUES (3,16);
@@ -58,6 +64,46 @@ INSERT INTO link_jedi_caracteristic VALUES (4,1);
 INSERT INTO link_jedi_caracteristic VALUES (4,5);
 INSERT INTO link_jedi_caracteristic VALUES (4,14);
 INSERT INTO link_jedi_caracteristic VALUES (4,23);
+
+INSERT INTO jedi VALUES (5,'Palpatine',1);
+INSERT INTO link_jedi_caracteristic VALUES (5,3);
+INSERT INTO link_jedi_caracteristic VALUES (5,7);
+INSERT INTO link_jedi_caracteristic VALUES (5,11);
+INSERT INTO link_jedi_caracteristic VALUES (5,17);
+INSERT INTO link_jedi_caracteristic VALUES (5,4);
+
+INSERT INTO jedi VALUES (6,'Mace Windu',0);
+INSERT INTO link_jedi_caracteristic VALUES (6,2);
+INSERT INTO link_jedi_caracteristic VALUES (6,6);
+INSERT INTO link_jedi_caracteristic VALUES (6,8);
+INSERT INTO link_jedi_caracteristic VALUES (6,11);
+INSERT INTO link_jedi_caracteristic VALUES (6,15);
+
+INSERT INTO jedi VALUES (7,'Rey',0);
+INSERT INTO link_jedi_caracteristic VALUES (7,1);
+INSERT INTO link_jedi_caracteristic VALUES (7,5);
+INSERT INTO link_jedi_caracteristic VALUES (7,11);
+INSERT INTO link_jedi_caracteristic VALUES (7,14);
+INSERT INTO link_jedi_caracteristic VALUES (7,24);
+
+INSERT INTO jedi VALUES (8,'Obi Wan Kennobi',0);
+INSERT INTO link_jedi_caracteristic VALUES (8,3);
+INSERT INTO link_jedi_caracteristic VALUES (8,6);
+INSERT INTO link_jedi_caracteristic VALUES (8,11);
+INSERT INTO link_jedi_caracteristic VALUES (8,14);
+INSERT INTO link_jedi_caracteristic VALUES (8,17);
+
+INSERT INTO jedi VALUES (9,'Grievious',1);
+INSERT INTO link_jedi_caracteristic VALUES (9,5);
+INSERT INTO link_jedi_caracteristic VALUES (9,9);
+INSERT INTO link_jedi_caracteristic VALUES (9,13);
+INSERT INTO link_jedi_caracteristic VALUES (9,16);
+
+INSERT INTO jedi VALUES (10,'Darth Maul',1);
+INSERT INTO link_jedi_caracteristic VALUES (10,2);
+INSERT INTO link_jedi_caracteristic VALUES (10,6);
+INSERT INTO link_jedi_caracteristic VALUES (10,11);
+INSERT INTO link_jedi_caracteristic VALUES (10,16);
 
 /*Stades (et leurs caracteritiques)*/
 INSERT INTO stade VALUES (1,100,'Jakku');
