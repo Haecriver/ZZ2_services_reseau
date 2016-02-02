@@ -64,6 +64,16 @@ namespace EntitiesLayer
             Stade = pStade;
         }
 
+        public override string ToString()
+        {
+            string s = phaseTournoi+"\n"+jedi1.Nom+" vs "+Jedi2.Nom+" sur "+stade.Planete+"\n";
+            if (jediVainqueur != null)
+                s += "Vainqueur : " + jediVainqueur.ToString();
+            else
+                s += "Le match n'a pas encore été joué";
+            return s;
+        }
+
         public static EPhaseTournoi stringToEPhase(string str)
         {
             EPhaseTournoi res;

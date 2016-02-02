@@ -11,8 +11,6 @@ namespace EntitiesLayer
     [Serializable]
     public class Jedi : EntityObject
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private List<Caracteristique> caracteristiques;
         public List<Caracteristique> Caracteristiques
         {

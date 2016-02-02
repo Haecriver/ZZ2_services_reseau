@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntitiesLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,22 +14,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using EntitiesLayer;
-using JediTournamentWPF;
-using System.Collections.ObjectModel;
-
-namespace JediTournamentWPF
+namespace JediTournamentWPF.Ctrl
 {
-    public partial class CtrlJedi : UserControl
+    public partial class CtrlStade : UserControl
     {
-        public CtrlJedi()
+        public CtrlStade()
         {
             InitializeComponent();
         }
-        public CtrlJedi(Jedi jedi_)
+
+        public CtrlStade(Stade stade_)
         {
             InitializeComponent();
-            this.DataContext = jedi_;
+            this.DataContext = stade_;
         }
     }
 }

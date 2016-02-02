@@ -15,6 +15,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using JediTournamentWPF.Models;
+using JediTournamentWPF.ListModels;
+using JediTournamentWPF.Fiches;
+using stadeTournamentWPF.Models;
 
 namespace JediTournamentWPF
 {
@@ -27,6 +31,10 @@ namespace JediTournamentWPF
         private static Clicked click = Clicked.Null;
         private BusinessManager manager;
         private JedisListModel jedis;
+        private MatchListModel matchs;
+        private StadesListModel stades;
+        private MatchCombo matchCombo;
+
         bool bonus = false;
 
         public MainWindow()
@@ -38,7 +46,8 @@ namespace JediTournamentWPF
         {
             //Selector.Items.Clear();
             click = Clicked.Stades;
-            Selector.ItemsSource = manager.getStringStades();
+            Selector.DataContext = stades;
+            Selector.ItemsSource = stades.Stades;
         }
 
         private void JedisButton_Click(object sender, RoutedEventArgs e)
@@ -52,7 +61,8 @@ namespace JediTournamentWPF
         private void MatchsButton_Click(object sender, RoutedEventArgs e)
         {
             click = Clicked.Matchs;
-            Selector.ItemsSource = manager.getStringMatchs();
+            Selector.DataContext = matchs;
+            Selector.ItemsSource = matchs.Matchs;
         }
 
         private void CaracteristiquesButton_Click(object sender, RoutedEventArgs e)
@@ -99,6 +109,19 @@ namespace JediTournamentWPF
                 win.ModifyJediClicked += win_ModifyJediClicked;
                 win.Show();
             }
+            if(click==Clicked.Matchs)
+            {
+                matchCombo = new MatchCombo((MatchModel)Selector.SelectedItem, jedis, stades);
+                Fiche_Match win = new Fiche_Match(matchCombo);
+                win.ModifyMatchClicked += win_ModifyMatchClicked;
+                win.Show();
+            }
+            if(click==Clicked.Stades)
+            {
+                Fiche_Stade win = new Fiche_Stade((StadeModel)Selector.SelectedItem);
+                win.ModifyStadiumClicked += win_ModifyStadiumClicked;
+                win.Show();
+            }
         }
 
         void win_ModifyJediClicked(JediModel j)
@@ -108,14 +131,26 @@ namespace JediTournamentWPF
             jedis.Jedis.Insert(index,j);
         }
 
+        void win_ModifyMatchClicked(MatchModel m)
+        {
+            int index = Selector.SelectedIndex;
+            matchs.Matchs.RemoveAt(index);
+            matchs.Matchs.Insert(index, m);
+        }
 
-
+        void win_ModifyStadiumClicked(StadeModel s)
+        {
+            int index = Selector.SelectedIndex;
+            stades.Stades.RemoveAt(index);
+            stades.Stades.Insert(index, s);
+        }
 
         private void Jedi_Tournament_2016_Loaded(object sender, RoutedEventArgs e)
         {
             manager = new BusinessManager();
             jedis = new JedisListModel(manager.getJedis());
-            
+            stades = new StadesListModel(manager.getStades());
+            matchs = new MatchListModel(manager.getMatches());
         }
     }
 }

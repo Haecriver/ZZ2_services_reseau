@@ -18,7 +18,8 @@ namespace DataAccessLayer
         public DALSqlServer()
         {
           //  connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\"+user+"\\Source\\Repos\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament2.mdf;Integrated Security=True;Connect Timeout=30";
-            connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Pierre\\Documents\\GitHub\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament_2014.mdf;Integrated Security=True;Connect Timeout=30";
+            //connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Anne-Lise\\Documents\\GitHub\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament_2014.mdf;Integrated Security=True;Connect Timeout=30";
+            connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Anne-Lise\\Documents\\GitHub\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament_2014.mdf;Integrated Security=True;Connect Timeout=10";
             SqlConnection connection = new SqlConnection(connectionString);
             // Test de la connection
             try

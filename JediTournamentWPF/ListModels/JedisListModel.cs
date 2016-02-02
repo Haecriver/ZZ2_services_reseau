@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace JediTournamentWPF
 {
-    class JedisListModel : ViewModelBase, INotifyPropertyChanged
+    public class JedisListModel : ViewModelBase, INotifyPropertyChanged
     {
         private ObservableCollection<JediModel> _jedis;
         public ObservableCollection<JediModel> Jedis
         {
             get { return _jedis; }
-            private set { 
+            set { 
                 _jedis = value;
                 OnPropertyChanged("Jedis");
             }

@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D8547065-8640-4DF8-94DF-583A00AE210A}</ProjectGuid>
+    <ProjectGuid>{E79A1E9F-8156-48C4-8395-281CCBE17FDA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JediTournamentWPF</RootNamespace>
-    <AssemblyName>JediTournamentWPF</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>WpfApplication1</RootNamespace>
+    <AssemblyName>WpfApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,13 +37,12 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -55,57 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Ctrl\CtrlJedi.xaml.cs">
-      <DependentUpon>CtrlJedi.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Ctrl\CtrlMatch.xaml.cs">
-      <DependentUpon>CtrlMatch.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Ctrl\CtrlStade.xaml.cs">
-      <DependentUpon>CtrlStade.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Fiches\Fiche_Jedi.xaml.cs">
-      <DependentUpon>Fiche_Jedi.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Fiches\Fiche_Match.xaml.cs">
-      <DependentUpon>Fiche_Match.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Fiches\Fiche_Stade.xaml.cs">
-      <DependentUpon>Fiche_Stade.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListModels\MatchListModel.cs" />
-    <Compile Include="ListModels\StadesListModel.cs" />
-    <Compile Include="MatchCombo.cs" />
-    <Compile Include="Models\JediModel.cs" />
-    <Compile Include="ListModels\JedisListModel.cs" />
-    <Compile Include="Models\MatchModel.cs" />
-    <Compile Include="Models\StadeModel.cs" />
-    <Compile Include="RelayCommand.cs" />
-    <Compile Include="ViewModelBase.cs" />
-    <Page Include="Ctrl\CtrlMatch.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Ctrl\CtrlStade.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Fiches\Fiche_Jedi.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Fiches\Fiche_Match.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Fiches\Fiche_Stade.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Département.cs" />
+    <Compile Include="Jedi.cs" />
+    <Compile Include="Match.cs" />
+    <Compile Include="MatchModel.cs" />
+    <Compile Include="RécupérationListes.cs" />
+    <Compile Include="Ville.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,17 +69,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Ctrl\CtrlJedi.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -152,19 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
-      <Project>{01fe3568-4c1b-44aa-a1bb-61fd71aef459}</Project>
-      <Name>BusinessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
-      <Project>{e8321158-7ebe-4dfa-933a-9225c7972d7b}</Project>
-      <Name>EntitiesLayer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="75017_yoda.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
