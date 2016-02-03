@@ -55,13 +55,23 @@ namespace EntitiesLayer
 
         }
 
-        public Match(int pId,  Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(pId)
+        public Match(int pId, Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(pId)
         {
             JediVainqueur = null;
             Jedi1 = pJedi1;
             Jedi2 = pJedi2;
             PhaseTournoi = pPhaseTournoi;
             Stade = pStade;
+        }
+
+        public override string ToString()
+        {
+            string s = phaseTournoi + "\n" + jedi1.Nom + " vs " + Jedi2.Nom + " sur " + stade.Planete + "\n";
+            if (jediVainqueur != null)
+                s += "Vainqueur : " + jediVainqueur.ToString();
+            else
+                s += "Le match n'a pas encore été joué";
+            return s;
         }
 
         public static EPhaseTournoi stringToEPhase(string str)

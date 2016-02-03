@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="JediTournamentWPF.Ctrl.CtrlMatch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JediTournamentWPF.Ctrl"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Background="White" Margin="-140,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="TheGrid" Margin="10,37,25,10" Background="#FFB49D9D" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="101*"/>
+                <ColumnDefinition Width="124*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Jedi n°1" Margin="0,5" Grid.Row="1" VerticalAlignment="Center" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" Padding="5,0" Height="20"/>
+            <Label Content="Jedi n°2" Margin="0,5" Grid.Row="2" VerticalAlignment="Center" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" Padding="5,0" Height="20"/>
+            <Label Content="Vainqueur" Margin="0,5" Grid.Row="3" VerticalAlignment="Center" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" Padding="5,0" Height="20"/>
+            <Label Content="Phase" Margin="0,5" Grid.Row="4" VerticalAlignment="Center" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" Padding="5,0" Height="20"/>
+            <Label Content="Stade" Margin="0,5" Grid.Row="5" VerticalAlignment="Center" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" Padding="5,0" Height="20"/>
+
+
+
+            <ComboBox Name="Jedi1Name"
+                SelectedValue="{Binding Match.Jedi1}" 
+                DisplayMemberPath="Nom"
+                ItemsSource="{Binding Jedis}"
+                Grid.Column="1"
+                Grid.Row="1"/>
+
+            <ComboBox Name="Jedi2Name"
+                SelectedValue="{Binding Match.Jedi2}" 
+                DisplayMemberPath="Nom"
+                ItemsSource="{Binding Jedis}"
+                Grid.Column="1"
+                Grid.Row="2"/>
+
+            <ComboBox Name="Stade"
+                SelectedValue="{Binding Match.Stade.Planete}" 
+                SelectedValuePath="Planete"
+                DisplayMemberPath="Planete"
+                ItemsSource="{Binding Stades}"
+                Grid.Column="1"
+                Grid.Row="5"/>
+
+        </Grid>
+        <Label Grid.ColumnSpan="2" Content="Fiche Match" HorizontalAlignment="Left" Margin="99,8,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="242" HorizontalContentAlignment="Center" FontSize="14" FontWeight="Bold"/>
+    </Grid>
+</UserControl>
