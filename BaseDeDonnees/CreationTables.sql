@@ -62,4 +62,3 @@ CREATE TABLE utilisateur(
 	loginuser varchar(255),
 	passworduser varchar(255)
 );
-
