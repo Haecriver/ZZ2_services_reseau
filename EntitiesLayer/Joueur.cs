@@ -8,8 +8,13 @@ namespace EntitiesLayer
 {
     public class Joueur : EntityObject
     {
-        private string nom;
+        private static int countId;
+        public static int CountId
+        {
+            get { return countId; }
+        }
 
+        private string nom;
         public string Nom
         {
             get { return nom; }
@@ -27,9 +32,22 @@ namespace EntitiesLayer
         {
 
         }
-        public Joueur(int id, string no, int sc)
-            : base(id)
+        public Joueur(int _id, string no, int sc)
+            : base(_id)
         {
+            if (_id > countId)
+            {
+                countId = _id;
+            }
+            nom = no;
+            score = sc;
+        }
+
+        public Joueur(string no, int sc)
+        {
+            countId++;
+            Id = countId;
+
             nom = no;
             score = sc;
         }

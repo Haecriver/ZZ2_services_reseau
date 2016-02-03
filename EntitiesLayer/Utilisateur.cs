@@ -8,6 +8,11 @@ namespace EntitiesLayer
 {
     public class Utilisateur
     {
+        private static int countId;
+        public static int CountId
+        {
+            get { return countId; }
+        }
         private string nom;
         public string Nom
         {
@@ -49,7 +54,22 @@ namespace EntitiesLayer
         }
         public Utilisateur(int _id,string _nom, string _prenom, string _login, string _password)
         {
+
+            if (_id > countId)
+            {
+                countId = _id;
+            }
             id = _id;
+            nom = _nom;
+            prenom = _prenom;
+            login = _login;
+            password = HashSH1.GetSHA1HashData(_password);
+        }
+        public Utilisateur(string _nom, string _prenom, string _login, string _password)
+        {
+            countId++;
+            Id = countId;
+
             nom = _nom;
             prenom = _prenom;
             login = _login;

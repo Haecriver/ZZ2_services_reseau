@@ -18,23 +18,23 @@ namespace JediTournamentConsole
             bool end = false;
             IEnumerable<string> res;
 
-           /* Console.Out.WriteLine("Test connection");
+            Console.Out.WriteLine("Test connection");
             Jedi jedi = businessManager.testBDD();
             Console.Out.WriteLine(jedi.ToString());
-
-            List<Caracteristique> cj = new List<Caracteristique>();
-            cj.Add(new Caracteristique(101, EDefCaracteristique.Sante, "TEST JEDI 1", ETypeCaracteristique.Jedi, 90));
-
-            List<Caracteristique> cs = new List<Caracteristique>();
-            cs.Add(new Caracteristique(104, EDefCaracteristique.Chance, "TEST STADE 1", ETypeCaracteristique.Stade, 10));
 
             // TEST CARACTERISTIQUE
 
             List<Caracteristique> caracts = businessManager.getCaracteristique();
+
+            List<Caracteristique> cj = new List<Caracteristique>();
+            cj.Add(new Caracteristique( EDefCaracteristique.Sante, "TEST JEDI 1", ETypeCaracteristique.Jedi, 90));
+
+            List<Caracteristique> cs = new List<Caracteristique>();
+            cs.Add(new Caracteristique( EDefCaracteristique.Chance, "TEST STADE 1", ETypeCaracteristique.Stade, 10));
+
             //Test ajout
-            caracts.Add(new Caracteristique(100,EDefCaracteristique.Chance,"TEST CARACT 1",ETypeCaracteristique.Jedi,0));
+            caracts.Add(new Caracteristique(EDefCaracteristique.Chance,"TEST CARACT 1",ETypeCaracteristique.Jedi,0));
             caracts.Add(cj[0]);
-            caracts.Add(new Caracteristique(103, EDefCaracteristique.Force, "TEST JEDI + COPY 2", ETypeCaracteristique.Jedi, 90));
             caracts.Add(cs[0]);
             //Test suppression
             caracts.Remove(caracts[2]);
@@ -46,7 +46,7 @@ namespace JediTournamentConsole
 
            List<Utilisateur> users = businessManager.getUtilisateur();
            //Test ajout
-           users.Add(new Utilisateur(6, "jean", "jaque", "j", "j"));
+           users.Add(new Utilisateur("jean", "jaque", "j", "j"));
            //Test suppression
            users.Remove(users[2]);
            //Test update
@@ -59,7 +59,7 @@ namespace JediTournamentConsole
             List<Jedi> jedis = businessManager.getJedis();
 
             //Test ajout jedi
-            jedis.Add(new Jedi(100, "Michel", false, cj));
+            jedis.Add(new Jedi("Michel", false, cj));
 
             //Test suppression Jedi
             jedis.Remove(jedis[1]);
@@ -68,7 +68,7 @@ namespace JediTournamentConsole
             //Test suppression Caract
             jedis[2].Caracteristiques.Remove(jedis[2].Caracteristiques[0]);
             //Test ajout Caract
-            jedis[2].Caracteristiques.Add(new Caracteristique(103, EDefCaracteristique.Force, "TEST JEDI + COPY 2", ETypeCaracteristique.Jedi, 90));
+            jedis[2].Caracteristiques.Add(cj[0]);
             //Test update Caract
             jedis[2].Caracteristiques[1].Nom = "TEST JEDI 3";
 
@@ -78,7 +78,7 @@ namespace JediTournamentConsole
 
             List<Stade> stades = businessManager.getStades();
             //Test ajout stade
-            stades.Add(new Stade(100, 300, "Jakku", cs));
+            stades.Add(new Stade(300, "Jakku", cs));
 
             //Test suppression stade
             stades.Remove(stades[1]);
@@ -97,14 +97,14 @@ namespace JediTournamentConsole
 
             List<Match> matches = businessManager.getMatches();
             //Test ajout
-            matches.Add(new Match(100, jedis[0], jedis[2], EPhaseTournoi.Finale, stades[0]));
-            matches.Add(new Match(101, jedis[0], jedis[2], EPhaseTournoi.Finale, stades[0]));
+            matches.Add(new Match(jedis[0], jedis[2], EPhaseTournoi.Finale, stades[0]));
+            matches.Add(new Match(jedis[0], jedis[2], EPhaseTournoi.Finale, stades[0]));
             //Test suppression
             matches.Remove(matches[0]);
             //Test update
             matches[0].Jedi1 = jedis[1];
 
-            businessManager.updateMatch(matches);*/
+            businessManager.updateMatch(matches);
 
 
 

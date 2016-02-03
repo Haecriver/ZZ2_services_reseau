@@ -8,6 +8,12 @@ namespace EntitiesLayer
 {
     public class Stade : EntityObject
     {
+        private static int countId;
+        public static int CountId
+        {
+            get { return countId; }
+        }
+
         private List<Caracteristique> caracteristiques;
         public List<Caracteristique> Caracteristiques
         {
@@ -33,8 +39,22 @@ namespace EntitiesLayer
         {
 
         }
-        public Stade(int id, int nbplaces, string planet, List<Caracteristique> pcaracteristiques) : base(id)
+        public Stade(int _id, int nbplaces, string planet, List<Caracteristique> pcaracteristiques) : base(_id)
         {
+            if (_id > countId)
+            {
+                countId = _id;
+            }
+            caracteristiques = pcaracteristiques;
+            nbPlaces = nbplaces;
+            planete = planet;
+        }
+
+        public Stade(int nbplaces, string planet, List<Caracteristique> pcaracteristiques)
+        {
+            countId++;
+            Id = countId;
+
             caracteristiques = pcaracteristiques;
             nbPlaces = nbplaces;
             planete = planet;

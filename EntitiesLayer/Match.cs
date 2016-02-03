@@ -15,6 +15,12 @@ namespace EntitiesLayer
     }
     public class Match : EntityObject
     {
+        private static int countId;
+        public static int CountId
+        {
+            get { return countId; }
+        }
+
         private Jedi jediVainqueur;
         public Jedi JediVainqueur
         {
@@ -55,8 +61,24 @@ namespace EntitiesLayer
 
         }
 
-        public Match(int pId,  Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(pId)
+        public Match(int _id, Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade) : base(_id)
         {
+            if (_id > countId)
+            {
+                countId = _id;
+            }
+            JediVainqueur = null;
+            Jedi1 = pJedi1;
+            Jedi2 = pJedi2;
+            PhaseTournoi = pPhaseTournoi;
+            Stade = pStade;
+        }
+
+        public Match(Jedi pJedi1, Jedi pJedi2, EPhaseTournoi pPhaseTournoi, Stade pStade)
+        {
+            countId++;
+            Id = countId;
+
             JediVainqueur = null;
             Jedi1 = pJedi1;
             Jedi2 = pJedi2;

@@ -13,6 +13,12 @@ namespace EntitiesLayer
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private static int countId;
+        public static int CountId
+        {
+            get { return countId; }
+        }
+
         private List<Caracteristique> caracteristiques;
         public List<Caracteristique> Caracteristiques
         {
@@ -42,9 +48,25 @@ namespace EntitiesLayer
         {
 
         }
-        public Jedi(int id, string _nom, bool sith, List<Caracteristique> lc)
-            : base(id)
+
+        public Jedi(string _nom, bool sith, List<Caracteristique> lc)
         {
+            countId++;
+            Id = countId;
+
+            nom = _nom;
+            isSith = sith;
+            caracteristiques = lc;
+        }
+
+
+        public Jedi(int _id, string _nom, bool sith, List<Caracteristique> lc)
+            : base(_id)
+        {
+            if (_id > countId)
+            {
+                countId = _id;
+            }
             nom = _nom;
             isSith = sith;
             caracteristiques = lc;

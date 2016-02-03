@@ -21,6 +21,12 @@ namespace EntitiesLayer
     }
     public class Caracteristique : EntityObject
     {
+        private static int countId;
+        public static int CountId
+        {
+            get { return countId; }
+        }
+
         private EDefCaracteristique definition;
         public EDefCaracteristique Definition
         {
@@ -53,13 +59,30 @@ namespace EntitiesLayer
         {
 
         }
-        public Caracteristique(int id, EDefCaracteristique def, string _nom, ETypeCaracteristique _type, int _valeur) : base(id)
+        public Caracteristique(EDefCaracteristique def, string _nom, ETypeCaracteristique _type, int _valeur)
         {
+            countId++;
+            Id = countId;
+
             definition = def;
             nom = _nom;
             type = _type;
             valeur = _valeur;
         }
+
+        public Caracteristique(int _id,EDefCaracteristique def, string _nom, ETypeCaracteristique _type, int _valeur)
+        {
+            Id = _id;
+            if (_id > countId)
+            {
+                countId = _id;
+            }
+            definition = def;
+            nom = _nom;
+            type = _type;
+            valeur = _valeur;
+        }
+
 
         public override string ToString()
         {
