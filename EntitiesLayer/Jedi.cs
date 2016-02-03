@@ -64,7 +64,7 @@ namespace EntitiesLayer
             : base(_id)
         {
             if (_id > countId)
-            {
+        {
                 countId = _id;
             }
             nom = _nom;

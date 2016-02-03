@@ -55,17 +55,50 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CtrlJedi.xaml.cs">
+    <Compile Include="Ctrl\CtrlJedi.xaml.cs">
       <DependentUpon>CtrlJedi.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Fiche_Jedi.xaml.cs">
+    <Compile Include="Ctrl\CtrlMatch.xaml.cs">
+      <DependentUpon>CtrlMatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ctrl\CtrlStade.xaml.cs">
+      <DependentUpon>CtrlStade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Fiches\Fiche_Jedi.xaml.cs">
       <DependentUpon>Fiche_Jedi.xaml</DependentUpon>
     </Compile>
-    <Compile Include="JediModel.cs" />
-    <Compile Include="JedisListModel.cs" />
+    <Compile Include="Fiches\Fiche_Match.xaml.cs">
+      <DependentUpon>Fiche_Match.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Fiches\Fiche_Stade.xaml.cs">
+      <DependentUpon>Fiche_Stade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListModels\MatchListModel.cs" />
+    <Compile Include="ListModels\StadesListModel.cs" />
+    <Compile Include="MatchCombo.cs" />
+    <Compile Include="Models\JediModel.cs" />
+    <Compile Include="ListModels\JedisListModel.cs" />
+    <Compile Include="Models\MatchModel.cs" />
+    <Compile Include="Models\StadeModel.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModelBase.cs" />
-    <Page Include="Fiche_Jedi.xaml">
+    <Page Include="Ctrl\CtrlMatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ctrl\CtrlStade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Fiches\Fiche_Jedi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Fiches\Fiche_Match.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Fiches\Fiche_Stade.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,7 +121,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="CtrlJedi.xaml">
+    <Page Include="Ctrl\CtrlJedi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

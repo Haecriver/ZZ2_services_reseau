@@ -18,7 +18,7 @@ namespace JediTournamentConsole
             bool end = false;
             IEnumerable<string> res;
 
-            Console.Out.WriteLine("Test connection");
+            /*Console.Out.WriteLine("Test connection");
             Jedi jedi = businessManager.testBDD();
             Console.Out.WriteLine(jedi.ToString());
 
@@ -104,7 +104,7 @@ namespace JediTournamentConsole
             //Test update
             matches[0].Jedi1 = jedis[1];
 
-            businessManager.updateMatch(matches);
+            businessManager.updateMatch(matches);*/
 
 
 
@@ -143,7 +143,7 @@ namespace JediTournamentConsole
                         }
                         break;
                     case 4:
-                        res = businessManager.getStringJedis(3,50);
+                        res = businessManager.getStringJedis(3, 50);
                         foreach (String el in res)
                         {
                             Console.Out.WriteLine(el);

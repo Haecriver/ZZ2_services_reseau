@@ -12,16 +12,22 @@ using System.Collections.ObjectModel;
 
 namespace JediTournamentWPF
 {
-    
+
     public class JediModel : ViewModelBase, INotifyPropertyChanged
     {
         private Jedi jedi;
-        
-        public JediModel(Jedi jedi_){
+
+        public Jedi Jedi
+        {
+            get { return jedi; }
+        }
+
+        public JediModel(Jedi jedi_)
+        {
             jedi = jedi_;
         }
 
-        public String Nom 
+        public String Nom
         {
             get
             {

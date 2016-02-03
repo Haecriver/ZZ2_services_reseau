@@ -35,7 +35,7 @@ namespace BusinessLayer
            // data = new StubDataAccessLayer.StubDalManager();
         }
 
-        public List<Stade> getStades()  {return data.getAllStade();}
+        public List<Stade> getStades() { return data.getAllStade(); }
         public List<Jedi> getJedis() { return data.getAllJedi(); }
         public List<Match> getMatches() { return data.getAllMatch(); }
         public List<Caracteristique> getCaracteristique() { return data.getAllCaracteristic(); }
@@ -71,7 +71,7 @@ namespace BusinessLayer
                 Console.Out.WriteLine("--------------------------", i);
                 Console.Out.WriteLine("Tour {0}", i);
                 Console.Out.WriteLine("{0} utilise : {1}", match.Jedi1.Nom, j1Caract.ToString());
-                Console.Out.WriteLine("{0} utilise : {1}", match.Jedi2.Nom,j2Caract.ToString());
+                Console.Out.WriteLine("{0} utilise : {1}", match.Jedi2.Nom, j2Caract.ToString());
                 Console.Out.WriteLine("{0} inflige {1} degats a {2}", pMatch.WinnerJedi.Nom, pMatch.DammageInfliged, pMatch.LooserJedi.Nom);
                 Console.Out.WriteLine("Point de vie restant a {0} : {1}", match.Jedi1.Nom, pMatch.Jedi1.HpJedi);
                 Console.Out.WriteLine("Point de vie restant a {0} : {1}", match.Jedi2.Nom, pMatch.Jedi2.HpJedi);
@@ -79,7 +79,7 @@ namespace BusinessLayer
             }
             //Resultat
             Console.Out.WriteLine("Match termine, gagnant : {0}", match.JediVainqueur.ToString());
-            Console.Out.WriteLine("({0} = {1}, {2} = {3})", match.Jedi1.Nom, match.Jedi1.Id,match.Jedi2.Nom,match.Jedi2.Id);
+            Console.Out.WriteLine("({0} = {1}, {2} = {3})", match.Jedi1.Nom, match.Jedi1.Id, match.Jedi2.Nom, match.Jedi2.Id);
         }
 
         public IEnumerable<String> getStringStades()
@@ -99,7 +99,7 @@ namespace BusinessLayer
         public IEnumerable<String> getStringMatchs()
         {
             List<Match> matches = data.getAllMatch();
-            IEnumerable<string> results = from match in matches select match.Jedi1+" vs "+ match.Jedi2+" in "+match.Stade.Planete;
+            IEnumerable<string> results = from match in matches select match.Jedi1 + " vs " + match.Jedi2 + " in " + match.Stade.Planete;
             return results;
         }
 
@@ -140,28 +140,28 @@ namespace BusinessLayer
         {
             System.IO.StreamWriter stream;
             XmlSerializer ser;
-            switch(click)
+            switch (click)
             {
                 case (Clicked.Jedis):
-                    stream = new System.IO.StreamWriter(@path+"\\ListeJedis.txt");
+                    stream = new System.IO.StreamWriter(@path + "\\ListeJedis.txt");
                     ser = new XmlSerializer(typeof(List<Jedi>));
                     ser.Serialize(stream, data.getAllJedi());
                     stream.Close();
                     break;
                 case (Clicked.Stades):
-                    stream = new System.IO.StreamWriter(@path+"\\ListeStades.txt");
+                    stream = new System.IO.StreamWriter(@path + "\\ListeStades.txt");
                     ser = new XmlSerializer(typeof(List<Stade>));
                     ser.Serialize(stream, data.getAllStade());
                     stream.Close();
                     break;
                 case (Clicked.Matchs):
-                    stream = new System.IO.StreamWriter(@path+"\\ListeMatchs.txt");
+                    stream = new System.IO.StreamWriter(@path + "\\ListeMatchs.txt");
                     ser = new XmlSerializer(typeof(List<Match>));
                     ser.Serialize(stream, data.getAllMatch());
                     stream.Close();
                     break;
                 case (Clicked.Caracteristiques):
-                    stream = new System.IO.StreamWriter(@path+"\\ListeCaracteristiques.txt");
+                    stream = new System.IO.StreamWriter(@path + "\\ListeCaracteristiques.txt");
                     ser = new XmlSerializer(typeof(List<Caracteristique>));
                     ser.Serialize(stream, data.getAllCaracteristic());
                     stream.Close();

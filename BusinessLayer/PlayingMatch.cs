@@ -31,7 +31,7 @@ namespace BusinessLayer
         J2Gagnant,
         Null
     }
-    
+
     public class PlayingMatch
     {
         // Base de pv des Jedi
@@ -96,7 +96,7 @@ namespace BusinessLayer
         // Le vainqueur est directement changé dans Match
         public void playTurn(EDefCaracteristique choosenCaract1, EDefCaracteristique choosenCaract2)
         {
-            
+
 
             if (!MatchOver)
             {
@@ -114,7 +114,8 @@ namespace BusinessLayer
                 {
                     scoreJ1 = computeScore(Jedi1);
                     scoreJ2 = computeScore(Jedi2);
-                }catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     throw e;
                 }
@@ -123,7 +124,8 @@ namespace BusinessLayer
                 try
                 {
                     vainqueurShiFuMi = shiFuMi(Jedi1.ChoosenCaract, Jedi2.ChoosenCaract);
-                }catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     throw e;
                 }
@@ -178,13 +180,13 @@ namespace BusinessLayer
 
         public EDefCaracteristique automaticChoose()
         {
-            return (EDefCaracteristique)(rand.Next()%3);
+            return (EDefCaracteristique)(rand.Next() % 3);
         }
 
 
         private int computeScore(PlayingJedi joueur)
         {
-            int score=0;
+            int score = 0;
             switch (joueur.ChoosenCaract)
             {
                 case EDefCaracteristique.Force:
