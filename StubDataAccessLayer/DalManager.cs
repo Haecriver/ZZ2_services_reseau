@@ -102,5 +102,41 @@ namespace StubDataAccessLayer
             }
 
         }
+
+        public List<Utilisateur> getAllUtilisateur()
+        {
+            List<Utilisateur> list = new List<Utilisateur>();
+            foreach(Utilisateur ut in allUtilisateurs.Values)
+            {
+                list.Add(ut);
+            }
+            return list;
+        }
+
+        public void updateJedi(List<Jedi> jedis)
+        {
+            allJedi = jedis;
+        }
+        public void updateMatch(List<Match> matches)
+        {
+            allMatch = matches;
+        }
+        public void updateStade(List<Stade> stades)
+        {
+            allStade = stades;
+        }
+        public void updateCaracteristique(List<Caracteristique> caracteristiques)
+        {
+            allCharacteristics = caracteristiques;
+        }
+        public void updateUtilisateur(List<Utilisateur> utilisateurs)
+        {
+            SortedDictionary<string, Utilisateur> dic = new SortedDictionary<string, Utilisateur>();
+            foreach (Utilisateur ut in utilisateurs)
+            {
+                dic.Add(ut.Login, ut);
+            }
+           allUtilisateurs = dic;
+        }
     }
 }
