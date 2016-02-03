@@ -321,106 +321,264 @@ namespace DataAccessLayer
         }
 
 
-        public void updateJedi(List<Jedi> jedis)
+        public void updateJedi(List<Jedi> _jedis)
         {
-            DataTable dataTableJedi = new DataTable();
-            dataTableJedi.Columns.Add("numjedi", typeof(int));
-            dataTableJedi.Columns.Add("nom", typeof(string));
-            dataTableJedi.Columns.Add("sith", typeof(int));
+            List<Jedi> jedis = new List<Jedi>(_jedis);
+            DataTable dataTableJedi = SelectByDataAdapter("SELECT * FROM jedi;");
+            DataTable dataTableCarToUpdate = new DataTable();
 
-            DataTable dataTableCar = new DataTable();
-            dataTableCar.Columns.Add("numjedi", typeof(int));
-            dataTableCar.Columns.Add("numcaracteristic", typeof(int));
+            foreach (DataRow row in dataTableJedi.Rows)
+            {
+                Jedi jedi = jedis.Find(x => x.Id == row.Field<int>("numjedi"));
+                
+                if (jedi != null)
+                {
+                    DataTable dataTableCar = SelectByDataAdapter("SELECT * FROM link_jedi_caracteristic " +
+                                                                   "WHERE link_jedi_caracteristic.numjedi =" + jedi.Id + ";");
+                    List<Caracteristique> caracts = new List<Caracteristique>(jedi.Caracteristiques);
 
+                    //Update
+                    row.SetField("nom", jedi.Nom);
+                    row.SetField("sith", jedi.IsSith);
+                    
+                    //Gestion des caracteristiques
+                    foreach(DataRow rowCar in dataTableCar.Rows)
+                    {
+                        Caracteristique car = caracts.Find(x => x.Id == rowCar.Field<int>("numcaracteristic"));                        
+                        
+                        if(car != null)
+                        {
+                            //Update
+                            //Rien a faire
+                            caracts.Remove(car);
+                        }
+                        else
+                        {
+                            //Delete
+                            rowCar.Delete();
+                        }
+                       
+                    }
+                    foreach (Caracteristique car in caracts)
+                    {
+                        //Add
+                        dataTableCar.Rows.Add(jedi.Id, car.Id);
+                    }
+
+                    dataTableCarToUpdate.Merge(dataTableCar);
+                    jedis.Remove(jedi);
+
+                }
+                else
+                {
+                    //Delete
+                    row.Delete();
+
+                    //Les caracteristiques sont alors supprimees en cascade
+                }
+                
+            }
+            //Ajout
             foreach (Jedi jedi in jedis)
             {
-                dataTableJedi.Rows.Add(jedi.Id, jedi.Nom, jedi.IsSith);
-
+                DataTable dataTableCar = SelectByDataAdapter("SELECT * FROM link_jedi_caracteristic " +
+                                                              "WHERE link_jedi_caracteristic.numjedi =" + jedi.Id + ";");
+                dataTableJedi.Rows.Add(jedi.Id, 
+                    jedi.Nom, 
+                    jedi.IsSith);
                 foreach (Caracteristique c in jedi.Caracteristiques)
                 {
                     dataTableCar.Rows.Add(jedi.Id, c.Id);
                 }
+                dataTableCarToUpdate.Merge(dataTableCar);
             }
-            UpdateByCommandBuilder("SELECT * FROM jedi;", dataTableJedi);
-            UpdateByCommandBuilder("SELECT * FROM link_jedi_caracteristic;", dataTableCar);
-        }
-        public void updateMatch(List<Match> matches)
-        {
-            DataTable dataTableMatch = new DataTable();
-            dataTableMatch.Columns.Add("nummatch", typeof(int));
-            dataTableMatch.Columns.Add("numjedi1", typeof(int));
-            dataTableMatch.Columns.Add("numjedi2", typeof(int));
-            dataTableMatch.Columns.Add("phase", typeof(string));
-            dataTableMatch.Columns.Add("numstade", typeof(int));
 
+            UpdateByCommandBuilder("SELECT * FROM jedi;", dataTableJedi);
+            UpdateByCommandBuilder("SELECT * FROM link_jedi_caracteristic;", dataTableCarToUpdate);
+        }
+
+        public void updateMatch(List<Match> _matches)
+        {
+            List<Match> matches = new List<Match>(_matches);
+            DataTable dataTableMatch = SelectByDataAdapter("SELECT * FROM match;");
+
+            foreach (DataRow row in dataTableMatch.Rows)
+            {
+                Match match = matches.Find(x => x.Id == row.Field<int>("nummatch"));
+                if (match != null)
+                {
+                    //Update
+                    row.SetField("numjedi1", match.Jedi1.Id);
+                    row.SetField("numjedi2", match.Jedi2.Id);
+                    row.SetField("phase", match.PhaseTournoi.ToString());
+                    row.SetField("numstade", match.Stade.Id);
+                    matches.Remove(match);
+                }
+                else
+                {
+                    //Delete
+                    row.Delete();
+                }
+            }
+            //Ajout
             foreach (Match match in matches)
             {
-                dataTableMatch.Rows.Add(match.Id, match.Jedi1.Id, match.Jedi2.Id, match.PhaseTournoi.ToString(), match.Stade.Id);
+                dataTableMatch.Rows.Add(match.Id,
+                     match.Jedi1.Id,
+                     match.Jedi2.Id,
+                     match.PhaseTournoi.ToString(),
+                     match.Stade.Id);
             }
 
             UpdateByCommandBuilder("SELECT * FROM match;", dataTableMatch);
+
         }
-        public void updateStade(List<Stade> stades)
+
+        public void updateStade(List<Stade> _stades)
         {
-            DataTable dataTableStade = new DataTable();
-            dataTableStade.Columns.Add("numstade", typeof(int));
-            dataTableStade.Columns.Add("nbplace", typeof(int));
-            dataTableStade.Columns.Add("planete", typeof(string));
+            List<Stade> stades = new List<Stade>(_stades);
+            DataTable dataTableStade = SelectByDataAdapter("SELECT * FROM stade;");
+            DataTable dataTableCarToUpdate = new DataTable();
 
-            DataTable dataTableCar = new DataTable();
-            dataTableCar.Columns.Add("numstade", typeof(int));
-            dataTableCar.Columns.Add("numcaracteristic", typeof(int));
+            foreach (DataRow row in dataTableStade.Rows)
+            {
+                Stade stade = stades.Find(x => x.Id == row.Field<int>("numstade"));
 
+                if (stade != null)
+                {
+                    DataTable dataTableCar = SelectByDataAdapter("SELECT * FROM link_stade_caracteristic " +
+                                                                   "WHERE link_stade_caracteristic.numstade =" + stade.Id + ";");
+                    List<Caracteristique> caracts = new List<Caracteristique>(stade.Caracteristiques);
+
+                    //Update
+                    row.SetField("nbplace", stade.NbPlaces);
+                    row.SetField("planete", stade.Planete);
+
+                    //Gestion des caracteristiques
+                    foreach (DataRow rowCar in dataTableCar.Rows)
+                    {
+                        Caracteristique car = caracts.Find(x => x.Id == rowCar.Field<int>("numcaracteristic"));
+
+                        if (car != null)
+                        {
+                            //Update
+                            //Rien a faire
+                            caracts.Remove(car);
+                        }
+                        else
+                        {
+                            //Delete
+                            rowCar.Delete();
+                        }
+
+                    }
+                    foreach (Caracteristique car in caracts)
+                    {
+                        //Add
+                        dataTableCar.Rows.Add(stade.Id, car.Id);
+                    }
+
+                    dataTableCarToUpdate.Merge(dataTableCar);
+                    stades.Remove(stade);
+
+                }
+                else
+                {
+                    //Delete
+                    row.Delete();
+
+                    //Les caracteristiques sont alors supprimees en cascade
+                }
+
+            }
+            //Ajout
             foreach (Stade stade in stades)
             {
-                dataTableStade.Rows.Add(stade.Id, stade.NbPlaces, stade.Planete);
+                DataTable dataTableCar = SelectByDataAdapter("SELECT * FROM link_stade_caracteristic " +
+                                                              "WHERE link_stade_caracteristic.numstade =" + stade.Id + ";");
+                dataTableStade.Rows.Add(stade.Id,
+                    stade.NbPlaces,
+                    stade.Planete);
                 foreach (Caracteristique c in stade.Caracteristiques)
                 {
                     dataTableCar.Rows.Add(stade.Id, c.Id);
                 }
+                dataTableCarToUpdate.Merge(dataTableCar);
             }
-            UpdateByCommandBuilder("SELECT * FROM stade;", dataTableStade);
-            UpdateByCommandBuilder("SELECT * FROM link_stade_caracteristic;", dataTableCar);
-        }
-        public void updateCaracteristique(List<Caracteristique> caracteristiques)
-        {
-            DataTable dataTableCar = new DataTable();
-            dataTableCar.Columns.Add("numcaract", typeof(int));
-            dataTableCar.Columns.Add("def", typeof(string));
-            dataTableCar.Columns.Add("nom", typeof(string));
-            dataTableCar.Columns.Add("typecar", typeof(string));
-            dataTableCar.Columns.Add("valeur", typeof(int));
 
+            UpdateByCommandBuilder("SELECT * FROM stade;", dataTableStade);
+            UpdateByCommandBuilder("SELECT * FROM link_stade_caracteristic;", dataTableCarToUpdate);
+        }
+
+        public void updateCaracteristique(List<Caracteristique> _caracteristiques)
+        {
+            List<Caracteristique> caracteristiques = new List<Caracteristique>(_caracteristiques);
+            DataTable dataTableCar = SelectByDataAdapter("SELECT * FROM caracteristic;");
+
+            foreach (DataRow row in dataTableCar.Rows)
+            {
+                Caracteristique caracteristique = caracteristiques.Find(x => x.Id == row.Field<int>("numcaract"));
+                if (caracteristique != null)
+                {
+                    //Update
+                    row.SetField("def", caracteristique.Definition.ToString());
+                    row.SetField("nom", caracteristique.Nom);
+                    row.SetField("typecar", caracteristique.Type.ToString());
+                    row.SetField("valeur", caracteristique.Valeur);
+                    caracteristiques.Remove(caracteristique);
+                }
+                else
+                {
+                    //Delete
+                    row.Delete();
+                }
+            }
+            //Ajout
             foreach (Caracteristique caracteristique in caracteristiques)
             {
                 dataTableCar.Rows.Add(caracteristique.Id,
-                    caracteristique.Definition.ToString(),
-                    caracteristique.Nom,
-                    caracteristique.Type.ToString(),
-                    caracteristique.Valeur);
+                       caracteristique.Definition.ToString(),
+                       caracteristique.Nom,
+                       caracteristique.Type.ToString(),
+                       caracteristique.Valeur);
             }
 
             UpdateByCommandBuilder("SELECT * FROM caracteristic;", dataTableCar);
         }
-        public void updateUtilisateur(List<Utilisateur> utilisateurs)
-        {
-            DataTable dataTableUtilisateur = new DataTable();
-            dataTableUtilisateur.Columns.Add("numuser", typeof(int));
-            dataTableUtilisateur.Columns.Add("nom", typeof(string));
-            dataTableUtilisateur.Columns.Add("prenom", typeof(string));
-            dataTableUtilisateur.Columns.Add("loginuser", typeof(string));
-            dataTableUtilisateur.Columns.Add("passworduser", typeof(string));
 
+        public void updateUtilisateur(List<Utilisateur> _utilisateurs)
+        {
+            List<Utilisateur> utilisateurs = new List<Utilisateur>(_utilisateurs);
+            DataTable dataTableUtilisateur = SelectByDataAdapter("SELECT * FROM utilisateur;");
+
+            foreach (DataRow row in dataTableUtilisateur.Rows)
+            {
+                Utilisateur utilisateur = utilisateurs.Find(x => x.Id == row.Field<int>("numuser"));
+                if (utilisateur != null)
+                {
+                    //Update
+                    row.SetField("loginuser", utilisateur.Login);
+                    row.SetField("nom", utilisateur.Nom);
+                    row.SetField("prenom", utilisateur.Prenom);
+                    row.SetField("passworduser", utilisateur.Password);
+                    utilisateurs.Remove(utilisateur);
+                }
+                else
+                {
+                    //Delete
+                    row.Delete();
+                }
+            }
+            //Ajout
             foreach (Utilisateur utilisateur in utilisateurs)
             {
                 dataTableUtilisateur.Rows.Add(utilisateur.Id,
-                    utilisateur.Nom,
-                    utilisateur.Prenom,
-                    utilisateur.Login,
-                    utilisateur.Password);
+                   utilisateur.Nom,
+                   utilisateur.Prenom,
+                   utilisateur.Login,
+                   utilisateur.Password);
             }
             UpdateByCommandBuilder("SELECT * FROM utilisateur;", dataTableUtilisateur);
         }
-
     }
 }

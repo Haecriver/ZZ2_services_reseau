@@ -1,8 +1,8 @@
 ﻿INSERT INTO jedi VALUES (0, 'Armand', 0);	/*Jedi de test*/
+INSERT INTO caracteristic VALUES (0, 'Chance', 'Rien', 'Jedi', 0);
 INSERT INTO link_jedi_caracteristic VALUES (0,0);
 
 /*Caratetitiques Jedis*/
-INSERT INTO caracteristic VALUES (0, 'Chance', 'Rien', 'Jedi', 0);
 
 INSERT INTO caracteristic VALUES (1, 'Chance', 'Amateur de la force', 'Jedi', 20);
 INSERT INTO caracteristic VALUES (2, 'Chance', 'Disciple de la force', 'Jedi', 40);
