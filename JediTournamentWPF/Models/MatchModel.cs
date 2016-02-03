@@ -18,29 +18,38 @@ namespace JediTournamentWPF.Models
             match = match_;
         }
 
-        public Jedi JediVainqueur
+        public JediModel JediVainqueur
         {
-            get { return match.JediVainqueur; }
+            get { return new JediModel(match.JediVainqueur); }
             set {
-                match.JediVainqueur = value;
+                if (value != null)
+                {
+                    match.JediVainqueur = value.Jedi;
+                }
                 OnPropertyChanged("JediVainqueur");
             }
         }
 
-        public Jedi Jedi1
+        public JediModel Jedi1
         {
-            get { return match.Jedi1; }
+            get { return new JediModel(match.Jedi1); }
             set {
-                match.Jedi1 = value;
+                if (value != null)
+                {
+                    match.Jedi1 = value.Jedi;
+                }
                 OnPropertyChanged("Jedi1");
             }
         }
 
-        public Jedi Jedi2
+        public JediModel Jedi2
         {
-            get { return match.Jedi2; }
+            get { return new JediModel(match.Jedi2); }
             set {
-                match.Jedi2 = value;
+                if (value != null)
+                {
+                    match.Jedi2 = value.Jedi;
+                }
                 OnPropertyChanged("Jedi2");
             }
         }

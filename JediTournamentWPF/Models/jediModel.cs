@@ -16,6 +16,11 @@ namespace JediTournamentWPF
     public class JediModel : ViewModelBase, INotifyPropertyChanged
     {
         private Jedi jedi;
+
+        public Jedi Jedi
+        {
+            get { return jedi; }
+        }
         
         public JediModel(Jedi jedi_){
             jedi = jedi_;

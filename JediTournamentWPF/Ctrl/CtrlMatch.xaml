@@ -30,23 +30,29 @@
             <Label Content="Phase" Margin="0,5" Grid.Row="4" VerticalAlignment="Center" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" Padding="5,0" Height="20"/>
             <Label Content="Stade" Margin="0,5" Grid.Row="5" VerticalAlignment="Center" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" Padding="5,0" Height="20"/>
 
-            <ComboBox
-                  ItemsSource="{Binding Jedis}"
-                  DisplayMemberPath="Jedis.Jedis.Nom"
-                  Grid.Column="1"
-                  Grid.Row="1"/>
 
-            <ComboBox x:Name="Jedi2Name"
-                  ItemsSource="{Binding Jedis}"
-                  DisplayMemberPath="SelectedItem.Nom"
-                  Grid.Column="1"
-                  Grid.Row="2"/>
+            
+            <ComboBox Name="Jedi1Name"
+                SelectedValue="{Binding Match.Jedi1}" 
+                DisplayMemberPath="Nom"
+                ItemsSource="{Binding Jedis}"
+                Grid.Column="1"
+                Grid.Row="1"/>
 
-            <ComboBox x:Name="Stade"
-                  ItemsSource="{Binding Stades}"
-                  DisplayMemberPath="Planete"
-                  Grid.Column="1"
-                  Grid.Row="5"/>
+            <ComboBox Name="Jedi2Name"
+                SelectedValue="{Binding Match.Jedi2}" 
+                DisplayMemberPath="Nom"
+                ItemsSource="{Binding Jedis}"
+                Grid.Column="1"
+                Grid.Row="2"/>
+
+            <ComboBox Name="Stade"
+                SelectedValue="{Binding Match.Stade.Planete}" 
+                SelectedValuePath="Planete"
+                DisplayMemberPath="Planete"
+                ItemsSource="{Binding Stades}"
+                Grid.Column="1"
+                Grid.Row="5"/>
 
         </Grid>
         <Label Grid.ColumnSpan="2" Content="Fiche Match" HorizontalAlignment="Left" Margin="99,8,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="242" HorizontalContentAlignment="Center" FontSize="14" FontWeight="Bold"/>

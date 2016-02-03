@@ -8,6 +8,6 @@
         Title="Fiche_Match" Height="300" Width="300">
     <Grid>
         <local:CtrlMatch x:Name="ControleMatch" Margin="159,0,10,21"/>
-        <Button x:Name="ModifyMatch" Content="Modifier" HorizontalAlignment="Left" Margin="293,305,0,0" VerticalAlignment="Top" Width="75" Click="ModifyMatch_Click"/>
+        <Button x:Name="ModifyMatch" Content="Modifier" HorizontalAlignment="Left" Margin="200,250,0,0" VerticalAlignment="Top" Width="75" Click="ModifyMatch_Click"/>
     </Grid>
 </Window>

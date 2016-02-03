@@ -1,26 +1,28 @@
 ﻿using BiblioWPF.ViewModel;
-using JediTournamentWPF.ListModels;
-using JediTournamentWPF.Models;
+using stadeTournamentWPF.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JediTournamentWPF.Models;
+using JediTournamentWPF.ListModels;
 
 namespace JediTournamentWPF
 {
     public class MatchCombo : ViewModelBase, INotifyPropertyChanged
     {
-        MatchModel match;
-        JedisListModel jedis;
-        StadesListModel stades;
+        private MatchModel match;
+        private readonly ObservableCollection<JediModel> jedis; 
+        private readonly ObservableCollection<StadeModel> stades;
 
         public MatchCombo(MatchModel match_, JedisListModel jedis_, StadesListModel stades_)
         {
             match = match_;
-            jedis = jedis_;
-            stades = stades_;
+            jedis = jedis_.Jedis;
+            stades = stades_.Stades;
         }
 
         public MatchModel Match
@@ -32,22 +34,14 @@ namespace JediTournamentWPF
             }
         }
 
-        public JedisListModel Jedis
+        public ObservableCollection<JediModel> Jedis
         {
             get { return jedis; }
-            set {
-                jedis = value;
-                OnPropertyChanged("Jedis");
-            }
         }
 
-        public StadesListModel Stades
+        public ObservableCollection<StadeModel> Stades
         {
             get { return stades; }
-            set {
-                stades = value;
-                OnPropertyChanged("Stades");
-            }
         }
 
     }

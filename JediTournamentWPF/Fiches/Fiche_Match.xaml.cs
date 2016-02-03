@@ -23,7 +23,7 @@ namespace JediTournamentWPF
     public partial class Fiche_Match : Window
     {
 
-        public event Action<MatchModel> ModifyMatchClicked;
+        public event Action<MatchCombo> ModifyMatchClicked;
         public Fiche_Match()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace JediTournamentWPF
 
         private void ModifyMatch_Click(object sender, RoutedEventArgs e)
         {
-            ModifyMatchClicked((MatchModel)ControleMatch.DataContext);
+            ModifyMatchClicked((MatchCombo)ControleMatch.DataContext);
             this.Close();
         }
     }
