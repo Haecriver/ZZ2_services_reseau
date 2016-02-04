@@ -90,7 +90,7 @@ namespace EntitiesLayer
         {
             string s = phaseTournoi + "\n" + jedi1.Nom + " vs " + Jedi2.Nom + " sur " + stade.Planete + "\n";
             if (jediVainqueur != null)
-                s += "Vainqueur : " + jediVainqueur.ToString();
+                s += "Vainqueur : " + jediVainqueur.Nom;
             else
                 s += "Le match n'a pas encore été joué";
             return s;

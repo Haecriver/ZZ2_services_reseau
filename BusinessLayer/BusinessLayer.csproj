@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BettingManager.cs" />
     <Compile Include="BusinessManager.cs" />
     <Compile Include="PlayingJedi.cs" />
+    <Compile Include="PlayingManager.cs" />
     <Compile Include="PlayingMatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -42,7 +42,7 @@ namespace JediTournamentWPF
         private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Fiche_Caracteristique win = new Fiche_Caracteristique(new CaracteristiqueModel((Caracteristique) (ListeCarac.SelectedItem)));
-            win.ModifyCaractClicked += Win_ModifyCaractClicked; ;
+            win.ModifyCaractClicked += Win_ModifyCaractClicked;
             win.Show();
         }
 

@@ -11,7 +11,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="TheGrid" Margin="10,37,25,10" Background="#FFB49D9D" Grid.ColumnSpan="2">
+        <Grid x:Name="TheGrid" Margin="10,37,10,10" Background="#FFB49D9D" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

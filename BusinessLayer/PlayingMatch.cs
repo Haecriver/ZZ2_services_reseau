@@ -44,6 +44,11 @@ namespace BusinessLayer
 
         // Caracteritiques du match
         Match match;
+        public Match Match
+        {
+            get { return match; }
+            set { match = value; }
+        }
 
         private int caractForceStade;
         public int CaractForceStade
@@ -125,7 +130,7 @@ namespace BusinessLayer
         public PlayingMatch(Match match)
         {
             matchOver = false;
-            if (match.JediVainqueur.Id != -1)
+            if (match.JediVainqueur != null)
             {
                 throw new Exception("Error : Match already run !");
             }

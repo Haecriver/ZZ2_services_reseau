@@ -56,5 +56,11 @@ namespace EntitiesLayer
         {
             return Id;
         }
+
+        public string toString(){
+            string str = "";
+            str += nom + " : " + score;
+            return str;
+        }
     }
 }

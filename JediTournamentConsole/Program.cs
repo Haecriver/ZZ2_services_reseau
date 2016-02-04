@@ -106,7 +106,7 @@ namespace JediTournamentConsole
 
             businessManager.updateMatch(matches);*/
 
-
+            List<Jedi> jedis = businessManager.getJedis();
 
             while (!end)
             {
@@ -117,16 +117,17 @@ namespace JediTournamentConsole
                 Console.Out.WriteLine("4 - Jedi 3 F 50 HP");
                 Console.Out.WriteLine("5 - Match 200 places siths");
                 Console.Out.WriteLine("6 - Play !");
-                Console.Out.WriteLine("7 - Exit");
+                Console.Out.WriteLine("7 - Bet !");
+                Console.Out.WriteLine("8 - Exit");
                 input = int.Parse(Console.In.ReadLine());
                 switch (input)
                 {
                     case 1:
-                        /* List<Match> = businessManager.getAllMatches();
-                         Console.Out.Write(businessManager.toString());*/
-
-                        Console.Out.WriteLine("Si quelqu'un pouvait m'expliquer le question demandee sur le sujet, merci ...");
-
+                        List<Match> matches = businessManager.getMatches();
+                        foreach (Match match in matches)
+                        {
+                            Console.Out.Write(match.ToString());
+                        }
                         break;
                     case 2:
                         res = businessManager.getStringStades();
@@ -156,10 +157,108 @@ namespace JediTournamentConsole
                             Console.Out.WriteLine(el);
                         }
                         break;
+
                     case 6:
-                        businessManager.playTestMatch(); 
+                        Jedi choosenJedi  = null;
+                        PlayingManager pm = new PlayingManager(businessManager);
+                        while (choosenJedi == null)
+                        {
+                            Console.Out.WriteLine("Choose your jedi ! (put id) ");
+                            foreach (Jedi jedi in jedis)
+                            {
+                                Console.Out.WriteLine(jedi.Id + "\t: " + jedi.Nom);
+                            }
+                            int choixJedi = int.Parse(Console.In.ReadLine());
+
+                            choosenJedi = jedis.Find(x => x.Id == choixJedi);
+                        }
+
+                        pm.LancerMatch(choosenJedi,8);
+
+                        while (pm.End != true)
+                        {
+                            bool cont = false;
+                            while(!cont){
+                                cont = true;
+                                pm.title();
+                                Console.Out.WriteLine("Choose your attack :");
+                                Console.Out.WriteLine("\t1 - Force");
+                                Console.Out.WriteLine("\t2 - Chance");
+                                Console.Out.WriteLine("\t3 - Defense !");
+                                int choixAttack = int.Parse(Console.In.ReadLine());
+
+                                switch (choixAttack)
+                                {
+                                    case 1:
+                                        pm.utiliserForce();
+                                        break;
+                                    case 2:
+                                        pm.utiliserChance();
+                                        break;
+                                    case 3:
+                                        pm.utiliserDefense();
+                                        break;
+                                    default:
+                                        cont = false;
+                                        break;
+                                }
+                            }
+                            Console.Out.WriteLine(pm.StatLastTurn);
+                        }
+                        if (pm.Win)
+                        {
+                            Console.Out.WriteLine("Vous avez gagne !");
+                        }
+                        else
+                        {
+                            Console.Out.WriteLine("Vous avez perdu !");
+                        }
                         break;
                     case 7:
+                        BettingManager bettingManager = new BettingManager(businessManager);
+                        
+                        Console.Out.WriteLine("List Jedi :");
+                        foreach (Match match in bettingManager.Pool.Matches)
+                        {
+                            Console.Out.WriteLine(match.Jedi1.Id + "\t: " + match.Jedi1.Nom);
+                            Console.Out.WriteLine(match.Jedi2.Id + "\t: " + match.Jedi2.Nom);
+                        }
+                        while (!bettingManager.End)
+                        {
+                            int choixJedi1;
+                            int bet1;
+                            Jedi choosenJediBet1=null;
+
+                            int choixJedi2;
+                            int bet2;
+                            Jedi choosenJediBet2=null;
+
+
+                            while (choosenJediBet1 == null)
+                            {
+                                Console.Out.WriteLine("Player 1 your jedi ! (put id) ");
+                                choixJedi1 = int.Parse(Console.In.ReadLine());
+                                choosenJediBet1 = jedis.Find(x => x.Id == choixJedi1);
+                            }
+                            Console.Out.WriteLine("Player 1 choose your bet : ");
+                            bet1 = int.Parse(Console.In.ReadLine());
+
+                            while (choosenJediBet1 == null)
+                            {
+                                Console.Out.WriteLine("Player 2 your jedi ! (put id) ");
+                                choixJedi2 = int.Parse(Console.In.ReadLine());
+                                choosenJediBet2 = jedis.Find(x => x.Id == choixJedi2);
+                            }
+                            Console.Out.WriteLine("Player 2 choose your bet : ");
+                            bet2 = int.Parse(Console.In.ReadLine());
+
+                            bettingManager.lancerPhaseTournoi(bet1, choosenJediBet1, bet2, choosenJediBet2);
+                            Console.Out.WriteLine(bettingManager.toString());
+
+                        }
+                        break;
+
+                    case 8:
                         end = true;
                         break;
                     default:

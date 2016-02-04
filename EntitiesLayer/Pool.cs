@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace EntitiesLayer
 {
-    class Pool
+    public class Pool
     {
+        private bool poolVide;
+        public bool PoolVide
+        {
+            get { return poolVide; }
+            set
+            {
+                poolVide = value;
+            }
+        }
+        
         private List<Match> matches;
         public List<Match> Matches
         {
@@ -28,24 +38,16 @@ namespace EntitiesLayer
             }
         }
 
-        private int last_id;
-        public int Last_id
-        {
-            get { return last_id; }
-        }
-
         private EPhaseTournoi phase;
         public EPhaseTournoi Phase
         {
             get { return phase; }
         }
 
-        public Pool(List<Jedi> jedis, List<Stade> _stades, int _last_id)
+        public Pool(List<Jedi> jedis, List<Stade> _stades)
         {
             stades = _stades;
-            last_id = _last_id;
-
-            int id = last_id;
+            poolVide = false;
             int nb_jedis = jedis.Count;
             int matche_a_creer = jedis.Count/2;
             Random rand = new Random();
@@ -53,6 +55,10 @@ namespace EntitiesLayer
             matches = new List<Match>();
             switch (nb_jedis)
             {
+                case 1:
+                    poolVide = true;
+                    break;
+
                 case 2:
                     phase = EPhaseTournoi.Finale;
                     break;
@@ -70,13 +76,12 @@ namespace EntitiesLayer
                     break;
 
                 default:
-                    throw new Exception("Nombre de jedi dans le pool incorrecte");
+                    throw new Exception("Nombre de jedi dans le pool incorrecte : "+jedis.Count);
             }
-            for (int i = 0; i < matche_a_creer; i++)
+            for (int i = 0; i < matche_a_creer && !poolVide; i++)
             {
-                matches.Add(new Match(id + i, jedis[i * 2], jedis[i * 2 + 1], phase, stades[rand.Next() % stades.Count]));
+                matches.Add(new Match(jedis[i * 2], jedis[i * 2 + 1], phase, stades[rand.Next() % stades.Count]));
             }
-            last_id += matche_a_creer;
         }
 
         public Pool nextPool()
@@ -86,7 +91,7 @@ namespace EntitiesLayer
             {
                 gagnants.Add(match.JediVainqueur);
             }
-            return new Pool(gagnants, stades, last_id);
+            return new Pool(gagnants, stades);
         }
     }
 }
