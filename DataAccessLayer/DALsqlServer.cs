@@ -17,9 +17,9 @@ namespace DataAccessLayer
 
         public DALSqlServer()
         {
-            connectionString = "Data Source=(LocalDB)\\v11.0;" +
-              // "Data Source=(LocalDB)\\MSSQLLocalDB; "+
-              "AttachDbFilename= " + Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Environment.CurrentDirectory))) + "\\BaseDeDonnees\\bdd_jedi_tournament.mdf;" +
+            connectionString = //"Data Source=(LocalDB)\\v11.0;" +
+               "Data Source=(LocalDB)\\MSSQLLocalDB; "+
+              "AttachDbFilename= " + Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Environment.CurrentDirectory))) + "\\BaseDeDonnees\\bdd_jedi_tournament_2014.mdf;" +
               "Integrated Security=True;" +
               "Connect Timeout=30";
             SqlConnection connection = new SqlConnection(connectionString);

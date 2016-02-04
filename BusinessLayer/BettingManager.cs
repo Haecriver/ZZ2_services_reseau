@@ -97,6 +97,10 @@ namespace BusinessLayer
             {
                 jedis.Add(match.JediVainqueur);
             }
+            //Maj bdd
+            List<Match> oldMatches = businessManager.getMatches();
+            oldMatches.Concat(pool.Matches);
+            businessManager.updateMatch(oldMatches);
             pool = pool.nextPool();
 
             end = pool.PoolVide;
