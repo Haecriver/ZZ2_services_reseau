@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:JediTournamentWPF" mc:Ignorable="d" x:Name="Jedi_Tournament_2016" x:Class="JediTournamentWPF.MainWindow"
         Title="Jedi Tournament 2016" HorizontalAlignment="Center" VerticalAlignment="Center" d:DesignHeight="520.491" d:DesignWidth="711.353" Loaded="Jedi_Tournament_2016_Loaded" MinWidth="800" MinHeight="500">
-    <Grid Background="#FF888A91" Margin="0">
+    <Grid Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15.403"/>
             <ColumnDefinition Width="181.597"/>
@@ -13,6 +13,11 @@
             <RowDefinition Height="39*"/>
             <RowDefinition Height="280*"/>
         </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/Background_gerer.jpg" />
+        </Grid.Background>
+        
         <GridSplitter x:Name="gridSplitter" Grid.Column="2" HorizontalAlignment="Left" Height="287" Grid.Row="1" VerticalAlignment="Top" Width="0"/>
         <Label x:Name="Title" Content="Jedi Tournament 2016" Grid.ColumnSpan="3" FontSize="21.333" VerticalAlignment="Top" HorizontalContentAlignment="Center" Foreground="White" Height="38">
             <Label.Background>

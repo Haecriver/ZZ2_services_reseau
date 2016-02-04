@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ChooseJedi">
 
-    <Grid Background="#FF888A91" Margin="0">
+    <Grid Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15.403"/>
             <ColumnDefinition Width="101"/>
@@ -13,7 +13,11 @@
             <RowDefinition Height="39*"/>
             <RowDefinition Height="280*"/>
         </Grid.RowDefinitions>
-        
+
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/Background_default.jpg" />
+        </Grid.Background>
+
         <GridSplitter x:Name="gridSplitter" Grid.Column="2" HorizontalAlignment="Left" Height="287" Grid.Row="1" VerticalAlignment="Top" Width="0"/>
         <Label x:Name="Title" Content="Choisis ton combatant" Grid.ColumnSpan="3" FontSize="21.333" VerticalAlignment="Top" HorizontalContentAlignment="Center" Foreground="White" Height="38">
             <Label.Background>

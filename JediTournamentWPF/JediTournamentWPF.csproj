@@ -223,8 +223,21 @@
     <Resource Include="Ressources\jouer_tour.jpeg" />
     <Resource Include="Ressources\Paris.png" />
     <Resource Include="Ressources\Utiliser_chance.png" />
-    <Resource Include="Ressources\utiliser_defense.jpg" />
     <Resource Include="Ressources\Utiliser_force.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\background_gerer.jpg" />
+    <Resource Include="Ressources\background_jouer.jpg" />
+    <Resource Include="Ressources\background_parier.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\background_default.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\utiliser_defense2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\utiliser_defense.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
