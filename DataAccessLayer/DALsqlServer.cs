@@ -122,9 +122,9 @@ namespace DataAccessLayer
             foreach (DataRow row in jedis_en_dur.Rows) // Loop over the rows.
             {
                 List<Caracteristique> caracts = new List<Caracteristique>();
-                DataTable caracts_en_dur = SelectByDataAdapter("SELECT * FROM caracteristic,link_jedi_caracteristic" +
-                                                               " WHERE caracteristic.numcaract = link_jedi_caracteristic.numcaracteristic" +
-                                                               " AND link_jedi_caracteristic.numjedi =" + jediId + ";");
+                DataTable caracts_en_dur = SelectByDataAdapter("SELECT * FROM caracteristic,link_stade_caracteristic" +
+                                                               " WHERE caracteristic.numcaract = link_stade_caracteristic.numcaracteristic" +
+                                                               " AND link_stade_caracteristic.numcaracteristic =" + jediId + ";");
                 foreach (DataRow row2 in caracts_en_dur.Rows) // Loop over the rows.
                 {
                     caracts.Add(new Caracteristique((int)row2.ItemArray.ElementAt(0),

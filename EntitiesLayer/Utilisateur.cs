@@ -52,6 +52,7 @@ namespace EntitiesLayer
         {
 
         }
+
         public Utilisateur(int _id,string _nom, string _prenom, string _login, string _password)
         {
 

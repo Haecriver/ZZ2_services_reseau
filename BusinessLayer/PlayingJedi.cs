@@ -14,7 +14,7 @@ namespace BusinessLayer
         private int caractDefense;
         private int caractChance;
 
-        private EDefCaracteristique choosenCaract;
+        private EDefCaracteristique chosenCaract;
 
         public PlayingJedi(Jedi jedi)
         {
@@ -80,16 +80,16 @@ namespace BusinessLayer
             }
         }
 
-        public EDefCaracteristique ChoosenCaract
+        public EDefCaracteristique ChosenCaract
         {
             get
             {
-                return choosenCaract;
+                return chosenCaract;
             }
 
             set
             {
-                choosenCaract = value;
+                chosenCaract = value;
             }
         }
     }

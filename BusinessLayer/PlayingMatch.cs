@@ -35,7 +35,7 @@ namespace BusinessLayer
     public class PlayingMatch
     {
         // Base de pv des Jedi
-        public static readonly int baseHP = 100;
+        public static readonly int baseHP = 30;
 
         // Mutiplicateur Pierre/Feuille/Ciseau
         private const int multiplicator = 5;
@@ -46,21 +46,86 @@ namespace BusinessLayer
         Match match;
 
         private int caractForceStade;
+        public int CaractForceStade
+        {
+            get { return caractForceStade; }
+            set { caractForceStade = value; }
+        }
+
         private int caractDefenseStade;
+        public int CaractDefenseStade
+        {
+            get { return caractDefenseStade; }
+            set { caractDefenseStade = value; }
+        }
+
         private int caractChanceStade;
+        public int CaractChanceStade
+        {
+            get { return caractChanceStade; }
+            set { caractChanceStade = value; }
+        }
+
+        private int caractSanteStade;
+        public int CaractSanteStade
+        {
+            get { return caractSanteStade; }
+            set { caractSanteStade = value; }
+        }
+
 
         private PlayingJedi pJedi1;
+        public PlayingJedi PJedi1
+        {
+            get { return pJedi1; }
+            set { pJedi1 = value; }
+        }
+
         private PlayingJedi pJedi2;
+        public PlayingJedi PJedi2
+        {
+            get { return pJedi2; }
+            set { pJedi2 = value; }
+        }
 
         // Valeur calculees du TOUR courant
-        bool matchOver = false;
-        Jedi looserJedi;
-        Jedi winnerJedi;
-        int dammageInfliged;
+        private bool matchOver;
+
+        public bool MatchOver
+        {
+            get { return matchOver; }
+            set { matchOver = value; }
+        }
+
+
+        private Jedi looserJedi;
+        public Jedi LooserJedi
+        {
+            get { return looserJedi; }
+            set { looserJedi = value; }
+        }
+
+        private Jedi winnerJedi;
+
+        public Jedi WinnerJedi
+        {
+            get { return winnerJedi; }
+            set { winnerJedi = value; }
+        }
+
+
+        private int damageInflicted;
+        public int DamageInflicted
+        {
+            get { return damageInflicted; }
+            set { damageInflicted = value; }
+        }
+
 
         public PlayingMatch(Match match)
         {
-            if (match.JediVainqueur != null)
+            matchOver = false;
+            if (match.JediVainqueur.Id != -1)
             {
                 throw new Exception("Error : Match already run !");
             }
@@ -90,18 +155,27 @@ namespace BusinessLayer
                 caractChanceStade = (from element in caractStade
                                      where element.Definition == EDefCaracteristique.Chance
                                      select element.Valeur).Sum();
+
+                //Calcul de la santé
+                caractSanteStade = (from element in caractStade
+                                    where element.Definition == EDefCaracteristique.Sante
+                                    select element.Valeur).Sum();
+
+                //Ajustement de santé des deux jedis
+                pJedi1.HpJedi += caractSanteStade;
+                pJedi2.HpJedi += caractSanteStade;
             }
         }
 
         // Le vainqueur est directement changé dans Match
-        public void playTurn(EDefCaracteristique choosenCaract1, EDefCaracteristique choosenCaract2)
+        public void playTurn(EDefCaracteristique chosenCaract1, EDefCaracteristique chosenCaract2)
         {
 
 
             if (!MatchOver)
             {
-                Jedi1.ChoosenCaract = choosenCaract1;
-                Jedi2.ChoosenCaract = choosenCaract2;
+                pJedi1.ChosenCaract = chosenCaract1;
+                pJedi2.ChosenCaract = chosenCaract2;
 
                 int scoreJ1 = 0;
                 int scoreJ2 = 0;
@@ -112,8 +186,8 @@ namespace BusinessLayer
                 //Calcul de la valeur de score
                 try
                 {
-                    scoreJ1 = computeScore(Jedi1);
-                    scoreJ2 = computeScore(Jedi2);
+                    scoreJ1 = computeScore(pJedi1);
+                    scoreJ2 = computeScore(pJedi2);
                 }
                 catch (Exception e)
                 {
@@ -123,7 +197,7 @@ namespace BusinessLayer
                 // Calcul du Shi-Fu-Mi
                 try
                 {
-                    vainqueurShiFuMi = shiFuMi(Jedi1.ChoosenCaract, Jedi2.ChoosenCaract);
+                    vainqueurShiFuMi = shiFuMi(pJedi1.ChosenCaract, pJedi2.ChosenCaract);
                 }
                 catch (Exception e)
                 {
@@ -143,29 +217,29 @@ namespace BusinessLayer
                 // Calcul vainqueur
 
                 // Par defaut J1 GAGNE et J2 PERD
-                dammageInfliged = 0;
+                damageInflicted = 0;
                 winnerJedi = match.Jedi1;
                 looserJedi = match.Jedi2;
 
                 if (scoreJ1 > scoreJ2)
                 {
-                    dammageInfliged = scoreJ1 - scoreJ2;
+                    damageInflicted = scoreJ1 - scoreJ2;
                     winnerJedi = match.Jedi1;
                     looserJedi = match.Jedi2;
 
-                    Jedi2.HpJedi -= dammageInfliged;
+                    pJedi2.HpJedi -= damageInflicted;
                 }
                 else if (scoreJ1 < scoreJ2)
                 {
-                    dammageInfliged = scoreJ2 - scoreJ1;
+                    damageInflicted = scoreJ2 - scoreJ1;
                     looserJedi = match.Jedi1;
                     winnerJedi = match.Jedi2;
 
-                    Jedi1.HpJedi -= dammageInfliged;
+                    pJedi1.HpJedi -= damageInflicted;
                 }
 
                 //Le dernier vainqueur du match sera donc le vainqueur
-                if (Jedi1.HpJedi <= 0 || Jedi2.HpJedi <= 0)
+                if (pJedi1.HpJedi <= 0 || pJedi2.HpJedi <= 0)
                 {
                     matchOver = true;
                     match.JediVainqueur = winnerJedi;
@@ -187,7 +261,7 @@ namespace BusinessLayer
         private int computeScore(PlayingJedi joueur)
         {
             int score = 0;
-            switch (joueur.ChoosenCaract)
+            switch (joueur.ChosenCaract)
             {
                 case EDefCaracteristique.Force:
                     score += joueur.CaractForce;
@@ -205,25 +279,25 @@ namespace BusinessLayer
                     break;
 
                 case EDefCaracteristique.Sante:
-                    throw new Exception("Error : \"Caracteristique Sante\" choosen !");
+                    throw new Exception("Error : \"Caracteristique Sante\" chosen !");
             }
             return score;
         }
 
-        private RepShiFuMi shiFuMi(EDefCaracteristique choosenCaract1, EDefCaracteristique choosenCaract2)
+        private RepShiFuMi shiFuMi(EDefCaracteristique chosenCaract1, EDefCaracteristique chosenCaract2)
         {
             RepShiFuMi vainqueurShiFuMi = RepShiFuMi.Null;
-            if (choosenCaract1 == choosenCaract2)
+            if (chosenCaract1 == chosenCaract2)
             {
                 vainqueurShiFuMi = RepShiFuMi.Egalite;
             }
             else
             {
-                switch (choosenCaract1)
+                switch (chosenCaract1)
                 {
                     case EDefCaracteristique.Force:
                         vainqueurShiFuMi = RepShiFuMi.J1Gagnant;
-                        if (choosenCaract2 == EDefCaracteristique.Chance)
+                        if (chosenCaract2 == EDefCaracteristique.Chance)
                         {
                             vainqueurShiFuMi = RepShiFuMi.J2Gagnant;
                         }
@@ -231,7 +305,7 @@ namespace BusinessLayer
 
                     case EDefCaracteristique.Chance:
                         vainqueurShiFuMi = RepShiFuMi.J1Gagnant;
-                        if (choosenCaract2 == EDefCaracteristique.Defense)
+                        if (chosenCaract2 == EDefCaracteristique.Defense)
                         {
                             vainqueurShiFuMi = RepShiFuMi.J2Gagnant;
                         }
@@ -239,53 +313,17 @@ namespace BusinessLayer
 
                     case EDefCaracteristique.Defense:
                         vainqueurShiFuMi = RepShiFuMi.J1Gagnant;
-                        if (choosenCaract2 == EDefCaracteristique.Force)
+                        if (chosenCaract2 == EDefCaracteristique.Force)
                         {
                             vainqueurShiFuMi = RepShiFuMi.J2Gagnant;
                         }
                         break;
 
                     case EDefCaracteristique.Sante:
-                        throw new Exception("Error : \"Caracteristique Sante\" choosen !");
+                        throw new Exception("Error : \"Caracteristique Sante\" chosen !");
                 }
             }
             return vainqueurShiFuMi;
-        }
-
-
-
-        public bool MatchOver
-        {
-            get { return matchOver; }
-        }
-        public Jedi WinnerJedi
-        {
-            get { return winnerJedi; }
-        }
-        public Jedi LooserJedi
-        {
-            get { return looserJedi; }
-
-        }
-        public int DammageInfliged
-        {
-            get { return dammageInfliged; }
-        }
-
-        internal PlayingJedi Jedi1
-        {
-            get
-            {
-                return pJedi1;
-            }
-        }
-
-        internal PlayingJedi Jedi2
-        {
-            get
-            {
-                return pJedi2;
-            }
         }
     }
 }
