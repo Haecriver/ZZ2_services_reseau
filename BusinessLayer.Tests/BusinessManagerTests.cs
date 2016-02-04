@@ -31,7 +31,11 @@ namespace BusinessLayer.Tests
             data.updateCaracteristique(lc);
 
             Assert.IsTrue(data.getAllCaracteristic().Any(c => c.Id == id), "La caractéristique n'a pas été ajoutée");     // On vérifie que la caractéristique a bien été rajoutée
-            
+            Assert.AreEqual(data.getAllCaracteristic().Find(c => c.Id == id).Definition, def);
+            Assert.AreEqual(data.getAllCaracteristic().Find(c => c.Id == id).Nom, text);
+            Assert.AreEqual(data.getAllCaracteristic().Find(c => c.Id == id).Type, type);
+            Assert.AreEqual(data.getAllCaracteristic().Find(c => c.Id == id).Valeur, val);
+
             lc.Remove(lc.Find(c => c.Id == id));
             data.updateCaracteristique(lc);
 
@@ -60,6 +64,8 @@ namespace BusinessLayer.Tests
             data.updateJedi(lj);
 
             Assert.IsTrue(data.getAllJedi().Any(j => j.Id == id), "Le jedi n'a pas été ajouté");     // On vérifie que le jedi a bien été rajouté
+            Assert.AreEqual(data.getAllJedi().Find(j => j.Id == id).Nom, name, "Le nom du jedi ne correspond pas");
+            Assert.AreEqual(data.getAllJedi().Find(j => j.Id == id).IsSith, isSith, "Le côté de la force du jedi ne correspond pas");
 
             lj.Remove(lj.Find(j => j.Id == id));
             data.updateJedi(lj);
@@ -89,6 +95,8 @@ namespace BusinessLayer.Tests
             data.updateStade(ls);
 
             Assert.IsTrue(data.getAllStade().Any(s => s.Id == id), "Le stade n'a pas été ajouté");     // On vérifie que le stade a bien été rajouté
+            Assert.AreEqual(data.getAllStade().Find(s => s.Id == id).NbPlaces, nbplaces);
+            Assert.AreEqual(data.getAllStade().Find(s => s.Id == id).Planete, name);
 
             ls.Remove(ls.Find(s => s.Id == id));
             data.updateStade(ls);
@@ -116,6 +124,10 @@ namespace BusinessLayer.Tests
             data.updateMatch(lm);
 
             Assert.IsTrue(data.getAllMatch().Any(m => m.Id == id), "Le match n'a pas été ajouté");     // On vérifie que le match a bien été rajouté
+            Assert.AreEqual(data.getAllMatch().Find(m => m.Id == id).Jedi1.Id, pJedi1.Id);
+            Assert.AreEqual(data.getAllMatch().Find(m => m.Id == id).Jedi2.Id, pJedi2.Id);
+            Assert.AreEqual(data.getAllMatch().Find(m => m.Id == id).PhaseTournoi, phase);
+            Assert.AreEqual(data.getAllMatch().Find(m => m.Id == id).Stade.Id, stade.Id);
 
             lm.Remove(lm.Find(m => m.Id == id));
             data.updateMatch(lm);
@@ -141,8 +153,11 @@ namespace BusinessLayer.Tests
 
             lu.Add(user);
             data.updateUtilisateur(lu);
-
+            
             Assert.IsTrue(data.getAllUtilisateur().Any(u => u.Id == id), "L'utilisateur n'a pas été ajouté");     // On vérifie que l'utilisateur a bien été rajouté
+            Assert.AreEqual(data.getAllUtilisateur().Find(u => u.Id == id).Nom, nom);
+            Assert.AreEqual(data.getAllUtilisateur().Find(u => u.Id == id).Prenom, prenom);
+            Assert.AreEqual(data.getAllUtilisateur().Find(u => u.Id == id).Login, login);
 
             lu.Remove(lu.Find(u => u.Id == id));
             data.updateUtilisateur(lu);
