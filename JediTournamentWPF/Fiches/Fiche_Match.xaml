@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JediTournamentWPF.Ctrl"
         mc:Ignorable="d"
-        Title="Fiche_Match" Height="300" Width="300">
+        Title="Fiche_Match" Height="336.667" Width="409.333">
     <Grid>
-        <local:CtrlMatch x:Name="ControleMatch" Margin="159,0,10,21"/>
-        <Button x:Name="ModifyMatch" Content="Modifier" HorizontalAlignment="Center" Margin="200,250,0,0" VerticalAlignment="Top" Width="75" Click="ModifyMatch_Click"/>
+        <local:CtrlMatch x:Name="ControleMatch" Margin="0,0,0,44"/>
+        <Button x:Name="ModifyMatch" Content="Modifier" HorizontalAlignment="Right" Margin="0,0,13,13" Width="75" Click="ModifyMatch_Click" RenderTransformOrigin="0.178,0.45" Height="26" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

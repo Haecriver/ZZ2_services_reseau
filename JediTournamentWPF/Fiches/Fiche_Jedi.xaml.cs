@@ -20,17 +20,19 @@ namespace JediTournamentWPF
     /// </summary>
     public partial class Fiche_Jedi : Window
     {
-
         public event Action<JediModel> ModifyJediClicked;
+
         public Fiche_Jedi()
         {
             InitializeComponent();
         }
+
         public Fiche_Jedi(Jedi j)
         {
             InitializeComponent();
             ControleJedi.DataContext = new JediModel(j);
         }
+
         public Fiche_Jedi(JediModel j)
         {
             InitializeComponent();
@@ -41,6 +43,6 @@ namespace JediTournamentWPF
         {
             ModifyJediClicked((JediModel) ControleJedi.DataContext);
             this.Close();
-        }
+        }        
     }
 }

@@ -40,5 +40,10 @@ namespace JediTournamentWPF.Fiches
             ModifyStadiumClicked((StadeModel)ControleStadium.DataContext);
             this.Close();
         }
+
+        private void ControleStadium_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

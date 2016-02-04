@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using EntitiesLayer;
 using JediTournamentWPF;
 using System.Collections.ObjectModel;
+using JediTournamentWPF.Fiches;
+using JediTournamentWPF.Models;
 
 namespace JediTournamentWPF
 {
@@ -25,10 +27,33 @@ namespace JediTournamentWPF
         {
             InitializeComponent();
         }
+
         public CtrlJedi(Jedi jedi_)
         {
             InitializeComponent();
             this.DataContext = jedi_;
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Fiche_Caracteristique win = new Fiche_Caracteristique(new CaracteristiqueModel((Caracteristique) (ListeCarac.SelectedItem)));
+            win.ModifyCaractClicked += Win_ModifyCaractClicked; ;
+            win.Show();
+        }
+
+        private void Win_ModifyCaractClicked(CaracteristiqueModel obj)
+        {
+            int index = ListeCarac.SelectedIndex;
+            if (index != -1)
+            {
+                ListeCarac.Items.RemoveAt(index);
+                ListeCarac.Items.Insert(index, obj);
+            }
         }
     }
 }
