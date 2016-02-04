@@ -159,7 +159,7 @@ namespace JediTournamentWPF
 
         }
 
-        private void Jedi_Tournament_2016_Closing(object sender, RoutedEventArgs e)
+        private void Jedi_Tournament_2016_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Principale fenetre = new Principale();
             fenetre.Show();

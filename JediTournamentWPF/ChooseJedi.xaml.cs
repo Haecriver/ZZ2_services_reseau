@@ -36,10 +36,21 @@ namespace JediTournamentWPF
 
         private void ChoixJedi_Click(object sender, RoutedEventArgs e)
         {
-            jediChoisi =((JediModel)SelectorJedi.SelectedItem).Jedi;
-            Jeux jeux = new Jeux(jediChoisi);
-            jeux.Show();
+            if(SelectorJedi.SelectedItem!=null)
+            {
+                jediChoisi = ((JediModel)SelectorJedi.SelectedItem).Jedi;
+                Jeux jeux = new Jeux(jediChoisi);
+                jeux.Show();
+                this.Close();
+            }
+        }
+
+        private void Retour_Click(object sender, RoutedEventArgs e)
+        {
+            Principale fenetre = new Principale();
+            fenetre.Show();
             this.Close();
+
         }
     }
 }
