@@ -21,7 +21,7 @@ namespace DataAccessLayer
 
         private IDAL usingDal;
 
-        private DalManager()
+        public DalManager()
         {
             typeBDD = _typeBDD.SQL;
             if(typeBDD==_typeBDD.SQL){

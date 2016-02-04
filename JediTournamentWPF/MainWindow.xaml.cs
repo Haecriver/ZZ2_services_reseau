@@ -153,5 +153,16 @@ namespace JediTournamentWPF
             stades = new StadesListModel(manager.getStades());
             matchs = new MatchListModel(manager.getMatches());
         }
+
+        private void button_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Jedi_Tournament_2016_Closing(object sender, RoutedEventArgs e)
+        {
+            Principale fenetre = new Principale();
+            fenetre.Show();
+        }
     }
 }

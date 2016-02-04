@@ -72,9 +72,9 @@ namespace BusinessLayer
                 Console.Out.WriteLine("Tour {0}", i);
                 Console.Out.WriteLine("{0} utilise : {1}", match.Jedi1.Nom, j1Caract.ToString());
                 Console.Out.WriteLine("{0} utilise : {1}", match.Jedi2.Nom, j2Caract.ToString());
-                Console.Out.WriteLine("{0} inflige {1} degats a {2}", pMatch.WinnerJedi.Nom, pMatch.DammageInfliged, pMatch.LooserJedi.Nom);
-                Console.Out.WriteLine("Point de vie restant a {0} : {1}", match.Jedi1.Nom, pMatch.Jedi1.HpJedi);
-                Console.Out.WriteLine("Point de vie restant a {0} : {1}", match.Jedi2.Nom, pMatch.Jedi2.HpJedi);
+                Console.Out.WriteLine("{0} inflige {1} degats a {2}", pMatch.WinnerJedi.Nom, pMatch.DamageInflicted, pMatch.LooserJedi.Nom);
+                Console.Out.WriteLine("Point de vie restant a {0} : {1}", match.Jedi1.Nom, pMatch.PJedi1.HpJedi);
+                Console.Out.WriteLine("Point de vie restant a {0} : {1}", match.Jedi2.Nom, pMatch.PJedi2.HpJedi);
                 i++;
             }
             //Resultat

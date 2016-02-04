@@ -46,5 +46,11 @@ namespace JediTournamentWPF
             ModifyMatchClicked((MatchCombo)ControleMatch.DataContext);
             this.Close();
         }
+
+        private void ControleMatch_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
     }
 }

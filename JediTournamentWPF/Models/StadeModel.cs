@@ -14,6 +14,11 @@ namespace stadeTournamentWPF.Models
     {
         private Stade stade;
 
+        public Stade Stade
+        {
+            get { return stade; }
+        }
+
         public StadeModel(Stade stade_)
         {
             stade = stade_;

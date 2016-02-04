@@ -18,7 +18,8 @@ namespace DataAccessLayer
         public DALSqlServer()
         {
           //  connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\"+user+"\\Source\\Repos\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament2.mdf;Integrated Security=True;Connect Timeout=30";
-            connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Pierre\\Documents\\GitHub\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament_2014.mdf;Integrated Security=True;Connect Timeout=30";
+          //  connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\pierr\\Dropbox\\Cours\\ISIMA\\ZZ2\\services_reseau\\TP1-ServicesReseau\\BaseDeDonnees\\bdd_jedi_tournament.mdf;Integrated Security=True;Connect Timeout=30";
+            connectionString ="Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\anmichel2\\Documents\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament_nul.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection connection = new SqlConnection(connectionString);
             // Test de la connection
             try
@@ -122,9 +123,9 @@ namespace DataAccessLayer
             foreach (DataRow row in jedis_en_dur.Rows) // Loop over the rows.
             {
                 List<Caracteristique> caracts = new List<Caracteristique>();
-                DataTable caracts_en_dur = SelectByDataAdapter("SELECT * FROM caracteristic,link_jedi_caracteristic" +
-                                                               " WHERE caracteristic.numcaract = link_jedi_caracteristic.numcaracteristic" +
-                                                               " AND link_jedi_caracteristic.numjedi =" + jediId + ";");
+                DataTable caracts_en_dur = SelectByDataAdapter("SELECT * FROM caracteristic,link_stade_caracteristic" +
+                                                               " WHERE caracteristic.numcaract = link_stade_caracteristic.numcaracteristic" +
+                                                               " AND link_stade_caracteristic.numcaracteristic =" + jediId + ";");
                 foreach (DataRow row2 in caracts_en_dur.Rows) // Loop over the rows.
                 {
                     caracts.Add(new Caracteristique((int)row2.ItemArray.ElementAt(0),
