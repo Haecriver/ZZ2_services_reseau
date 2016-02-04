@@ -24,7 +24,14 @@
         <TextBox x:Name="textBox" Grid.Column="0" Grid.Row="2"></TextBox>
         <TextBox  Grid.Column="0" Grid.Row="1" x:Name="BettingPlayer1"  Height="23" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"/>
         <TextBox Grid.Column="0" Grid.Row="0" x:Name="BettingPlayer2"  Height="23" Margin="80,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"/>
-        <Button Grid.Column="1" Grid.Row="1" x:Name="paris" Click="paris_Click_1">Parier</Button>
+        <Button Grid.Column="1" Grid.Row="1" x:Name="paris" Click="paris_Click_1"
+                Content="Parier"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="20" FontFamily="Arial Black" Foreground="Gold"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/lancer_paris.jpeg" />
+            </Button.Background>
+        </Button>
         <ComboBox x:Name="Jedis1" Grid.Column="1" Grid.Row="2">
             
         </ComboBox>

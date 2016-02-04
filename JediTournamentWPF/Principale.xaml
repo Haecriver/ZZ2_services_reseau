@@ -23,26 +23,35 @@
 
         <Button Grid.Column="0" Grid.Row="0" 
                 BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-                Click="Jouer_Click">
-            <Button.Content>
-                <Image Stretch="UniformToFill" Source="Ressources/Jouer.jpg" />
-            </Button.Content>
+                Click="Jouer_Click"
+                Content="Jouer"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="70" FontFamily="Arial Black" Foreground="AntiqueWhite"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/jouer.jpg" />
+            </Button.Background>
         </Button>
 
         <Button Grid.Column="0" Grid.Row="2" 
                 Click="Paris_Click"
-                BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
-            <Button.Content>
-                <Image Stretch="UniformToFill" Source="Ressources/Paris.png" />
-            </Button.Content>
+                BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+                Content="Parier"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="70" FontFamily="Arial Black" Foreground="AntiqueWhite"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/Paris.png" />
+            </Button.Background>
         </Button>
 
         <Button x:Name="GestionButton" Grid.Column="0" Grid.Row="4"
                 BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-                Click="Gestion_Click">
-            <Button.Content>
-                <Image Stretch="UniformToFill " Source="Ressources/Gerer.jpg" />
-            </Button.Content>
+                Click="Gestion_Click"
+                Content="Gérer"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="70" FontFamily="Arial Black" Foreground="AntiqueWhite"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/gerer.jpg" />
+            </Button.Background>
         </Button>
 
     </Grid>
