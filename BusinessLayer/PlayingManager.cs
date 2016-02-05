@@ -71,7 +71,8 @@ namespace BusinessLayer
             playerJedi = jedi;
             
             List<Jedi> jedis = businessManager.getJedis();
-            jedis.Remove(jedi);
+            Jedi jediToRemove = jedis.Find(x => x.Id == jedi.Id);
+            jedis.Remove(jediToRemove);
             List<Jedi> jedis_to_pool = new List<Jedi>();
             jedis_to_pool.Add(jedi);
 
@@ -131,6 +132,10 @@ namespace BusinessLayer
                     end = true;
                     win = false;
                 }else{
+                    //Maj bdd
+                    List<Match> oldMatches = businessManager.getMatches();
+                    oldMatches.Concat(pool.Matches);
+                    businessManager.updateMatch(oldMatches);
                     pool = pool.nextPool();
                     foreach (Match match in pool.Matches)
                     {

@@ -56,7 +56,7 @@ INSERT INTO link_jedi_caracteristic VALUES (2,12);
 INSERT INTO link_jedi_caracteristic VALUES (2,16);
 INSERT INTO link_jedi_caracteristic VALUES (2,4);
 
-INSERT INTO jedi VALUES (3,'Obi Wan Kennobi',0);
+INSERT INTO jedi VALUES (3,'Obi Wan Kenobi',0);
 INSERT INTO link_jedi_caracteristic VALUES (3,3);
 INSERT INTO link_jedi_caracteristic VALUES (3,6);
 INSERT INTO link_jedi_caracteristic VALUES (3,11);
@@ -98,7 +98,7 @@ INSERT INTO link_jedi_caracteristic VALUES (8,11);
 INSERT INTO link_jedi_caracteristic VALUES (8,14);
 INSERT INTO link_jedi_caracteristic VALUES (8,4);
 
-INSERT INTO jedi VALUES (9,'Grievious',1);
+INSERT INTO jedi VALUES (9,'Grievous',1);
 INSERT INTO link_jedi_caracteristic VALUES (9,5);
 INSERT INTO link_jedi_caracteristic VALUES (9,9);
 INSERT INTO link_jedi_caracteristic VALUES (9,13);

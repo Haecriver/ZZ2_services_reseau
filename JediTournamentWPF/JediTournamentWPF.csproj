@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChooseJedi.xaml.cs">
+      <DependentUpon>ChooseJedi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ctrl\CtrlCaracteristique.xaml.cs">
       <DependentUpon>CtrlCaracteristique.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,9 @@
     <Compile Include="Fiches\Fiche_Stade.xaml.cs">
       <DependentUpon>Fiche_Stade.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Jeux.xaml.cs">
+      <DependentUpon>Jeux.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListModels\CaracteristiqueListModel.cs" />
     <Compile Include="ListModels\MatchListModel.cs" />
     <Compile Include="ListModels\StadesListModel.cs" />
@@ -88,8 +94,18 @@
     <Compile Include="ListModels\JedisListModel.cs" />
     <Compile Include="Models\MatchModel.cs" />
     <Compile Include="Models\StadeModel.cs" />
+    <Compile Include="Paris.xaml.cs">
+      <DependentUpon>Paris.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Principale.xaml.cs">
+      <DependentUpon>Principale.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Page Include="ChooseJedi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ctrl\CtrlCaracteristique.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +134,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Jeux.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +160,14 @@
     <Page Include="Ctrl\CtrlJedi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paris.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Principale.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +209,39 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="75017_yoda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\75017_yoda.png" />
+    <Resource Include="Ressources\Background.jpg" />
+    <Resource Include="Ressources\Bonus.jpg" />
+    <Resource Include="Ressources\Gerer.jpg" />
+    <Resource Include="Ressources\gerer_carateristique.jpg" />
+    <Resource Include="Ressources\gerer_jedi.jpg" />
+    <Resource Include="Ressources\gerer_match.jpg" />
+    <Resource Include="Ressources\gerer_stade.jpg" />
+    <Resource Include="Ressources\gerer_stade2.jpg" />
+    <Resource Include="Ressources\Jouer.jpg" />
+    <Resource Include="Ressources\jouer_tour.jpeg" />
+    <Resource Include="Ressources\Paris.png" />
+    <Resource Include="Ressources\Utiliser_chance.png" />
+    <Resource Include="Ressources\Utiliser_force.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\background_gerer.jpg" />
+    <Resource Include="Ressources\background_jouer.jpg" />
+    <Resource Include="Ressources\background_parier.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\background_default.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\utiliser_defense2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\utiliser_defense.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\lancer_paris.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

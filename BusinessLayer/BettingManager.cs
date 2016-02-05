@@ -41,6 +41,14 @@ namespace BusinessLayer
             //   set { joueur2 = value; }
         }
 
+        private List<Jedi> jedis;
+        public List<Jedi> Jedis
+        {
+            get { return jedis; }
+            //   set { jedis = value; }
+        }
+
+
         public BettingManager(BusinessManager businessManager)
         {
             this.businessManager = businessManager;
@@ -49,18 +57,19 @@ namespace BusinessLayer
             joueur1 = new Joueur("player1", 0);
             joueur2 = new Joueur("player2", 0);
 
-            List<Jedi> jedis = businessManager.getJedis();
+            List<Jedi> allJedis = businessManager.getJedis();
             List<Jedi> jedis_to_pool = new List<Jedi>();
 
 
             //Creation de la liste a mettre dans la pool
             for (int i = 0; i < 16; i++)
             {
-                int index = rand.Next() % jedis.Count;
-                jedis_to_pool.Add(jedis[index]);
-                jedis.Remove(jedis[index]);
+                int index = rand.Next() % allJedis.Count;
+                jedis_to_pool.Add(allJedis[index]);
+                allJedis.Remove(allJedis[index]);
             }
 
+            jedis = jedis_to_pool;
             pool = new Pool(jedis_to_pool, businessManager.getStades());
 
         }
@@ -83,6 +92,15 @@ namespace BusinessLayer
                     joueur2.Score += parisJoueur2;
                 }
             }
+            jedis.Clear();
+            foreach (Match match in pool.Matches)
+            {
+                jedis.Add(match.JediVainqueur);
+            }
+            //Maj bdd
+            List<Match> oldMatches = businessManager.getMatches();
+            oldMatches.Concat(pool.Matches);
+            businessManager.updateMatch(oldMatches);
             pool = pool.nextPool();
 
             end = pool.PoolVide;

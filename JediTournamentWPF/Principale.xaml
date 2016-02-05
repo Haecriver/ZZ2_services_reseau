@@ -1,0 +1,58 @@
+﻿<Window x:Class="JediTournamentWPF.Principale"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Principale" Height="700" Width="1200">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/Background.jpg" />
+        </Grid.Background>
+
+        <Button Grid.Column="0" Grid.Row="0" 
+                BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                Click="Jouer_Click"
+                Content="Jouer"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="70" FontFamily="Arial Black" Foreground="AntiqueWhite"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/jouer.jpg" />
+            </Button.Background>
+        </Button>
+
+        <Button Grid.Column="0" Grid.Row="2" 
+                Click="Paris_Click"
+                BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+                Content="Parier"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="70" FontFamily="Arial Black" Foreground="AntiqueWhite"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/Paris.png" />
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="GestionButton" Grid.Column="0" Grid.Row="4"
+                BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                Click="Gestion_Click"
+                Content="Gérer"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="70" FontFamily="Arial Black" Foreground="AntiqueWhite"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/gerer.jpg" />
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>

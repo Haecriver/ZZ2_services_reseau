@@ -1,0 +1,60 @@
+﻿<Window x:Class="JediTournamentWPF.Jeux"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Jeux" Loaded="Window_Loaded_1" Closing="Window_Closing_1">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/Background_jouer.jpg" />
+        </Grid.Background>
+
+        <TextBox  x:Name="textBoxJedi" Grid.Column="1"></TextBox>
+
+
+        <Button Grid.Column="0" Grid.Row="0" 
+                BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                Click="Force_Click"
+                Content="Utiliser Force"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="20" FontFamily="Arial Black" Foreground="Gold"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/Utiliser_force.jpg" />
+            </Button.Background>
+        </Button>
+
+        <Button Grid.Column="0" Grid.Row="2" 
+                BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                Click="Chance_Click"
+                Content="Utiliser Chance"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="20" FontFamily="Arial Black" Foreground="Gold"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/utiliser_chance.png" />
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="GestionButton" Grid.Column="0" Grid.Row="4"
+                BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                Click="Defense_Click"
+                Content="Utiliser Defense"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="20" FontFamily="Arial Black" Foreground="Gold"
+                >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Ressources/Utiliser_defense.jpg" />
+            </Button.Background>
+        </Button>
+
+
+    </Grid>
+</Window>

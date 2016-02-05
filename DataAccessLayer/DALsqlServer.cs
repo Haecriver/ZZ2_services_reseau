@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using EntitiesLayer;
+using System.IO;
 
 namespace DataAccessLayer
 {
     class DALSqlServer : IDAL
     {
         protected string connectionString;
-        protected string user = "pichevalie1";
 
         public DALSqlServer()
         {
-          //  connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\"+user+"\\Source\\Repos\\ZZ2_services_reseau\\BaseDeDonnees\\bdd_jedi_tournament2.mdf;Integrated Security=True;Connect Timeout=30";
-            connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\pierr\\Dropbox\\Cours\\ISIMA\\ZZ2\\services_reseau\\TP1-ServicesReseau\\BaseDeDonnees\\bdd_jedi_tournament.mdf;Integrated Security=True;Connect Timeout=30";
+            connectionString = //"Data Source=(LocalDB)\\v11.0;" +
+               "Data Source=(LocalDB)\\MSSQLLocalDB; "+
+              "AttachDbFilename= " + Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Environment.CurrentDirectory))) + "\\BaseDeDonnees\\bdd_jedi_tournament_2014.mdf;" +
+              "Integrated Security=True;" +
+              "Connect Timeout=30";
             SqlConnection connection = new SqlConnection(connectionString);
             // Test de la connection
             try
