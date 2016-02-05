@@ -85,6 +85,7 @@
     <Compile Include="Jeux.xaml.cs">
       <DependentUpon>Jeux.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListModels\CaracteristiqueListModel.cs" />
     <Compile Include="ListModels\MatchListModel.cs" />
     <Compile Include="ListModels\StadesListModel.cs" />
     <Compile Include="MatchCombo.cs" />

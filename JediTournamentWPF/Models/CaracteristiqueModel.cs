@@ -17,8 +17,8 @@ namespace JediTournamentWPF.Models
 
         public CaracteristiqueModel (Caracteristique c_)
         {
-            c = c_;
-            lc = new ObservableCollection<EDefCaracteristique>(); //TODO: Ajouter la liste des caracteristiques
+            C = c_;
+            lc = new ObservableCollection<EDefCaracteristique>();
             for (int i = 0; i < 3; ++i)
             {
                 lc.Add((EDefCaracteristique)i);
@@ -29,11 +29,11 @@ namespace JediTournamentWPF.Models
         {
             get
             {
-                return c.Valeur;
+                return C.Valeur;
             }
             set
             {
-                c.Valeur = value;
+                C.Valeur = value;
                 OnPropertyChanged("Valeur");
             }
         }
@@ -42,11 +42,11 @@ namespace JediTournamentWPF.Models
         {
             get
             {
-                return c.Definition;
+                return C.Definition;
             }
             set
             {
-                c.Definition = value;
+                C.Definition = value;
                 OnPropertyChanged("Definition");
             }
         }
@@ -57,6 +57,24 @@ namespace JediTournamentWPF.Models
             {
                 return lc;
             }
+        }
+
+        public Caracteristique C
+        {
+            get
+            {
+                return c;
+            }
+
+            set
+            {
+                c = value;
+            }
+        }
+
+        public override String ToString()
+        {
+            return c.ToString();
         }
     }
 }

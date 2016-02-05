@@ -28,10 +28,10 @@ namespace JediTournamentWPF.Fiches
             InitializeComponent();
         }
 
-        public Fiche_Caracteristique(CaracteristiqueModel selectedItem)
+        public Fiche_Caracteristique(Caracteristique selectedItem)
         {
             InitializeComponent();
-            ControleCaracteristique.DataContext = selectedItem;
+            ControleCaracteristique.DataContext = new CaracteristiqueModel(selectedItem);
         }
 
         private void ModifyCaract_Click(object sender, RoutedEventArgs e)
