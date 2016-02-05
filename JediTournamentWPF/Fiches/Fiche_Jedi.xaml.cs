@@ -43,6 +43,6 @@ namespace JediTournamentWPF
         {
             ModifyJediClicked((JediModel) ControleJedi.DataContext);
             this.Close();
-        }        
+        }
     }
 }

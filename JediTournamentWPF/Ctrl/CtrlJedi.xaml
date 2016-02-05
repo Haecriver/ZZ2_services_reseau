@@ -28,8 +28,8 @@
             <Label Content="Nom" Margin="0,5" Grid.Row="1" VerticalAlignment="Center" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" Padding="5,0" Height="20"/>
             <Label x:Name="JediOrSith" Content="Statut" Margin="0,5" Grid.Row="2" Height="20" Padding="5,0" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
             <Label Content="Caractéristiques" Margin="0,5" Grid.Row="3" VerticalAlignment="Center" Height="20" VerticalContentAlignment="Center" Padding="5,0"/>
-            <ListBox x:Name="ListeCarac" ItemsSource="{Binding Caracteristiques}" Margin="10,0,10,44" Grid.Row="4" Grid.ColumnSpan="2" SelectionChanged="ListBox_SelectionChanged" MouseDoubleClick="ListBox_MouseDoubleClick"/>
-            <TextBox x:Name="JediName" Text="{Binding Nom}" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Grid.Row="1"/>
+            <ListBox x:Name="ListeCarac" ItemsSource="{Binding Caracteristiques}" Margin="8,0,12,44" Grid.Row="4" Grid.ColumnSpan="2" MouseDoubleClick="ListBox_MouseDoubleClick"/>
+            <TextBox x:Name="JediName" Text="{Binding Nom}" Grid.Column="1" Height="23" Margin="5,5,12,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1"/>
             <CheckBox x:Name="SithCBox" IsChecked="{Binding Sith}" Content="Sith" Grid.Column="1" HorizontalAlignment="Left" Margin="10,7,0,0" Grid.Row="2" VerticalAlignment="Top"/>
             <Button x:Name="AddCarac" Content="Ajouter caractéristique" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="131" Height="26" Grid.Row="4"/>
             <Button x:Name="DelCarac" Content="Supprimer caractéristique" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="145" Height="26" Grid.Row="4" Grid.Column="1"/>

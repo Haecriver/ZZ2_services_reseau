@@ -79,6 +79,7 @@
     <Compile Include="Fiches\Fiche_Stade.xaml.cs">
       <DependentUpon>Fiche_Stade.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListModels\CaracteristiqueListModel.cs" />
     <Compile Include="ListModels\MatchListModel.cs" />
     <Compile Include="ListModels\StadesListModel.cs" />
     <Compile Include="MatchCombo.cs" />

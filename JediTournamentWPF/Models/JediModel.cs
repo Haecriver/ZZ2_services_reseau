@@ -9,6 +9,8 @@ using BusinessLayer;
 using System.ComponentModel;
 using System.Drawing;
 using System.Collections.ObjectModel;
+using JediTournamentWPF.ListModels;
+using JediTournamentWPF.Models;
 
 namespace JediTournamentWPF
 {
@@ -17,14 +19,14 @@ namespace JediTournamentWPF
     {
         private Jedi jedi;
 
-        public Jedi Jedi
-        {
-            get { return jedi; }
-        }
-
         public JediModel(Jedi jedi_)
         {
             jedi = jedi_;
+        }
+
+        public Jedi Jedi
+        {
+            get { return jedi; }
         }
 
         public String Nom
@@ -53,7 +55,7 @@ namespace JediTournamentWPF
                 OnPropertyChanged("Sith");
             }
         }
-
+        
         public ObservableCollection<Caracteristique> Caracteristiques
         {
             get
@@ -71,20 +73,5 @@ namespace JediTournamentWPF
         {
             return jedi.ToString();
         }
-
-        public Bitmap Image
-        {
-            get
-            {
-                return new Bitmap(jedi.Image);
-            }
-            set
-            {
-                jedi.Image = value.ToString();
-                OnPropertyChanged("Image");
-                //TODO: recuperer l'image
-            }
-        }
-
     }
 }
