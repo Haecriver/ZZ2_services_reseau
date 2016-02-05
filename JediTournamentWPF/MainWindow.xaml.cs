@@ -96,7 +96,7 @@ namespace JediTournamentWPF
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
             folderBrowser.Description = "Choisissez où créer le fichier.\nAttention, si le fichier existe déjà, il sera remplacé !";
             folderBrowser.ShowDialog();
-            //manager.ExportXML(click, folderBrowser.SelectedPath);
+            manager.ExportXML(click, folderBrowser.SelectedPath);
         }
 
         private void Selector_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)

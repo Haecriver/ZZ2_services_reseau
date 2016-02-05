@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using EntitiesLayer;
 
@@ -92,17 +90,18 @@ namespace BusinessLayer
                     joueur2.Score += parisJoueur2;
                 }
             }
-            jedis.Clear();
-            foreach (Match match in pool.Matches)
-            {
-                jedis.Add(match.JediVainqueur);
-            }
+
             //Maj bdd
             List<Match> oldMatches = businessManager.getMatches();
             oldMatches.Concat(pool.Matches);
             businessManager.updateMatch(oldMatches);
             pool = pool.nextPool();
-
+            jedis = new List<Jedi>();
+            foreach (Match match in pool.Matches)
+            {
+                jedis.Add(match.Jedi1);
+                jedis.Add(match.Jedi2);
+            }
             end = pool.PoolVide;
         }
 

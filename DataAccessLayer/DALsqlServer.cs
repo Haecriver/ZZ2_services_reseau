@@ -19,7 +19,8 @@ namespace DataAccessLayer
         {
             connectionString = //"Data Source=(LocalDB)\\v11.0;" +
                "Data Source=(LocalDB)\\MSSQLLocalDB; "+
-              "AttachDbFilename= " + Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Environment.CurrentDirectory))) + "\\BaseDeDonnees\\bdd_jedi_tournament_2014.mdf;" +
+              "AttachDbFilename= " + Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Environment.CurrentDirectory))) 
+              + "\\BaseDeDonnees\\bdd_jedi_tournament.mdf;" +
               "Integrated Security=True;" +
               "Connect Timeout=30";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -286,6 +287,7 @@ namespace DataAccessLayer
                         (string)row.ItemArray.ElementAt(2),
                         (string)row.ItemArray.ElementAt(3),
                         (string)row.ItemArray.ElementAt(4)));
+                Console.WriteLine("dalmanager " + ((string)row.ItemArray.ElementAt(4)));
             }
 
             try {

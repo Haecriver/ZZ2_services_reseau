@@ -20,8 +20,8 @@ namespace BusinessLayer
     };
     public class BusinessManager
     {
-        //private DataAccessLayer.DalManager data;
-        private StubDataAccessLayer.StubDalManager data;
+        private DataAccessLayer.DalManager data;
+       // private StubDataAccessLayer.StubDalManager data;
 
       /*  public Jedi testBDD()
         {
@@ -31,8 +31,8 @@ namespace BusinessLayer
 
         public BusinessManager()
         {
-          //  data =  DataAccessLayer.DalManager.Instance;
-            data = new StubDataAccessLayer.StubDalManager();
+            data =  DataAccessLayer.DalManager.Instance;
+          //  data = new StubDataAccessLayer.StubDalManager();
         }
 
         public List<Stade> getStades() { return data.getAllStade(); }
@@ -176,12 +176,13 @@ namespace BusinessLayer
             bool result;
             try
             {
-#if DEBUG
-                return true;
-#endif
+//#if DEBUG
+//                return true;
+//#endif
                 Utilisateur u = data.getUtilisateurByLogin(login);
                 result = (u.Password
                     == EntitiesLayer.HashSH1.GetSHA1HashData(password));
+                Console.WriteLine(u.Login + " "+u.Password + " " + EntitiesLayer.HashSH1.GetSHA1HashData(password));
             }
             catch (NullReferenceException)
             {

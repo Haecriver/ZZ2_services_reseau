@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseDeDonnees", "BaseDeDonnees", "{389F610A-8CEA-4DFE-B7E7-90E447471276}"
 	ProjectSection(SolutionItems) = preProject
 		BaseDeDonnees\bdd_jedi_tournament.mdf = BaseDeDonnees\bdd_jedi_tournament.mdf
-		BaseDeDonnees\bdd_jedi_tournament_2014.mdf = BaseDeDonnees\bdd_jedi_tournament_2014.mdf
-		BaseDeDonnees\bdd_jedi_tournament_2014_log.ldf = BaseDeDonnees\bdd_jedi_tournament_2014_log.ldf
 		BaseDeDonnees\bdd_jedi_tournament_log.ldf = BaseDeDonnees\bdd_jedi_tournament_log.ldf
 		BaseDeDonnees\ClearTables.sql = BaseDeDonnees\ClearTables.sql
 		BaseDeDonnees\CreationTables.sql = BaseDeDonnees\CreationTables.sql

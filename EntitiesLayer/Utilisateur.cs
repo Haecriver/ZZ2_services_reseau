@@ -53,6 +53,7 @@ namespace EntitiesLayer
 
         }
 
+        //Dans ce cas le mdp est deja hashe, pas besoin de le refaire
         public Utilisateur(int _id,string _nom, string _prenom, string _login, string _password)
         {
 
@@ -64,7 +65,7 @@ namespace EntitiesLayer
             nom = _nom;
             prenom = _prenom;
             login = _login;
-            password = HashSH1.GetSHA1HashData(_password);
+            password = _password;
         }
         public Utilisateur(string _nom, string _prenom, string _login, string _password)
         {

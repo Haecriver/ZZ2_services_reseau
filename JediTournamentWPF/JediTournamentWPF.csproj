@@ -208,9 +208,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="75017_yoda.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Ressources\75017_yoda.png" />
     <Resource Include="Ressources\Background.jpg" />
     <Resource Include="Ressources\Bonus.jpg" />

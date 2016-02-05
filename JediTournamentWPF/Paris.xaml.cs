@@ -1,18 +1,7 @@
 ﻿using BusinessLayer;
 using EntitiesLayer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace JediTournamentWPF
 {
@@ -41,27 +30,32 @@ namespace JediTournamentWPF
 
         private void paris_Click_1(object sender, RoutedEventArgs e)
         {
-            bn.lancerPhaseTournoi(Int32.Parse(BettingPlayer1.Text), (Jedi)Jedis1.SelectedItem, Int32.Parse(BettingPlayer2.Text), (Jedi)Jedis2.SelectedItem);
-            Jedis1.ItemsSource = bn.Jedis;
-            Jedis2.ItemsSource = bn.Jedis;
-            textBox.Text = bn.toString();
-            if (bn.End)
+            if (Jedis1.SelectedItem != null && Jedis2.SelectedItem != null)
             {
-                if (bn.Joueur1.Score > bn.Joueur2.Score)
+                bn.lancerPhaseTournoi(Int32.Parse(BettingPlayer1.Text), (Jedi)Jedis1.SelectedItem, Int32.Parse(BettingPlayer2.Text), (Jedi)Jedis2.SelectedItem);
+                Jedis1.SelectedItem = null;
+                Jedis1.ItemsSource = bn.Jedis;
+                Jedis2.SelectedItem = null;
+                Jedis2.ItemsSource = bn.Jedis;
+                textBox.Text = bn.toString();
+                if (bn.End)
                 {
-                    MessageBox.Show("Joueur 1 a gagne");
-                }
-                else if (bn.Joueur1.Score == bn.Joueur2.Score)
-                {
-                    MessageBox.Show("Egalite");
+                    if (bn.Joueur1.Score > bn.Joueur2.Score)
+                    {
+                        MessageBox.Show("Joueur 1 a gagne");
+                    }
+                    else if (bn.Joueur1.Score == bn.Joueur2.Score)
+                    {
+                        MessageBox.Show("Egalite");
 
-                }else
-                {
-                    MessageBox.Show("Joueur 2 a gagne");
+                    } else
+                    {
+                        MessageBox.Show("Joueur 2 a gagne");
+                    }
+                    Principale fenetre = new Principale();
+                    fenetre.Show();
+                    this.Close();
                 }
-                Principale fenetre = new Principale();
-                fenetre.Show();
-                this.Close();
             }
         }
     }
