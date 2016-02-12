@@ -12,6 +12,7 @@ namespace StubDataAccessLayer
         private List<Jedi> allJedi;
         private List<Match> allMatch;
         private List<Stade> allStade;
+        private List<Tournoi> allTournoi;
         private List<Caracteristique> allCharacteristics;
         private SortedDictionary<string, Utilisateur> allUtilisateurs;
 
@@ -61,6 +62,10 @@ namespace StubDataAccessLayer
             allUtilisateurs["gael"] = new Utilisateur(4,"Raux", "Gaël", "gael", HashSH1.GetSHA1HashData("brest"));
             
             allUtilisateurs["begarco"] = new Utilisateur(5,"Garcon", "Benoit", "begarco", HashSH1.GetSHA1HashData("suce")); // l'intru
+
+            // Ajout d'un tournoi
+            allTournoi = new List<Tournoi>();
+            allTournoi.Add(new Tournoi(allMatch, "STUB!!"));
         }
 
         public StubDalManager()
@@ -83,6 +88,12 @@ namespace StubDataAccessLayer
         {
             
             return allStade;
+        }
+
+        public List<Tournoi> getAllTournoi()
+        {
+
+            return allTournoi;
         }
 
         public List<Caracteristique> getAllCaracteristic()
@@ -124,6 +135,10 @@ namespace StubDataAccessLayer
         public void updateStade(List<Stade> stades)
         {
             allStade = stades;
+        }
+        public void updateTournoi(List<Tournoi> tournois)
+        {
+            allTournoi = tournois;
         }
         public void updateCaracteristique(List<Caracteristique> caracteristiques)
         {

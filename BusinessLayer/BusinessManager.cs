@@ -21,7 +21,7 @@ namespace BusinessLayer
     public class BusinessManager
     {
         private DataAccessLayer.DalManager data;
-       // private StubDataAccessLayer.StubDalManager data;
+        private StubDataAccessLayer.StubDalManager dataStub;
 
       /*  public Jedi testBDD()
         {
@@ -32,12 +32,13 @@ namespace BusinessLayer
         public BusinessManager()
         {
             data =  DataAccessLayer.DalManager.Instance;
-          //  data = new StubDataAccessLayer.StubDalManager();
+            dataStub = new StubDataAccessLayer.StubDalManager();
         }
 
         public List<Stade> getStades() { return data.getAllStade(); }
         public List<Jedi> getJedis() { return data.getAllJedi(); }
         public List<Match> getMatches() { return data.getAllMatch(); }
+        public List<Tournoi> getTournoi() { return dataStub.getAllTournoi(); }
         public List<Caracteristique> getCaracteristique() { return data.getAllCaracteristic(); }
         public List<Utilisateur> getUtilisateur() { return data.getAllUtilisateur(); }
 
