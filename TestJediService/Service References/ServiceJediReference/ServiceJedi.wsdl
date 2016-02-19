@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceJedi" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:28438/ServiceJedi.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:28438/ServiceJedi.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:28438/ServiceJedi.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" />
+      <xsd:import schemaLocation="http://localhost:28438/ServiceJedi.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceJedi_getAllJedi_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllJedi" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_getAllJedi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllJediResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_getAllMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllMatch" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_getAllMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_getAllStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllStade" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_getAllStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllStadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_getAllTournoi_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllTournoi" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_getAllTournoi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllTournoiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_getAllCaracteristique_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCaracteristique" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_getAllCaracteristique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCaracteristiqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_addJedi_InputMessage">
+    <wsdl:part name="parameters" element="tns:addJedi" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_addJedi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addJediResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceJedi">
+    <wsdl:operation name="getAllJedi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/getAllJedi" message="tns:IServiceJedi_getAllJedi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/getAllJediResponse" message="tns:IServiceJedi_getAllJedi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/getAllMatch" message="tns:IServiceJedi_getAllMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/getAllMatchResponse" message="tns:IServiceJedi_getAllMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/getAllStade" message="tns:IServiceJedi_getAllStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/getAllStadeResponse" message="tns:IServiceJedi_getAllStade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllTournoi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/getAllTournoi" message="tns:IServiceJedi_getAllTournoi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/getAllTournoiResponse" message="tns:IServiceJedi_getAllTournoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllCaracteristique">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/getAllCaracteristique" message="tns:IServiceJedi_getAllCaracteristique_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/getAllCaracteristiqueResponse" message="tns:IServiceJedi_getAllCaracteristique_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addJedi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/addJedi" message="tns:IServiceJedi_addJedi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/addJediResponse" message="tns:IServiceJedi_addJedi_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceJedi" type="tns:IServiceJedi">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAllJedi">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/getAllJedi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMatch">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/getAllMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllStade">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/getAllStade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllTournoi">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/getAllTournoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCaracteristique">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/getAllCaracteristique" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addJedi">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/addJedi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceJedi">
+    <wsdl:port name="BasicHttpBinding_IServiceJedi" binding="tns:BasicHttpBinding_IServiceJedi">
+      <soap:address location="http://localhost:28438/ServiceJedi.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

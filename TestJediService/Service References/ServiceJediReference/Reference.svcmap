@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9066d9c4-e54f-4c89-acb7-87d9d9078afc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:28438/ServiceJedi.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceJedi.xsd" MetadataType="Schema" ID="e86380a9-8134-4162-ab80-17cf5aaebcd4" SourceId="1" SourceUrl="http://localhost:28438/ServiceJedi.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceJedi.wsdl" MetadataType="Wsdl" ID="3b1875c0-1e71-485f-8580-7754463d8472" SourceId="1" SourceUrl="http://localhost:28438/ServiceJedi.svc?wsdl" />
+    <MetadataFile FileName="ServiceJedi1.xsd" MetadataType="Schema" ID="dd552f8b-d5fc-4074-83af-83ef0a92573e" SourceId="1" SourceUrl="http://localhost:28438/ServiceJedi.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceJedi.disco" MetadataType="Disco" ID="f065e4c6-c60b-427c-8ef3-d078070d6805" SourceId="1" SourceUrl="http://localhost:28438/ServiceJedi.svc?disco" />
+    <MetadataFile FileName="ServiceJedi2.xsd" MetadataType="Schema" ID="7d80b830-3148-4499-a33b-2c870eee5b39" SourceId="1" SourceUrl="http://localhost:28438/ServiceJedi.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceJedi3.xsd" MetadataType="Schema" ID="8c77f15a-c4c4-47ea-a5a8-22deaa97ff6a" SourceId="1" SourceUrl="http://localhost:28438/ServiceJedi.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

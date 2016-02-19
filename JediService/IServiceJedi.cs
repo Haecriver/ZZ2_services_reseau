@@ -16,14 +16,21 @@ namespace JediService
 
         [OperationContract]
         List<JediWCF> getAllJedi();
+
         [OperationContract]
         List<MatchWCF> getAllMatch();
+
         [OperationContract]
         List<StadeWCF> getAllStade();
+
         [OperationContract]
         List<TournoiWCF> getAllTournoi();
+
         [OperationContract]
         List<CaracteristiqueWCF> getAllCaracteristique();
+
+        [OperationContract]
+        void addJedi(JediWCF j);
 
         // TODO: ajoutez vos opérations de service ici
     }
