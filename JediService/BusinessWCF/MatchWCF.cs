@@ -8,46 +8,59 @@ using System.Web;
 namespace JediService.BusinessWCF
 {
     [DataContract]
-    public class MatchWCF
+    public class MatchWCF : EntityObjectWCF
     {
-        private Match match;
-        public MatchWCF(Match match) {
-            this.match = match;
+        private JediWCF jedi1;
+        private JediWCF jedi2;
+        private EPhaseTournoi phaseTournoi;
+        private JediWCF jediVainqueur;
+        private StadeWCF stade;
+
+        public MatchWCF(Match match) : base(match)
+        {
+            this.jedi1 = new JediWCF(match.Jedi1);
+            this.jedi2 = new JediWCF(match.Jedi2);
+            if (match.JediVainqueur != null)
+            {
+                this.jediVainqueur = new JediWCF(match.JediVainqueur);
+            }
+            this.stade = new StadeWCF(match.Stade);
+            this.phaseTournoi = match.PhaseTournoi;
         }
         
         [DataMember]
         public EPhaseTournoi PhaseTournoi
         {
-            get { return match.PhaseTournoi; }
-            set { match.PhaseTournoi = value; }
+            get { return phaseTournoi; }
+            set { phaseTournoi = value; }
         }
 
         [DataMember]
         public JediWCF Jedi1
         {
-            get { return new JediWCF(match.Jedi1); }
-            set { match.Jedi1 = value.toJedi(); }
+            get { return jedi1; }
+            set { jedi1 = value; }
         }
 
         [DataMember]
         public JediWCF Jedi2
         {
-            get { return new JediWCF(match.Jedi2); }
-            set { match.Jedi2 = value.toJedi(); }
+            get { return jedi2; }
+            set { jedi2 = value; }
         }
 
         [DataMember]
         public JediWCF JediVainqueur
         {
-            get { return new JediWCF(match.JediVainqueur); }
-            set { match.JediVainqueur = value.toJedi(); }
+            get { return jediVainqueur; }
+            set { jediVainqueur = value; }
         }
 
         [DataMember]
         public StadeWCF Stade
         {
-            get { return new StadeWCF(match.Stade); }
-            set { match.Stade = value.toStade(); }
+            get { return stade; }
+            set { stade = value; }
         }
     }
 }

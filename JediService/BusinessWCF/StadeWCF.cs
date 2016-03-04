@@ -8,14 +8,16 @@ using System.Web;
 namespace JediService.BusinessWCF
 {
     [DataContract]
-    public class StadeWCF
+    public class StadeWCF : EntityObjectWCF
     {
-        private Stade stade;
+        private string planete;
+        private int nbPlaces;
         private List<CaracteristiqueWCF> caracteristiquesWCF;
 
-        public StadeWCF(Stade stade)
+        public StadeWCF(Stade stade) : base(stade)
         {
-            this.stade = stade;
+            this.planete = stade.Planete;
+            this.nbPlaces = stade.NbPlaces;
             this.caracteristiquesWCF = new List<CaracteristiqueWCF>();
             foreach (Caracteristique c in stade.Caracteristiques)
             {
@@ -25,21 +27,26 @@ namespace JediService.BusinessWCF
 
         public Stade toStade()
         {
-            return stade;
+            List<Caracteristique> carac = new List<Caracteristique>();
+            foreach (CaracteristiqueWCF c in caracteristiquesWCF)
+            {
+                carac.Add(c.toCaracteristique());
+            }
+            return new Stade(nbPlaces,planete,carac);
         }
 
         [DataMember]
         public string Planete
         {
-            get { return stade.Planete; }
-            set { stade.Planete = value; }
+            get { return planete; }
+            set { planete = value; }
         }
 
         [DataMember]
         public int NbPlaces
         {
-            get { return stade.NbPlaces; }
-            set { stade.NbPlaces = value; }
+            get { return nbPlaces; }
+            set { nbPlaces = value; }
         }
 
         [DataMember]

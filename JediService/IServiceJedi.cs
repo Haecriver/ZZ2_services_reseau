@@ -30,7 +30,7 @@ namespace JediService
         List<CaracteristiqueWCF> getAllCaracteristique();
 
         [OperationContract]
-        void addJedi(JediWCF j);
+        void addJedi(JediWCF j);       
 
         // TODO: ajoutez vos opérations de service ici
     }

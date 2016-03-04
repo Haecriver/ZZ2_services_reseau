@@ -8,14 +8,14 @@ using System.Web;
 namespace JediService.BusinessWCF
 {
     [DataContract]
-    public class TournoiWCF
+    public class TournoiWCF : EntityObjectWCF
     {
-        private Tournoi tournoi;
+        private string nom;
         private List<MatchWCF> matchesWCF;
 
-        public TournoiWCF(Tournoi tournoi)
+        public TournoiWCF(Tournoi tournoi) : base(tournoi)
         {
-            this.tournoi = tournoi;
+            this.nom = tournoi.Nom;
             matchesWCF = new List<MatchWCF>();
             foreach (Match m in tournoi.Matchs)
 	        {
@@ -26,8 +26,8 @@ namespace JediService.BusinessWCF
         [DataMember]
         public String Nom
         {
-            get { return tournoi.Nom; }
-            set { tournoi.Nom = value; }
+            get { return nom; }
+            set { nom = value; }
         }
 
         [DataMember]

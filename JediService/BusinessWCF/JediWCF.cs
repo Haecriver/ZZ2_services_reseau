@@ -9,14 +9,16 @@ using System.Runtime.Serialization;
 namespace JediService.BusinessWCF
 {
     [DataContract]
-    public class JediWCF
+    public class JediWCF : EntityObjectWCF
     {
-        private Jedi jedi;
+        private string nom;
+        private bool isSith;
         private List<CaracteristiqueWCF> caracteristiquesWCF;
 
-        public JediWCF(Jedi jedi)
+        public JediWCF(Jedi jedi) : base(jedi)
         {
-            this.jedi = jedi;
+            this.nom = jedi.Nom;
+            this.isSith = jedi.IsSith;
             this.caracteristiquesWCF = new List<CaracteristiqueWCF>();
             foreach (Caracteristique c in jedi.Caracteristiques)
             {
@@ -26,21 +28,28 @@ namespace JediService.BusinessWCF
 
         public Jedi toJedi()
         {
-            return jedi;
+            List<Caracteristique> carac = new List<Caracteristique>();
+            foreach (CaracteristiqueWCF c in caracteristiquesWCF)
+            {
+                carac.Add(c.toCaracteristique());
+            }
+
+            return new Jedi(nom,isSith,carac);
         }
 
         [DataMember]
         public string Nom
         {
-            get { return jedi.Nom; }
-            set { jedi.Nom = value; }
+            get { return nom; }
+            set { nom = value; }
         }
 
         [DataMember]
         public bool IsSith
         {
-            get { return jedi.IsSith; }
-            set { jedi.IsSith = value; }
+            get { return isSith; }
+            set
+            { isSith = value; }
         }
 
         [DataMember]

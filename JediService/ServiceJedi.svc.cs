@@ -15,11 +15,14 @@ namespace JediService
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class ServiceJedi : IServiceJedi
     {
-        public static BusinessManager bm;
+        private static BusinessManager bm;
+
         public ServiceJedi()
         {
             bm = new BusinessManager();
         }
+
+
         public List<JediWCF> getAllJedi()
         {
             List<JediWCF> jedisWCF = new List<JediWCF>();

@@ -11,18 +11,18 @@ namespace JediService.BusinessWCF
     [DataContract]
     public class EntityObjectWCF
     {
-        private EntityObject entityObject;
+        private int id;
 
         public EntityObjectWCF(EntityObject entityObject)
         {
-            this.entityObject = entityObject;
+            this.id = entityObject.Id;
         }
 
         [DataMember]
         public int Id
         {
-            get { return entityObject.Id; }
-            set { entityObject.Id = value; }
+            get { return id; }
+            set { id = value; }
         }
 
     }

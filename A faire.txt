@@ -1,0 +1,17 @@
+Faire un compte rendu
+Marquer ce qu'on a réussit
+Marquer ce qu'on aurait pus faire
+Qq ligne
+Se baser sur le modèle envoyé
+
+Cours :
+
+Navigateur
+	.js
+	.css
+	.html
+Serveur
+	.cs
+	.cshtml (exec cote serveur mais renvoie du html)
+
+Angular js => MVVM sur html (utiliser pour les applications Web pas site Web)

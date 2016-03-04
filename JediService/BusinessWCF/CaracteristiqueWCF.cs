@@ -8,39 +8,52 @@ using System.Text;
 namespace JediService.BusinessWCF
 {
     [DataContract]
-    public class CaracteristiqueWCF
+    public class CaracteristiqueWCF : EntityObjectWCF
     {
-        private Caracteristique caracteristique;
-        public CaracteristiqueWCF(Caracteristique caracteristique)
+        private EDefCaracteristique def;
+        private string nom;
+        private ETypeCaracteristique type;
+        private int valeur;
+       
+        public Caracteristique toCaracteristique()
         {
-            this.caracteristique = caracteristique;
+            return new Caracteristique(def, nom, type, valeur);
+        }
+
+        public CaracteristiqueWCF(Caracteristique caracteristique) : base(caracteristique)
+        {
+            this.def = caracteristique.Definition;
+            this.nom = caracteristique.Nom;
+            this.type = caracteristique.Type;
+            this.valeur = caracteristique.Valeur;
         }
 
         [DataMember]
         public EDefCaracteristique Definition
         {
-            get { return caracteristique.Definition; }
-            set { caracteristique.Definition = value;}
+            get { return def; }
+            set { def = value; }
         }
 
         [DataMember]
         public string Nom
         {
-            get { return caracteristique.Nom; }
-            set { caracteristique.Nom = value; }
+            get { return nom; }
+            set 
+            { nom = value; }
         }
 
         [DataMember]
         public ETypeCaracteristique Type
         {
-            get { return caracteristique.Type; }
-            set { caracteristique.Type = value; }
+            get { return type; }
+            set { type = value; }
         }
         [DataMember]
         public int Valeur
         {
-            get { return caracteristique.Valeur; }
-            set { caracteristique.Valeur = value; }
+            get { return valeur; }
+            set { valeur = value; }
         }
     }
 }
