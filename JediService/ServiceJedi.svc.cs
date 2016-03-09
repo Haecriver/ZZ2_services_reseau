@@ -102,7 +102,10 @@ namespace JediService
 
         public void deleteJedi(JediWCF j)
         {
-            throw new NotImplementedException();
+            List<Jedi> jedis = bm.getJedis();
+            int index_to_modify = jedis.FindIndex(x => x.Id == j.Id);
+            jedis.RemoveAt(index_to_modify);
+            bm.updateJedi(jedis);
         }
 
         public void deleteMatch(MatchWCF j)
@@ -127,7 +130,10 @@ namespace JediService
 
         public void updateJedi(JediWCF j)
         {
-            throw new NotImplementedException();
+            List<Jedi> jedis = bm.getJedis();
+            int index_to_modify = jedis.FindIndex(x => x.Id == j.Id);
+            jedis[index_to_modify] = j.toJedi();
+            bm.updateJedi(jedis);
         }
 
         public void updateMatch(MatchWCF j)

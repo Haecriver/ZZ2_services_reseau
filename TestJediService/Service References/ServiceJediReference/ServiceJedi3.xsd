@@ -8,13 +8,23 @@
   </xs:complexType>
   <xs:element name="ArrayOfJediWCF" nillable="true" type="tns:ArrayOfJediWCF" />
   <xs:complexType name="JediWCF">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueWCF" />
-      <xs:element minOccurs="0" name="IsSith" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectWCF">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueWCF" />
+          <xs:element minOccurs="0" name="IsSith" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="JediWCF" nillable="true" type="tns:JediWCF" />
+  <xs:complexType name="EntityObjectWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityObjectWCF" nillable="true" type="tns:EntityObjectWCF" />
   <xs:complexType name="ArrayOfCaracteristiqueWCF">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CaracteristiqueWCF" nillable="true" type="tns:CaracteristiqueWCF" />
@@ -22,12 +32,16 @@
   </xs:complexType>
   <xs:element name="ArrayOfCaracteristiqueWCF" nillable="true" type="tns:ArrayOfCaracteristiqueWCF" />
   <xs:complexType name="CaracteristiqueWCF">
-    <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="Definition" type="q1:EDefCaracteristique" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="Type" type="q2:ETypeCaracteristique" />
-      <xs:element minOccurs="0" name="Valeur" type="xs:int" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectWCF">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="Definition" type="q1:EDefCaracteristique" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="Type" type="q2:ETypeCaracteristique" />
+          <xs:element minOccurs="0" name="Valeur" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="CaracteristiqueWCF" nillable="true" type="tns:CaracteristiqueWCF" />
   <xs:complexType name="ArrayOfMatchWCF">
@@ -37,21 +51,29 @@
   </xs:complexType>
   <xs:element name="ArrayOfMatchWCF" nillable="true" type="tns:ArrayOfMatchWCF" />
   <xs:complexType name="MatchWCF">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Jedi1" nillable="true" type="tns:JediWCF" />
-      <xs:element minOccurs="0" name="Jedi2" nillable="true" type="tns:JediWCF" />
-      <xs:element minOccurs="0" name="JediVainqueur" nillable="true" type="tns:JediWCF" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="PhaseTournoi" type="q3:EPhaseTournoi" />
-      <xs:element minOccurs="0" name="Stade" nillable="true" type="tns:StadeWCF" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectWCF">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Jedi1" nillable="true" type="tns:JediWCF" />
+          <xs:element minOccurs="0" name="Jedi2" nillable="true" type="tns:JediWCF" />
+          <xs:element minOccurs="0" name="JediVainqueur" nillable="true" type="tns:JediWCF" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="PhaseTournoi" type="q3:EPhaseTournoi" />
+          <xs:element minOccurs="0" name="Stade" nillable="true" type="tns:StadeWCF" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="MatchWCF" nillable="true" type="tns:MatchWCF" />
   <xs:complexType name="StadeWCF">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueWCF" />
-      <xs:element minOccurs="0" name="NbPlaces" type="xs:int" />
-      <xs:element minOccurs="0" name="Planete" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectWCF">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueWCF" />
+          <xs:element minOccurs="0" name="NbPlaces" type="xs:int" />
+          <xs:element minOccurs="0" name="Planete" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="StadeWCF" nillable="true" type="tns:StadeWCF" />
   <xs:complexType name="ArrayOfStadeWCF">
@@ -67,10 +89,14 @@
   </xs:complexType>
   <xs:element name="ArrayOfTournoiWCF" nillable="true" type="tns:ArrayOfTournoiWCF" />
   <xs:complexType name="TournoiWCF">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Matches" nillable="true" type="tns:ArrayOfMatchWCF" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectWCF">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Matches" nillable="true" type="tns:ArrayOfMatchWCF" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="TournoiWCF" nillable="true" type="tns:TournoiWCF" />
 </xs:schema>

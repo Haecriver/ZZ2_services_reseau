@@ -32,7 +32,7 @@ namespace JediService.BusinessWCF
             {
                 carac.Add(c.toCaracteristique());
             }
-            return new Stade(nbPlaces,planete,carac);
+            return new Stade(Id, nbPlaces,planete,carac);
         }
 
         [DataMember]

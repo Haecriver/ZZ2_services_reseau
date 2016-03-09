@@ -34,7 +34,7 @@ namespace JediService.BusinessWCF
                 carac.Add(c.toCaracteristique());
             }
 
-            return new Jedi(nom,isSith,carac);
+            return new Jedi(Id,nom,isSith,carac);
         }
 
         [DataMember]

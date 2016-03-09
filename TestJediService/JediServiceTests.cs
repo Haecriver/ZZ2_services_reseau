@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JediService.BusinessWCF;
 using System.Collections.Generic;
-using BusinessLayer;
 using EntitiesLayer;
 
 namespace TestJediService
@@ -105,12 +104,38 @@ namespace TestJediService
         public void addJediTest()
         {
             ServiceJediReference.ServiceJediClient service = new ServiceJediReference.ServiceJediClient();
-            List<Caracteristique> carac = new List<Caracteristique>();
-            carac.Add(new Caracteristique(EDefCaracteristique.Chance, "testChance", ETypeCaracteristique.Jedi, 50));
-            JediWCF j = new JediWCF(new Jedi("TestAjout",false,carac));
+            BusinessLayer.BusinessManager bm = new BusinessLayer.BusinessManager();
+            bm.getJedis();  //met a jour l'id
+            List<Caracteristique> list_carac = bm.getCaracteristique().FindAll(x=> x.Id == 1);
+            JediWCF j = new JediWCF(new Jedi("TestAjout",false,list_carac));
             service.addJedi(j);
             List<JediWCF> result = service.getAllJedi();
             Assert.IsTrue(result.Exists(x=> x.Nom == j.Nom),"Le jedi " + j.Nom + " n'est pas present");
+        }
+
+        [TestMethod]
+        public void updateJediTest()
+        {
+            ServiceJediReference.ServiceJediClient service = new ServiceJediReference.ServiceJediClient();
+            BusinessLayer.BusinessManager bm = new BusinessLayer.BusinessManager();
+            bm.getJedis();  //met a jour l'id
+            JediWCF j = service.getAllJedi().Find(x => x.Nom.Equals("TestAjout"));
+            j.IsSith=true;
+            service.updateJedi(j);
+            List<JediWCF> result = service.getAllJedi();
+            Assert.IsTrue(result.Exists(x => x.Nom == j.Nom && x.IsSith == true), "Le jedi " + j.Nom + " n'a pas ete modife");
+        }
+
+        [TestMethod]
+        public void deleteJediTest()
+        {
+            ServiceJediReference.ServiceJediClient service = new ServiceJediReference.ServiceJediClient();
+            BusinessLayer.BusinessManager bm = new BusinessLayer.BusinessManager();
+            bm.getJedis();  //met a jour l'id
+            JediWCF j = service.getAllJedi().Find(x => x.Nom.Equals("TestAjout"));
+            service.deleteJedi(j);
+            List<JediWCF> result = service.getAllJedi();
+            Assert.IsTrue(!result.Exists(x => x.Nom == j.Nom), "Le jedi " + j.Nom + "existe toujours");
         }
     }
 }

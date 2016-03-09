@@ -44,6 +44,90 @@
   <wsdl:message name="IServiceJedi_addJedi_OutputMessage">
     <wsdl:part name="parameters" element="tns:addJediResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceJedi_addMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:addMatch" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_addMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_addStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:addStade" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_addStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addStadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_addTournoi_InputMessage">
+    <wsdl:part name="parameters" element="tns:addTournoi" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_addTournoi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addTournoiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_addCracteristique_InputMessage">
+    <wsdl:part name="parameters" element="tns:addCracteristique" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_addCracteristique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addCracteristiqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteJedi_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteJedi" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteJedi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteJediResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteMatch" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteStade" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteStadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteTournois_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteTournois" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteTournois_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteTournoisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteCaracteristique_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCaracteristique" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_deleteCaracteristique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCaracteristiqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateJedi_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateJedi" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateJedi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateJediResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateMatch" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateStade" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateStadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateTournois_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateTournois" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateTournois_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateTournoisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateCaracteristique_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateCaracteristique" />
+  </wsdl:message>
+  <wsdl:message name="IServiceJedi_updateCaracteristique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateCaracteristiqueResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceJedi">
     <wsdl:operation name="getAllJedi">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/getAllJedi" message="tns:IServiceJedi_getAllJedi_InputMessage" />
@@ -68,6 +152,62 @@
     <wsdl:operation name="addJedi">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/addJedi" message="tns:IServiceJedi_addJedi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/addJediResponse" message="tns:IServiceJedi_addJedi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/addMatch" message="tns:IServiceJedi_addMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/addMatchResponse" message="tns:IServiceJedi_addMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/addStade" message="tns:IServiceJedi_addStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/addStadeResponse" message="tns:IServiceJedi_addStade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addTournoi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/addTournoi" message="tns:IServiceJedi_addTournoi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/addTournoiResponse" message="tns:IServiceJedi_addTournoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCracteristique">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/addCracteristique" message="tns:IServiceJedi_addCracteristique_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/addCracteristiqueResponse" message="tns:IServiceJedi_addCracteristique_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteJedi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/deleteJedi" message="tns:IServiceJedi_deleteJedi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/deleteJediResponse" message="tns:IServiceJedi_deleteJedi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/deleteMatch" message="tns:IServiceJedi_deleteMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/deleteMatchResponse" message="tns:IServiceJedi_deleteMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/deleteStade" message="tns:IServiceJedi_deleteStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/deleteStadeResponse" message="tns:IServiceJedi_deleteStade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTournois">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/deleteTournois" message="tns:IServiceJedi_deleteTournois_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/deleteTournoisResponse" message="tns:IServiceJedi_deleteTournois_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCaracteristique">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/deleteCaracteristique" message="tns:IServiceJedi_deleteCaracteristique_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/deleteCaracteristiqueResponse" message="tns:IServiceJedi_deleteCaracteristique_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateJedi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/updateJedi" message="tns:IServiceJedi_updateJedi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/updateJediResponse" message="tns:IServiceJedi_updateJedi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/updateMatch" message="tns:IServiceJedi_updateMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/updateMatchResponse" message="tns:IServiceJedi_updateMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/updateStade" message="tns:IServiceJedi_updateStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/updateStadeResponse" message="tns:IServiceJedi_updateStade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateTournois">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/updateTournois" message="tns:IServiceJedi_updateTournois_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/updateTournoisResponse" message="tns:IServiceJedi_updateTournois_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCaracteristique">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceJedi/updateCaracteristique" message="tns:IServiceJedi_updateCaracteristique_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceJedi/updateCaracteristiqueResponse" message="tns:IServiceJedi_updateCaracteristique_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceJedi" type="tns:IServiceJedi">
@@ -119,6 +259,132 @@
     </wsdl:operation>
     <wsdl:operation name="addJedi">
       <soap:operation soapAction="http://tempuri.org/IServiceJedi/addJedi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMatch">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/addMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addStade">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/addStade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addTournoi">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/addTournoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCracteristique">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/addCracteristique" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteJedi">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/deleteJedi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteMatch">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/deleteMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteStade">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/deleteStade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTournois">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/deleteTournois" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCaracteristique">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/deleteCaracteristique" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateJedi">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/updateJedi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateMatch">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/updateMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateStade">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/updateStade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTournois">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/updateTournois" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaracteristique">
+      <soap:operation soapAction="http://tempuri.org/IServiceJedi/updateCaracteristique" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -17,7 +17,7 @@ namespace JediService.BusinessWCF
        
         public Caracteristique toCaracteristique()
         {
-            return new Caracteristique(def, nom, type, valeur);
+            return new Caracteristique(Id, def, nom, type, valeur);
         }
 
         public CaracteristiqueWCF(Caracteristique caracteristique) : base(caracteristique)

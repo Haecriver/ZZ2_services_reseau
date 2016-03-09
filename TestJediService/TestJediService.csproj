@@ -58,22 +58,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="JediServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
-      <Project>{01fe3568-4c1b-44aa-a1bb-61fd71aef459}</Project>
-      <Name>BusinessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
-      <Project>{e8321158-7ebe-4dfa-933a-9225c7972d7b}</Project>
-      <Name>EntitiesLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JediService\JediService.csproj">
-      <Project>{ca4db540-c774-45d9-9420-50c032514b55}</Project>
-      <Name>JediService</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -116,6 +102,20 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{01fe3568-4c1b-44aa-a1bb-61fd71aef459}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
+      <Project>{e8321158-7ebe-4dfa-933a-9225c7972d7b}</Project>
+      <Name>EntitiesLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JediService\JediService.csproj">
+      <Project>{ca4db540-c774-45d9-9420-50c032514b55}</Project>
+      <Name>JediService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
