@@ -80,5 +80,74 @@ namespace JediService
             bm.updateJedi(jedis);
         }
 
+        public void addMatch(MatchWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addStade(StadeWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addTournoi(TournoiWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addCracteristique(CaracteristiqueWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteJedi(JediWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteMatch(MatchWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteStade(StadeWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteTournois(TournoiWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteCaracteristique(CaracteristiqueWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateJedi(JediWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateMatch(MatchWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateStade(StadeWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateTournois(TournoiWCF j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateCaracteristique(CaracteristiqueWCF j)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

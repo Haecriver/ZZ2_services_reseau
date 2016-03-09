@@ -30,9 +30,49 @@ namespace JediService
         List<CaracteristiqueWCF> getAllCaracteristique();
 
         [OperationContract]
-        void addJedi(JediWCF j);       
+        void addJedi(JediWCF j);
 
-        // TODO: ajoutez vos opérations de service ici
+        [OperationContract]
+        void addMatch(MatchWCF j);
+
+        [OperationContract]
+        void addStade(StadeWCF j);
+
+        [OperationContract]
+        void addTournoi(TournoiWCF j);
+
+        [OperationContract]
+        void addCracteristique(CaracteristiqueWCF j);
+
+        [OperationContract]
+        void deleteJedi(JediWCF j);
+
+        [OperationContract]
+        void deleteMatch(MatchWCF j);
+
+        [OperationContract]
+        void deleteStade(StadeWCF j);
+
+        [OperationContract]
+        void deleteTournois(TournoiWCF j);
+
+        [OperationContract]
+        void deleteCaracteristique(CaracteristiqueWCF j);
+
+        [OperationContract]
+        void updateJedi(JediWCF j);
+
+        [OperationContract]
+        void updateMatch(MatchWCF j);
+
+        [OperationContract]
+        void updateStade(StadeWCF j);
+
+        [OperationContract]
+        void updateTournois(TournoiWCF j);
+
+        [OperationContract]
+        void updateCaracteristique(CaracteristiqueWCF j);
     }
 
 

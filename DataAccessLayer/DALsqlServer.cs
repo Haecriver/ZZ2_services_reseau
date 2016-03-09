@@ -19,8 +19,9 @@ namespace DataAccessLayer
         {
             connectionString = //"Data Source=(LocalDB)\\v11.0;" +
                "Data Source=(LocalDB)\\MSSQLLocalDB; "+
-              "AttachDbFilename= " + Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Environment.CurrentDirectory))) 
-              + "\\BaseDeDonnees\\bdd_jedi_tournament.mdf;" +
+              "AttachDbFilename= " + Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Environment.CurrentDirectory))) +
+               //"\\BaseDeDonnees\\bdd_jedi_tournament.mdf;" +
+               "\\BaseDeDonnees\\bdd_jedi_tournament_localDBv11.mdf;" +
               "Integrated Security=True;" +
               "Connect Timeout=30";
             SqlConnection connection = new SqlConnection(connectionString);
