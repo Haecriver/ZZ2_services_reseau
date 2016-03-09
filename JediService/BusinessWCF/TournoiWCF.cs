@@ -36,5 +36,15 @@ namespace JediService.BusinessWCF
             get { return matchesWCF; }
             set { matchesWCF = value; }
         }
+
+        public Tournoi toTournoi()
+        {
+            List<Match> matches = new List<Match>();
+            foreach (MatchWCF matchWCF in matchesWCF)
+            {
+                matches.Add(matchWCF.toMatch());
+            }
+            return new Tournoi(Id, matches, nom);
+        }
     }
 }

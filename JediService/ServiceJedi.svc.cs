@@ -73,87 +73,119 @@ namespace JediService
             }
             return caracteristiquesWCF;
         }
-        public void addJedi(JediWCF j)
+        public void addJedi(JediWCF jedi)
         {
             List<Jedi> jedis = bm.getJedis();
-            jedis.Add(j.toJedi());
+            jedis.Add(jedi.toJedi());
             bm.updateJedi(jedis);
         }
 
-        public void addMatch(MatchWCF j)
+        public void addMatch(MatchWCF match)
         {
-            throw new NotImplementedException();
+            List<Match> matches = bm.getMatches();
+            matches.Add(match.toMatch());
+            bm.updateMatch(matches);
         }
 
-        public void addStade(StadeWCF j)
+        public void addStade(StadeWCF stade)
         {
-            throw new NotImplementedException();
+            List<Stade> stades = bm.getStades();
+            stades.Add(stade.toStade());
+            bm.updateStades(stades);
         }
 
-        public void addTournoi(TournoiWCF j)
+        public void addTournoi(TournoiWCF tournoi)
         {
-            throw new NotImplementedException();
+            List<Tournoi> tournois = bm.getTournoi();
+            tournois.Add(tournoi.toTournoi());
+            bm.updateTournoi(tournois);
         }
 
-        public void addCracteristique(CaracteristiqueWCF j)
+        public void addCracteristique(CaracteristiqueWCF carac)
         {
-            throw new NotImplementedException();
+            List<Caracteristique> caracts = bm.getCaracteristique();
+            caracts.Add(carac.toCaracteristique());
+            bm.updateCaracteristique(caracts);
         }
 
-        public void deleteJedi(JediWCF j)
+        public void deleteJedi(JediWCF jedi)
         {
             List<Jedi> jedis = bm.getJedis();
-            int index_to_modify = jedis.FindIndex(x => x.Id == j.Id);
+            int index_to_modify = jedis.FindIndex(x => x.Id == jedi.Id);
             jedis.RemoveAt(index_to_modify);
             bm.updateJedi(jedis);
         }
 
-        public void deleteMatch(MatchWCF j)
+        public void deleteMatch(MatchWCF match)
         {
-            throw new NotImplementedException();
+            List<Match> matches = bm.getMatches();
+            int index_to_modify = matches.FindIndex(x => x.Id == match.Id);
+            matches.RemoveAt(index_to_modify);
+            bm.updateMatch(matches);
         }
 
-        public void deleteStade(StadeWCF j)
+        public void deleteStade(StadeWCF stade)
         {
-            throw new NotImplementedException();
+            List<Stade> stades = bm.getStades();
+            int index_to_modify = stades.FindIndex(x => x.Id == stade.Id);
+            stades.RemoveAt(index_to_modify);
+            bm.updateStades(stades);
         }
 
-        public void deleteTournois(TournoiWCF j)
+        public void deleteTournois(TournoiWCF tournoi)
         {
-            throw new NotImplementedException();
+            List<Tournoi> tournois = bm.getTournoi();
+            int index_to_modify = tournois.FindIndex(x => x.Id == tournoi.Id);
+            tournois.RemoveAt(index_to_modify);
+            bm.updateTournoi(tournois);
         }
 
-        public void deleteCaracteristique(CaracteristiqueWCF j)
+        public void deleteCaracteristique(CaracteristiqueWCF caract)
         {
-            throw new NotImplementedException();
+            List<Caracteristique> caracts = bm.getCaracteristique();
+            int index_to_modify = caracts.FindIndex(x => x.Id == caract.Id);
+            caracts.RemoveAt(index_to_modify);
+            bm.updateCaracteristique(caracts);
         }
 
-        public void updateJedi(JediWCF j)
+        public void updateJedi(JediWCF jedi)
         {
             List<Jedi> jedis = bm.getJedis();
-            int index_to_modify = jedis.FindIndex(x => x.Id == j.Id);
-            jedis[index_to_modify] = j.toJedi();
+            int index_to_modify = jedis.FindIndex(x => x.Id == jedi.Id);
+            jedis[index_to_modify] = jedi.toJedi();
             bm.updateJedi(jedis);
         }
 
-        public void updateMatch(MatchWCF j)
+        public void updateMatch(MatchWCF match)
         {
-            throw new NotImplementedException();
+            List<Match> matches = bm.getMatches();
+            int index_to_modify = matches.FindIndex(x => x.Id == match.Id);
+            matches[index_to_modify] = match.toMatch();
+            bm.updateMatch(matches);
         }
 
-        public void updateStade(StadeWCF j)
+        public void updateStade(StadeWCF stade)
         {
-            throw new NotImplementedException();
+            List<Stade> stades = bm.getStades();
+            int index_to_modify = stades.FindIndex(x => x.Id == stade.Id);
+            stades[index_to_modify] = stade.toStade();
+            bm.updateStades(stades);
         }
 
-        public void updateTournois(TournoiWCF j)
+        public void updateTournois(TournoiWCF tournoi)
         {
-            throw new NotImplementedException();
+            List<Tournoi> tournois = bm.getTournoi();
+            int index_to_modify = tournois.FindIndex(x => x.Id == tournoi.Id);
+            tournois[index_to_modify] = tournoi.toTournoi();
+            bm.updateTournoi(tournois);
         }
 
-        public void updateCaracteristique(CaracteristiqueWCF j)
+        public void updateCaracteristique(CaracteristiqueWCF caract)
         {
-            throw new NotImplementedException();
+            List<Caracteristique> caracts = bm.getCaracteristique();
+            int index_to_modify = caracts.FindIndex(x => x.Id == caract.Id);
+            caracts[index_to_modify] = caract.toCaracteristique();
+            bm.updateCaracteristique(caracts);
         }
     }
 }

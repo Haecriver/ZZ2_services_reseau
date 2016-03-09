@@ -46,94 +46,94 @@ namespace TestJediService.ServiceJediReference {
         System.Threading.Tasks.Task<System.Collections.Generic.List<JediService.BusinessWCF.CaracteristiqueWCF>> getAllCaracteristiqueAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addJedi", ReplyAction="http://tempuri.org/IServiceJedi/addJediResponse")]
-        void addJedi(JediService.BusinessWCF.JediWCF j);
+        void addJedi(JediService.BusinessWCF.JediWCF jedi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addJedi", ReplyAction="http://tempuri.org/IServiceJedi/addJediResponse")]
-        System.Threading.Tasks.Task addJediAsync(JediService.BusinessWCF.JediWCF j);
+        System.Threading.Tasks.Task addJediAsync(JediService.BusinessWCF.JediWCF jedi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addMatch", ReplyAction="http://tempuri.org/IServiceJedi/addMatchResponse")]
-        void addMatch(JediService.BusinessWCF.MatchWCF j);
+        void addMatch(JediService.BusinessWCF.MatchWCF match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addMatch", ReplyAction="http://tempuri.org/IServiceJedi/addMatchResponse")]
-        System.Threading.Tasks.Task addMatchAsync(JediService.BusinessWCF.MatchWCF j);
+        System.Threading.Tasks.Task addMatchAsync(JediService.BusinessWCF.MatchWCF match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addStade", ReplyAction="http://tempuri.org/IServiceJedi/addStadeResponse")]
-        void addStade(JediService.BusinessWCF.StadeWCF j);
+        void addStade(JediService.BusinessWCF.StadeWCF stade);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addStade", ReplyAction="http://tempuri.org/IServiceJedi/addStadeResponse")]
-        System.Threading.Tasks.Task addStadeAsync(JediService.BusinessWCF.StadeWCF j);
+        System.Threading.Tasks.Task addStadeAsync(JediService.BusinessWCF.StadeWCF stade);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addTournoi", ReplyAction="http://tempuri.org/IServiceJedi/addTournoiResponse")]
-        void addTournoi(JediService.BusinessWCF.TournoiWCF j);
+        void addTournoi(JediService.BusinessWCF.TournoiWCF tournoi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addTournoi", ReplyAction="http://tempuri.org/IServiceJedi/addTournoiResponse")]
-        System.Threading.Tasks.Task addTournoiAsync(JediService.BusinessWCF.TournoiWCF j);
+        System.Threading.Tasks.Task addTournoiAsync(JediService.BusinessWCF.TournoiWCF tournoi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addCracteristique", ReplyAction="http://tempuri.org/IServiceJedi/addCracteristiqueResponse")]
-        void addCracteristique(JediService.BusinessWCF.CaracteristiqueWCF j);
+        void addCracteristique(JediService.BusinessWCF.CaracteristiqueWCF caract);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/addCracteristique", ReplyAction="http://tempuri.org/IServiceJedi/addCracteristiqueResponse")]
-        System.Threading.Tasks.Task addCracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF j);
+        System.Threading.Tasks.Task addCracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF caract);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteJedi", ReplyAction="http://tempuri.org/IServiceJedi/deleteJediResponse")]
-        void deleteJedi(JediService.BusinessWCF.JediWCF j);
+        void deleteJedi(JediService.BusinessWCF.JediWCF jedi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteJedi", ReplyAction="http://tempuri.org/IServiceJedi/deleteJediResponse")]
-        System.Threading.Tasks.Task deleteJediAsync(JediService.BusinessWCF.JediWCF j);
+        System.Threading.Tasks.Task deleteJediAsync(JediService.BusinessWCF.JediWCF jedi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteMatch", ReplyAction="http://tempuri.org/IServiceJedi/deleteMatchResponse")]
-        void deleteMatch(JediService.BusinessWCF.MatchWCF j);
+        void deleteMatch(JediService.BusinessWCF.MatchWCF match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteMatch", ReplyAction="http://tempuri.org/IServiceJedi/deleteMatchResponse")]
-        System.Threading.Tasks.Task deleteMatchAsync(JediService.BusinessWCF.MatchWCF j);
+        System.Threading.Tasks.Task deleteMatchAsync(JediService.BusinessWCF.MatchWCF match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteStade", ReplyAction="http://tempuri.org/IServiceJedi/deleteStadeResponse")]
-        void deleteStade(JediService.BusinessWCF.StadeWCF j);
+        void deleteStade(JediService.BusinessWCF.StadeWCF stade);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteStade", ReplyAction="http://tempuri.org/IServiceJedi/deleteStadeResponse")]
-        System.Threading.Tasks.Task deleteStadeAsync(JediService.BusinessWCF.StadeWCF j);
+        System.Threading.Tasks.Task deleteStadeAsync(JediService.BusinessWCF.StadeWCF stade);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteTournois", ReplyAction="http://tempuri.org/IServiceJedi/deleteTournoisResponse")]
-        void deleteTournois(JediService.BusinessWCF.TournoiWCF j);
+        void deleteTournois(JediService.BusinessWCF.TournoiWCF tournoi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteTournois", ReplyAction="http://tempuri.org/IServiceJedi/deleteTournoisResponse")]
-        System.Threading.Tasks.Task deleteTournoisAsync(JediService.BusinessWCF.TournoiWCF j);
+        System.Threading.Tasks.Task deleteTournoisAsync(JediService.BusinessWCF.TournoiWCF tournoi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteCaracteristique", ReplyAction="http://tempuri.org/IServiceJedi/deleteCaracteristiqueResponse")]
-        void deleteCaracteristique(JediService.BusinessWCF.CaracteristiqueWCF j);
+        void deleteCaracteristique(JediService.BusinessWCF.CaracteristiqueWCF caract);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/deleteCaracteristique", ReplyAction="http://tempuri.org/IServiceJedi/deleteCaracteristiqueResponse")]
-        System.Threading.Tasks.Task deleteCaracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF j);
+        System.Threading.Tasks.Task deleteCaracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF caract);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateJedi", ReplyAction="http://tempuri.org/IServiceJedi/updateJediResponse")]
-        void updateJedi(JediService.BusinessWCF.JediWCF j);
+        void updateJedi(JediService.BusinessWCF.JediWCF jedi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateJedi", ReplyAction="http://tempuri.org/IServiceJedi/updateJediResponse")]
-        System.Threading.Tasks.Task updateJediAsync(JediService.BusinessWCF.JediWCF j);
+        System.Threading.Tasks.Task updateJediAsync(JediService.BusinessWCF.JediWCF jedi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateMatch", ReplyAction="http://tempuri.org/IServiceJedi/updateMatchResponse")]
-        void updateMatch(JediService.BusinessWCF.MatchWCF j);
+        void updateMatch(JediService.BusinessWCF.MatchWCF match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateMatch", ReplyAction="http://tempuri.org/IServiceJedi/updateMatchResponse")]
-        System.Threading.Tasks.Task updateMatchAsync(JediService.BusinessWCF.MatchWCF j);
+        System.Threading.Tasks.Task updateMatchAsync(JediService.BusinessWCF.MatchWCF match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateStade", ReplyAction="http://tempuri.org/IServiceJedi/updateStadeResponse")]
-        void updateStade(JediService.BusinessWCF.StadeWCF j);
+        void updateStade(JediService.BusinessWCF.StadeWCF stade);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateStade", ReplyAction="http://tempuri.org/IServiceJedi/updateStadeResponse")]
-        System.Threading.Tasks.Task updateStadeAsync(JediService.BusinessWCF.StadeWCF j);
+        System.Threading.Tasks.Task updateStadeAsync(JediService.BusinessWCF.StadeWCF stade);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateTournois", ReplyAction="http://tempuri.org/IServiceJedi/updateTournoisResponse")]
-        void updateTournois(JediService.BusinessWCF.TournoiWCF j);
+        void updateTournois(JediService.BusinessWCF.TournoiWCF tournoi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateTournois", ReplyAction="http://tempuri.org/IServiceJedi/updateTournoisResponse")]
-        System.Threading.Tasks.Task updateTournoisAsync(JediService.BusinessWCF.TournoiWCF j);
+        System.Threading.Tasks.Task updateTournoisAsync(JediService.BusinessWCF.TournoiWCF tournoi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateCaracteristique", ReplyAction="http://tempuri.org/IServiceJedi/updateCaracteristiqueResponse")]
-        void updateCaracteristique(JediService.BusinessWCF.CaracteristiqueWCF j);
+        void updateCaracteristique(JediService.BusinessWCF.CaracteristiqueWCF caract);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateCaracteristique", ReplyAction="http://tempuri.org/IServiceJedi/updateCaracteristiqueResponse")]
-        System.Threading.Tasks.Task updateCaracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF j);
+        System.Threading.Tasks.Task updateCaracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF caract);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -203,124 +203,124 @@ namespace TestJediService.ServiceJediReference {
             return base.Channel.getAllCaracteristiqueAsync();
         }
         
-        public void addJedi(JediService.BusinessWCF.JediWCF j) {
-            base.Channel.addJedi(j);
+        public void addJedi(JediService.BusinessWCF.JediWCF jedi) {
+            base.Channel.addJedi(jedi);
         }
         
-        public System.Threading.Tasks.Task addJediAsync(JediService.BusinessWCF.JediWCF j) {
-            return base.Channel.addJediAsync(j);
+        public System.Threading.Tasks.Task addJediAsync(JediService.BusinessWCF.JediWCF jedi) {
+            return base.Channel.addJediAsync(jedi);
         }
         
-        public void addMatch(JediService.BusinessWCF.MatchWCF j) {
-            base.Channel.addMatch(j);
+        public void addMatch(JediService.BusinessWCF.MatchWCF match) {
+            base.Channel.addMatch(match);
         }
         
-        public System.Threading.Tasks.Task addMatchAsync(JediService.BusinessWCF.MatchWCF j) {
-            return base.Channel.addMatchAsync(j);
+        public System.Threading.Tasks.Task addMatchAsync(JediService.BusinessWCF.MatchWCF match) {
+            return base.Channel.addMatchAsync(match);
         }
         
-        public void addStade(JediService.BusinessWCF.StadeWCF j) {
-            base.Channel.addStade(j);
+        public void addStade(JediService.BusinessWCF.StadeWCF stade) {
+            base.Channel.addStade(stade);
         }
         
-        public System.Threading.Tasks.Task addStadeAsync(JediService.BusinessWCF.StadeWCF j) {
-            return base.Channel.addStadeAsync(j);
+        public System.Threading.Tasks.Task addStadeAsync(JediService.BusinessWCF.StadeWCF stade) {
+            return base.Channel.addStadeAsync(stade);
         }
         
-        public void addTournoi(JediService.BusinessWCF.TournoiWCF j) {
-            base.Channel.addTournoi(j);
+        public void addTournoi(JediService.BusinessWCF.TournoiWCF tournoi) {
+            base.Channel.addTournoi(tournoi);
         }
         
-        public System.Threading.Tasks.Task addTournoiAsync(JediService.BusinessWCF.TournoiWCF j) {
-            return base.Channel.addTournoiAsync(j);
+        public System.Threading.Tasks.Task addTournoiAsync(JediService.BusinessWCF.TournoiWCF tournoi) {
+            return base.Channel.addTournoiAsync(tournoi);
         }
         
-        public void addCracteristique(JediService.BusinessWCF.CaracteristiqueWCF j) {
-            base.Channel.addCracteristique(j);
+        public void addCracteristique(JediService.BusinessWCF.CaracteristiqueWCF caract) {
+            base.Channel.addCracteristique(caract);
         }
         
-        public System.Threading.Tasks.Task addCracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF j) {
-            return base.Channel.addCracteristiqueAsync(j);
+        public System.Threading.Tasks.Task addCracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF caract) {
+            return base.Channel.addCracteristiqueAsync(caract);
         }
         
-        public void deleteJedi(JediService.BusinessWCF.JediWCF j) {
-            base.Channel.deleteJedi(j);
+        public void deleteJedi(JediService.BusinessWCF.JediWCF jedi) {
+            base.Channel.deleteJedi(jedi);
         }
         
-        public System.Threading.Tasks.Task deleteJediAsync(JediService.BusinessWCF.JediWCF j) {
-            return base.Channel.deleteJediAsync(j);
+        public System.Threading.Tasks.Task deleteJediAsync(JediService.BusinessWCF.JediWCF jedi) {
+            return base.Channel.deleteJediAsync(jedi);
         }
         
-        public void deleteMatch(JediService.BusinessWCF.MatchWCF j) {
-            base.Channel.deleteMatch(j);
+        public void deleteMatch(JediService.BusinessWCF.MatchWCF match) {
+            base.Channel.deleteMatch(match);
         }
         
-        public System.Threading.Tasks.Task deleteMatchAsync(JediService.BusinessWCF.MatchWCF j) {
-            return base.Channel.deleteMatchAsync(j);
+        public System.Threading.Tasks.Task deleteMatchAsync(JediService.BusinessWCF.MatchWCF match) {
+            return base.Channel.deleteMatchAsync(match);
         }
         
-        public void deleteStade(JediService.BusinessWCF.StadeWCF j) {
-            base.Channel.deleteStade(j);
+        public void deleteStade(JediService.BusinessWCF.StadeWCF stade) {
+            base.Channel.deleteStade(stade);
         }
         
-        public System.Threading.Tasks.Task deleteStadeAsync(JediService.BusinessWCF.StadeWCF j) {
-            return base.Channel.deleteStadeAsync(j);
+        public System.Threading.Tasks.Task deleteStadeAsync(JediService.BusinessWCF.StadeWCF stade) {
+            return base.Channel.deleteStadeAsync(stade);
         }
         
-        public void deleteTournois(JediService.BusinessWCF.TournoiWCF j) {
-            base.Channel.deleteTournois(j);
+        public void deleteTournois(JediService.BusinessWCF.TournoiWCF tournoi) {
+            base.Channel.deleteTournois(tournoi);
         }
         
-        public System.Threading.Tasks.Task deleteTournoisAsync(JediService.BusinessWCF.TournoiWCF j) {
-            return base.Channel.deleteTournoisAsync(j);
+        public System.Threading.Tasks.Task deleteTournoisAsync(JediService.BusinessWCF.TournoiWCF tournoi) {
+            return base.Channel.deleteTournoisAsync(tournoi);
         }
         
-        public void deleteCaracteristique(JediService.BusinessWCF.CaracteristiqueWCF j) {
-            base.Channel.deleteCaracteristique(j);
+        public void deleteCaracteristique(JediService.BusinessWCF.CaracteristiqueWCF caract) {
+            base.Channel.deleteCaracteristique(caract);
         }
         
-        public System.Threading.Tasks.Task deleteCaracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF j) {
-            return base.Channel.deleteCaracteristiqueAsync(j);
+        public System.Threading.Tasks.Task deleteCaracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF caract) {
+            return base.Channel.deleteCaracteristiqueAsync(caract);
         }
         
-        public void updateJedi(JediService.BusinessWCF.JediWCF j) {
-            base.Channel.updateJedi(j);
+        public void updateJedi(JediService.BusinessWCF.JediWCF jedi) {
+            base.Channel.updateJedi(jedi);
         }
         
-        public System.Threading.Tasks.Task updateJediAsync(JediService.BusinessWCF.JediWCF j) {
-            return base.Channel.updateJediAsync(j);
+        public System.Threading.Tasks.Task updateJediAsync(JediService.BusinessWCF.JediWCF jedi) {
+            return base.Channel.updateJediAsync(jedi);
         }
         
-        public void updateMatch(JediService.BusinessWCF.MatchWCF j) {
-            base.Channel.updateMatch(j);
+        public void updateMatch(JediService.BusinessWCF.MatchWCF match) {
+            base.Channel.updateMatch(match);
         }
         
-        public System.Threading.Tasks.Task updateMatchAsync(JediService.BusinessWCF.MatchWCF j) {
-            return base.Channel.updateMatchAsync(j);
+        public System.Threading.Tasks.Task updateMatchAsync(JediService.BusinessWCF.MatchWCF match) {
+            return base.Channel.updateMatchAsync(match);
         }
         
-        public void updateStade(JediService.BusinessWCF.StadeWCF j) {
-            base.Channel.updateStade(j);
+        public void updateStade(JediService.BusinessWCF.StadeWCF stade) {
+            base.Channel.updateStade(stade);
         }
         
-        public System.Threading.Tasks.Task updateStadeAsync(JediService.BusinessWCF.StadeWCF j) {
-            return base.Channel.updateStadeAsync(j);
+        public System.Threading.Tasks.Task updateStadeAsync(JediService.BusinessWCF.StadeWCF stade) {
+            return base.Channel.updateStadeAsync(stade);
         }
         
-        public void updateTournois(JediService.BusinessWCF.TournoiWCF j) {
-            base.Channel.updateTournois(j);
+        public void updateTournois(JediService.BusinessWCF.TournoiWCF tournoi) {
+            base.Channel.updateTournois(tournoi);
         }
         
-        public System.Threading.Tasks.Task updateTournoisAsync(JediService.BusinessWCF.TournoiWCF j) {
-            return base.Channel.updateTournoisAsync(j);
+        public System.Threading.Tasks.Task updateTournoisAsync(JediService.BusinessWCF.TournoiWCF tournoi) {
+            return base.Channel.updateTournoisAsync(tournoi);
         }
         
-        public void updateCaracteristique(JediService.BusinessWCF.CaracteristiqueWCF j) {
-            base.Channel.updateCaracteristique(j);
+        public void updateCaracteristique(JediService.BusinessWCF.CaracteristiqueWCF caract) {
+            base.Channel.updateCaracteristique(caract);
         }
         
-        public System.Threading.Tasks.Task updateCaracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF j) {
-            return base.Channel.updateCaracteristiqueAsync(j);
+        public System.Threading.Tasks.Task updateCaracteristiqueAsync(JediService.BusinessWCF.CaracteristiqueWCF caract) {
+            return base.Channel.updateCaracteristiqueAsync(caract);
         }
     }
 }

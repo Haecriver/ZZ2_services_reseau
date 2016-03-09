@@ -38,15 +38,19 @@ namespace BusinessLayer
         public List<Stade> getStades() { return data.getAllStade(); }
         public List<Jedi> getJedis() { return data.getAllJedi(); }
         public List<Match> getMatches() { return data.getAllMatch(); }
-        public List<Tournoi> getTournoi() { return dataStub.getAllTournoi(); }
         public List<Caracteristique> getCaracteristique() { return data.getAllCaracteristic(); }
         public List<Utilisateur> getUtilisateur() { return data.getAllUtilisateur(); }
+
+        public List<Tournoi> getTournoi() { return dataStub.getAllTournoi(); }
+
 
         public void updateStades(List<Stade> stades) { data.updateStade(stades); }
         public void updateJedi(List<Jedi> jedis) { data.updateJedi(jedis); }
         public void updateMatch(List<Match> matches) { data.updateMatch(matches); }
         public void updateCaracteristique(List<Caracteristique> caracteristiques) { data.updateCaracteristique(caracteristiques); }
         public void updateUtilisateur(List<Utilisateur> utilisateurs) { data.updateUtilisateur(utilisateurs); }
+
+        public void updateTournoi(List<Tournoi> tournois) { dataStub.updateTournoi(tournois); }
 
         public void playTestMatch()
         {

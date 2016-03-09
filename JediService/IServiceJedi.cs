@@ -30,49 +30,49 @@ namespace JediService
         List<CaracteristiqueWCF> getAllCaracteristique();
 
         [OperationContract]
-        void addJedi(JediWCF j);
+        void addJedi(JediWCF jedi);
 
         [OperationContract]
-        void addMatch(MatchWCF j);
+        void addMatch(MatchWCF match);
 
         [OperationContract]
-        void addStade(StadeWCF j);
+        void addStade(StadeWCF stade);
 
         [OperationContract]
-        void addTournoi(TournoiWCF j);
+        void addTournoi(TournoiWCF tournoi);
 
         [OperationContract]
-        void addCracteristique(CaracteristiqueWCF j);
+        void addCracteristique(CaracteristiqueWCF caract);
 
         [OperationContract]
-        void deleteJedi(JediWCF j);
+        void deleteJedi(JediWCF jedi);
 
         [OperationContract]
-        void deleteMatch(MatchWCF j);
+        void deleteMatch(MatchWCF match);
 
         [OperationContract]
-        void deleteStade(StadeWCF j);
+        void deleteStade(StadeWCF stade);
 
         [OperationContract]
-        void deleteTournois(TournoiWCF j);
+        void deleteTournois(TournoiWCF tournoi);
 
         [OperationContract]
-        void deleteCaracteristique(CaracteristiqueWCF j);
+        void deleteCaracteristique(CaracteristiqueWCF caract);
 
         [OperationContract]
-        void updateJedi(JediWCF j);
+        void updateJedi(JediWCF jedi);
 
         [OperationContract]
-        void updateMatch(MatchWCF j);
+        void updateMatch(MatchWCF match);
 
         [OperationContract]
-        void updateStade(StadeWCF j);
+        void updateStade(StadeWCF stade);
 
         [OperationContract]
-        void updateTournois(TournoiWCF j);
+        void updateTournois(TournoiWCF tournoi);
 
         [OperationContract]
-        void updateCaracteristique(CaracteristiqueWCF j);
+        void updateCaracteristique(CaracteristiqueWCF caract);
     }
 
 

@@ -64,7 +64,7 @@
   <xs:element name="addJedi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q6:JediWCF" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="jedi" nillable="true" type="q6:JediWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -76,7 +76,7 @@
   <xs:element name="addMatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q7:MatchWCF" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="match" nillable="true" type="q7:MatchWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -88,7 +88,7 @@
   <xs:element name="addStade">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q8:StadeWCF" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="stade" nillable="true" type="q8:StadeWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -100,7 +100,7 @@
   <xs:element name="addTournoi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q9:TournoiWCF" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="tournoi" nillable="true" type="q9:TournoiWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -112,7 +112,7 @@
   <xs:element name="addCracteristique">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q10:CaracteristiqueWCF" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="caract" nillable="true" type="q10:CaracteristiqueWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -124,7 +124,7 @@
   <xs:element name="deleteJedi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q11:JediWCF" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="jedi" nillable="true" type="q11:JediWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -136,7 +136,7 @@
   <xs:element name="deleteMatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q12:MatchWCF" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="match" nillable="true" type="q12:MatchWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -148,7 +148,7 @@
   <xs:element name="deleteStade">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q13:StadeWCF" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="stade" nillable="true" type="q13:StadeWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -160,7 +160,7 @@
   <xs:element name="deleteTournois">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q14:TournoiWCF" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="tournoi" nillable="true" type="q14:TournoiWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -172,7 +172,7 @@
   <xs:element name="deleteCaracteristique">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q15:CaracteristiqueWCF" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="caract" nillable="true" type="q15:CaracteristiqueWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -184,7 +184,7 @@
   <xs:element name="updateJedi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q16:JediWCF" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="jedi" nillable="true" type="q16:JediWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -196,7 +196,7 @@
   <xs:element name="updateMatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q17:MatchWCF" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="match" nillable="true" type="q17:MatchWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -208,7 +208,7 @@
   <xs:element name="updateStade">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q18:StadeWCF" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="stade" nillable="true" type="q18:StadeWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -220,7 +220,7 @@
   <xs:element name="updateTournois">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q19:TournoiWCF" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="tournoi" nillable="true" type="q19:TournoiWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -232,7 +232,7 @@
   <xs:element name="updateCaracteristique">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="j" nillable="true" type="q20:CaracteristiqueWCF" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="caract" nillable="true" type="q20:CaracteristiqueWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

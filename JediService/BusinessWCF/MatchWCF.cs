@@ -62,5 +62,10 @@ namespace JediService.BusinessWCF
             get { return stade; }
             set { stade = value; }
         }
+
+        public Match toMatch()
+        {
+            return new Match(Id, jedi1.toJedi(), Jedi2.toJedi(), phaseTournoi, stade.toStade());
+        }
     }
 }
