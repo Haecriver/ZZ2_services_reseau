@@ -1,0 +1,10 @@
+Lien vers une page
+<a href='@Url.Action("action","controler")'>lien</a>
+
+Post d'une page :
+@using(Html.BeginForm())
+{
+	saisie1:@Html.EditorFor(model=>model.Nom)
+	[...]
+    <input typr='Submit' value)='Enregistrer' />
+}

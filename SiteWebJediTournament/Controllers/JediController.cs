@@ -3,36 +3,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SiteWebJediTournament.ServiceReference1;
+using SiteWebJediTournament.Models;
 
 namespace SiteWebJediTournament.Controllers
 {
     public class JediController : Controller
     {
-        // GET: Default
+        //
+        // GET: /Jedi/
         public ActionResult Index()
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            List<JediModels> list = new List<JediModels>();
+
+            foreach (JediWCF jedi in service.getAllJedi())
+            {
+                list.Add(new JediModels(jedi));
+            }
+
+            return View(list);
         }
 
-        // GET: Default/Details/5
+        //
+        // GET: /Jedi/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            JediWCF jedi = service.getAllJedi().ToList().Find(x => x.Id == id);
+            if (jedi == null)
+            {
+                return HttpNotFound();
+            }
+            List<JediModels> list = new List<JediModels>();
+            list.Add(new JediModels(jedi));
+            return View(list);
         }
 
-        // GET: Default/Create
+        //
+        // GET: /Jedi/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Default/Create
+        //
+        // POST: /Jedi/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                ServiceJediClient service = new ServiceJediClient();
+                JediWCF jedi = new JediWCF();
+                jedi.Nom = collection[0];
+                jedi.IsSith = collection[1];
+
+                service.addJedi();
 
                 return RedirectToAction("Index");
             }
@@ -42,13 +69,15 @@ namespace SiteWebJediTournament.Controllers
             }
         }
 
-        // GET: Default/Edit/5
+        //
+        // GET: /Jedi/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Default/Edit/5
+        //
+        // POST: /Jedi/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -64,13 +93,15 @@ namespace SiteWebJediTournament.Controllers
             }
         }
 
-        // GET: Default/Delete/5
+        //
+        // GET: /Jedi/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Default/Delete/5
+        //
+        // POST: /Jedi/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

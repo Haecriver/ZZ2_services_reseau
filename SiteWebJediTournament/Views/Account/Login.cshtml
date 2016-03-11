@@ -1,7 +1,7 @@
-﻿@using SiteWebJediTournament.Models
-@model LoginViewModel
+﻿@model SiteWebJediTournament.Models.LoginViewModel
+
 @{
-    ViewBag.Title = "Connexion";
+    ViewBag.Title = "Se connecter";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -13,19 +13,19 @@
                 @Html.AntiForgeryToken()
                 <h4>Utilisez un compte local pour vous connecter.</h4>
                 <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.ValidationSummary(true)
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.UserName)
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(m => m.Password)
                     </div>
                 </div>
                 <div class="form-group">
@@ -42,22 +42,17 @@
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("S'inscrire comme nouvel utilisateur", "Register")
+                    @Html.ActionLink("Enregistrez-vous", "Register") si vous n'avez pas de compte local.
                 </p>
-                @* Activer ceci une fois que la confirmation de votre compte est activée pour la fonctionnalité de réinitialisation du mot de passe
-                    <p>
-                        @Html.ActionLink("Vous avez oublié votre mot de passe ?", "ForgotPassword")
-                    </p>*@
             }
         </section>
     </div>
     <div class="col-md-4">
         <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
