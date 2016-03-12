@@ -18,18 +18,19 @@ namespace SiteWebJediTournament.Models
         public int NbPlaces { get; set; }
 
         [Display(Name = "List caracteristque")]
-        public List<CaracteristiqueWCF> Caracts { get; set; }
+        public CaracteristiqueCollection Caracts { get; set; }
 
         public StadeModels(StadeWCF stade)
         {
             Id = stade.Id;
             Planete = stade.Planete;
             NbPlaces = stade.NbPlaces;
-            Caracts = new List<CaracteristiqueWCF>();
+            List<CaracteristiqueModels> list = new List<CaracteristiqueModels>();
             foreach (CaracteristiqueWCF c in stade.Caracteristiques)
             {
-                Caracts.Add(c);
+                list.Add(new CaracteristiqueModels(c));
             }
+            Caracts = new CaracteristiqueCollection(list);
         }
 
         public StadeModels()
@@ -39,4 +40,20 @@ namespace SiteWebJediTournament.Models
 
 
     }
+    public class StadeContainer
+    {
+        public int Id { get; set; }
+        public StadeModels Stade { get; set; }
+
+        public StadeContainer(StadeModels stade)
+        {
+            Stade = stade;
+        }
+
+        public StadeModels Default
+        {
+            get { return new StadeModels(); }
+        }
+    }
+
 }

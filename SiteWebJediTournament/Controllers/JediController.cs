@@ -117,8 +117,13 @@ namespace SiteWebJediTournament.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                ServiceJediClient service = new ServiceJediClient();
+                JediWCF jedi = service.getAllJedi().ToList().Find(x => x.Id == id);
+                if (jedi == null)
+                {
+                    return HttpNotFound();
+                }
+                service.deleteJedi(jedi);
                 return RedirectToAction("Index");
             }
             catch

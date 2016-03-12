@@ -1,4 +1,4 @@
-﻿@model SiteWebJediTournament.Models.JediModels
+﻿@model SiteWebJediTournament.Models.MatchModels
 
 @{
     ViewBag.Title = "Create";
@@ -12,25 +12,16 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>JediModels</h4>
+        <h4>MatchModels</h4>
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
-            @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PhaseTournoi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nom)
-                @Html.ValidationMessageFor(model => model.Nom)
+                @Html.EditorFor(model => model.PhaseTournoi)
+                @Html.ValidationMessageFor(model => model.PhaseTournoi)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsSith, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IsSith)
-                @Html.ValidationMessageFor(model => model.IsSith)
-            </div>
-        </div>
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

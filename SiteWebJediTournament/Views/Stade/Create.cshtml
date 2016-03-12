@@ -1,4 +1,4 @@
-﻿@model SiteWebJediTournament.Models.JediModels
+﻿@model SiteWebJediTournament.Models.StadeModels
 
 @{
     ViewBag.Title = "Create";
@@ -12,25 +12,24 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>JediModels</h4>
+        <h4>StadeModels</h4>
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
-            @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Planete, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nom)
-                @Html.ValidationMessageFor(model => model.Nom)
+                @Html.EditorFor(model => model.Planete)
+                @Html.ValidationMessageFor(model => model.Planete)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IsSith, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NbPlaces, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IsSith)
-                @Html.ValidationMessageFor(model => model.IsSith)
+                @Html.EditorFor(model => model.NbPlaces)
+                @Html.ValidationMessageFor(model => model.NbPlaces)
             </div>
         </div>
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

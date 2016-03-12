@@ -18,22 +18,55 @@ namespace SiteWebJediTournament.Models
         public bool IsSith {get; set;}
         [Required]
         [Display(Name = "Caracteristiques du jedi")]
-        public List<CaracteristiqueWCF> Caracts { get; set; }
+        public  CaracteristiqueCollection Caracts { get; set; }
 
         public JediModels(JediWCF jedi)
         {
             Id = jedi.Id;
             Nom = jedi.Nom;
             IsSith = jedi.IsSith;
-            Caracts = new List<CaracteristiqueWCF>();
+        
+            List<CaracteristiqueModels> list = new List<CaracteristiqueModels>();
             foreach (CaracteristiqueWCF c in jedi.Caracteristiques)
             {
-                Caracts.Add(c);
+                list.Add(new CaracteristiqueModels(c));
             }
+            Caracts = new CaracteristiqueCollection(list);
         }
 
         public JediModels()
         {
+        }
+    }
+    public class JediCollection
+    {
+        public int Id { get; set; }
+        public List<JediModels> List { get; set; }
+
+        public JediCollection(List<JediModels> list)
+        {
+            List = list;
+        }
+
+        public JediModels Default
+        {
+            get { return new JediModels(); }
+        }
+    }
+
+    public class JediContainer
+    {
+        public int Id { get; set; }
+        public JediModels Jedi { get; set; }
+
+        public JediContainer(JediModels jedi)
+        {
+            Jedi = jedi;
+        }
+
+        public JediModels Default
+        {
+            get { return new JediModels(); }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SiteWebJediTournament.Models;
+using SiteWebJediTournament.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,13 +13,27 @@ namespace SiteWebJediTournament.Controllers
         // GET: Match
         public ActionResult Index()
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            List<MatchModels> list = new List<MatchModels>();
+
+            foreach (MatchWCF match in service.getAllMatch())
+            {
+                list.Add(new MatchModels(match));
+            }
+
+            return View(list);
         }
 
         // GET: Match/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            MatchWCF match = service.getAllMatch().ToList().Find(x => x.Id == id);
+            if (match == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new MatchModels(match));
         }
 
         // GET: Match/Create
@@ -45,7 +61,13 @@ namespace SiteWebJediTournament.Controllers
         // GET: Match/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            MatchWCF match = service.getAllMatch().ToList().Find(x => x.Id == id);
+            if (match == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new MatchModels(match));
         }
 
         // POST: Match/Edit/5
@@ -67,7 +89,13 @@ namespace SiteWebJediTournament.Controllers
         // GET: Match/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            MatchWCF match = service.getAllMatch().ToList().Find(x => x.Id == id);
+            if (match == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new MatchModels(match));
         }
 
         // POST: Match/Delete/5
@@ -76,7 +104,13 @@ namespace SiteWebJediTournament.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                ServiceJediClient service = new ServiceJediClient();
+                MatchWCF match = service.getAllMatch().ToList().Find(x => x.Id == id);
+                if (match == null)
+                {
+                    return HttpNotFound();
+                }
+                service.deleteMatch(match);
 
                 return RedirectToAction("Index");
             }

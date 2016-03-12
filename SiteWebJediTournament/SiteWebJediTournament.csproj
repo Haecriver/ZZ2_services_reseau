@@ -272,9 +272,21 @@
     <Content Include="Views\Jedi\Create.cshtml" />
     <Content Include="Views\Jedi\Edit.cshtml" />
     <Content Include="Views\Caracteristique\Index.cshtml" />
-    <Content Include="Views\Match\Index.cshtml" />
     <Content Include="Views\Stade\Index.cshtml" />
     <Content Include="Views\Jedi\Delete.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
+    <Content Include="Views\Match\Details.cshtml" />
+    <Content Include="Views\Match\Create.cshtml" />
+    <Content Include="Views\Match\Edit.cshtml" />
+    <Content Include="Views\Match\Delete.cshtml" />
+    <Content Include="Views\Stade\Details.cshtml" />
+    <Content Include="Views\Stade\Create.cshtml" />
+    <Content Include="Views\Stade\Edit.cshtml" />
+    <Content Include="Views\Stade\Delete.cshtml" />
+    <Content Include="Views\Caracteristique\Details.cshtml" />
+    <Content Include="Views\Caracteristique\Create.cshtml" />
+    <Content Include="Views\Caracteristique\Edit.cshtml" />
+    <Content Include="Views\Caracteristique\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

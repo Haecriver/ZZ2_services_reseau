@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SiteWebJediTournament.Models;
+using SiteWebJediTournament.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,13 +13,27 @@ namespace SiteWebJediTournament.Controllers
         // GET: Stade
         public ActionResult Index()
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            List<StadeModels> list = new List<StadeModels>();
+
+            foreach (StadeWCF stade in service.getAllStade())
+            {
+                list.Add(new StadeModels(stade));
+            }
+
+            return View(list);
         }
 
         // GET: Stade/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            StadeWCF stade = service.getAllStade().ToList().Find(x => x.Id == id);
+            if (stade == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new StadeModels(stade));
         }
 
         // GET: Stade/Create
@@ -45,7 +61,13 @@ namespace SiteWebJediTournament.Controllers
         // GET: Stade/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            StadeWCF stade = service.getAllStade().ToList().Find(x => x.Id == id);
+            if (stade == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new StadeModels(stade));
         }
 
         // POST: Stade/Edit/5
@@ -67,7 +89,13 @@ namespace SiteWebJediTournament.Controllers
         // GET: Stade/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            StadeWCF stade = service.getAllStade().ToList().Find(x => x.Id == id);
+            if (stade == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new StadeModels(stade));
         }
 
         // POST: Stade/Delete/5
@@ -76,7 +104,13 @@ namespace SiteWebJediTournament.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                ServiceJediClient service = new ServiceJediClient();
+                StadeWCF stade = service.getAllStade().ToList().Find(x => x.Id == id);
+                if (stade == null)
+                {
+                    return HttpNotFound();
+                }
+                service.deleteStade(stade);
 
                 return RedirectToAction("Index");
             }

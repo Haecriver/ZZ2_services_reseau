@@ -36,4 +36,20 @@ namespace SiteWebJediTournament.Models
         {
         }
     }
+
+    public class CaracteristiqueCollection
+    {
+        public int Id { get; set; }
+        public List<CaracteristiqueModels> List { get; set; }
+
+        public CaracteristiqueCollection(List<CaracteristiqueModels> list)
+        {
+            List = list;
+        }
+
+        public CaracteristiqueModels Default
+        {
+            get { return new CaracteristiqueModels(); }
+        }
+    }
 }

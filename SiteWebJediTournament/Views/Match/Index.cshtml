@@ -12,16 +12,34 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Jedi1.Default.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jedi2.Default.Nom)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.PhaseTournoi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stade.Default.Planete)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <th>
+            @Html.DisplayFor(modelItem => item.Jedi1.Jedi.Nom)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Jedi2.Jedi.Nom)
+        </th>
         <td>
             @Html.DisplayFor(modelItem => item.PhaseTournoi)
         </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Stade.Stade.Planete)
+        </th>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
