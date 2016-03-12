@@ -57,9 +57,10 @@ namespace SiteWebJediTournament.Controllers
                 ServiceJediClient service = new ServiceJediClient();
                 JediWCF jedi = new JediWCF();
                 jedi.Nom = collection[0];
-                jedi.IsSith = collection[1];
+                Console.WriteLine(collection[1]);
+                //jedi.IsSith = collection[1];
 
-                service.addJedi();
+               // service.addJedi(jedi);
 
                 return RedirectToAction("Index");
             }
