@@ -31,6 +31,21 @@
             </div>
         </div>
 
+        @{
+            ViewBag.Title = "Index";
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            var listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem { Text = String.Empty, Value = String.Empty });
+            foreach (var c in Model.Caracts.List)
+            {
+                listItems.Add(new SelectListItem { Text = c.Nom, Value = c.Nom });
+            }
+        }
+        <h2>
+            Index
+        </h2>
+        @Html.DropDownList("dropDownList", listItems)
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

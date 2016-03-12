@@ -48,14 +48,14 @@ namespace SiteWebJediTournament.Controllers
         //
         // POST: /Jedi/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(JediModels jedi)
         {
             try
             {
                 ServiceJediClient service = new ServiceJediClient();
-                JediWCF jedi = new JediWCF();
-                jedi.Nom = collection["Nom"];
-                jedi.IsSith = collection["EstUnSith"].StartsWith("true");
+                JediWCF jediWCF = new JediWCF();
+                jediWCF.Nom = jedi.Nom;
+                jediWCF.IsSith = jedi.IsSith;
 
                 // service.addJedi(jedi);
 
