@@ -16,7 +16,7 @@ namespace SiteWebJediTournament.Models
         [Required]
         [Display(Name = "Est un sith")]
         public bool IsSith {get; set;}
-
+        [Required]
         [Display(Name = "Caracteristiques du jedi")]
         public List<CaracteristiqueWCF> Caracts { get; set; }
 

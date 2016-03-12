@@ -35,9 +35,7 @@ namespace SiteWebJediTournament.Controllers
             {
                 return HttpNotFound();
             }
-            List<JediModels> list = new List<JediModels>();
-            list.Add(new JediModels(jedi));
-            return View(list);
+            return View(new JediModels(jedi));
         }
 
         //
@@ -56,11 +54,10 @@ namespace SiteWebJediTournament.Controllers
             {
                 ServiceJediClient service = new ServiceJediClient();
                 JediWCF jedi = new JediWCF();
-                jedi.Nom = collection[0];
-                Console.WriteLine(collection[1]);
-                //jedi.IsSith = collection[1];
+                jedi.Nom = collection["Nom"];
+                jedi.IsSith = collection["EstUnSith"].StartsWith("true");
 
-               // service.addJedi(jedi);
+                // service.addJedi(jedi);
 
                 return RedirectToAction("Index");
             }
@@ -74,7 +71,13 @@ namespace SiteWebJediTournament.Controllers
         // GET: /Jedi/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            JediWCF jedi = service.getAllJedi().ToList().Find(x => x.Id == id);
+            if (jedi == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new JediModels(jedi));
         }
 
         //
@@ -98,7 +101,13 @@ namespace SiteWebJediTournament.Controllers
         // GET: /Jedi/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            ServiceJediClient service = new ServiceJediClient();
+            JediWCF jedi = service.getAllJedi().ToList().Find(x => x.Id == id);
+            if (jedi == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new JediModels(jedi));
         }
 
         //

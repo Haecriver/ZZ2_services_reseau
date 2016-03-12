@@ -17,5 +17,11 @@ namespace SiteWebJediTournament.Models
         public System.Data.Entity.DbSet<SiteWebJediTournament.ServiceReference1.JediWCF> JediWCFs { get; set; }
 
         public System.Data.Entity.DbSet<SiteWebJediTournament.Models.JediModels> JediModels { get; set; }
+
+        public System.Data.Entity.DbSet<SiteWebJediTournament.Models.CaracteristiqueModels> CaracteristiqueModels { get; set; }
+
+        public System.Data.Entity.DbSet<SiteWebJediTournament.Models.MatchModels> MatchModels { get; set; }
+
+        public System.Data.Entity.DbSet<SiteWebJediTournament.Models.StadeModels> StadeModels { get; set; }
     }
 }
