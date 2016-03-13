@@ -37,6 +37,7 @@ namespace TestJediService
             Assert.IsTrue(result.Exists(x => x.Nom == j.Nom), "Le jedi " + j.Nom + " n'est pas present");
 
             //update
+            j = result.Find(x => x.Nom == "TestAjout");
             j.IsSith = true;
             service.updateJedi(j);
             result = service.getAllJedi();
@@ -74,6 +75,7 @@ namespace TestJediService
             MatchWCF m = new MatchWCF(new Match(0, jedis[0], jedis[1], EPhaseTournoi.DemiFinale, stades[0]));
             service.addMatch(m);
             result = service.getAllMatch();
+            m = result.Find(x => x.Jedi1.Id == jedis[0].Id && x.Jedi2.Id == jedis[1].Id && x.PhaseTournoi == EPhaseTournoi.DemiFinale && x.Stade.Id == stades[0].Id);
             Assert.IsTrue(result.Exists(x => x.Id == m.Id), "Le match " + m.ToString() + " n'est pas present");
 
             //update
@@ -115,6 +117,7 @@ namespace TestJediService
             Assert.IsTrue(result.Exists(x => x.Id == s.Id), "Le stade " + s.Planete + " n'est pas present");
 
             //update
+            s = result.Find(x => x.Planete == "stadeTest");
             s.NbPlaces = 150;
             service.updateStade(s);
             result = service.getAllStade();
@@ -212,6 +215,7 @@ namespace TestJediService
             Assert.IsTrue(result.Exists(x => x.Nom == c.Nom), "La caract " + c.Nom + " n'est pas presente");
 
             //update
+            c = result.Find(x => x.Nom == "testCaract");
             c.Valeur = 20;
             service.updateCaracteristique(c);
             result = service.getAllCaracteristique();

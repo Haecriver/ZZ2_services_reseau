@@ -136,5 +136,16 @@ namespace SiteWebJediTournament.Controllers
                 return View();
             }
         }
+
+        public ActionResult ListJedi()
+        {
+            ServiceJediClient service = new ServiceJediClient();
+            List<JediModels> list = new List<JediModels>();
+            foreach (JediWCF j in service.getAllJedi())
+            {
+                list.Add(new JediModels(j));
+            }
+            return PartialView(list);
+        }
     }
 }

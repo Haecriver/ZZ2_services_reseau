@@ -119,5 +119,17 @@ namespace SiteWebJediTournament.Controllers
                 return View();
             }
         }
+
+
+        public ActionResult ListStade()
+        {
+            ServiceJediClient service = new ServiceJediClient();
+            List<StadeModels> list = new List<StadeModels>();
+            foreach (StadeWCF s in service.getAllStade())
+            {
+                list.Add(new StadeModels(s));
+            }
+            return PartialView(list);
+        }
     }
 }

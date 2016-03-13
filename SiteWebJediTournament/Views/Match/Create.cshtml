@@ -16,10 +16,38 @@
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
+            @Html.LabelFor(model => model.Jedi1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="jediselect1" id="jediselect1">
+                    @Html.Action("ListJedi", "Jedi")
+                </select>
+            </div>
+        </div>
+       <div class="form-group">
+            @Html.LabelFor(model => model.Jedi2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="jediselect2" id="jediselect2">
+                    @Html.Action("ListJedi", "Jedi")
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
             @Html.LabelFor(model => model.PhaseTournoi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PhaseTournoi)
-                @Html.ValidationMessageFor(model => model.PhaseTournoi)
+                    <select name="phaseselect" id="phaseselect">
+                        <option value="HuitiemeFinale">HuitiemeFinale</option>    
+                        <option value="QuartFinale">QuartFinale</option>
+                        <option value="DemiFinale">DemiFinale</option>
+                        <option value="Finale">Finale</option>
+                    </select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Stade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="stadeselect" id="stadeselect">
+                    @Html.Action("ListStade", "Stade")
+                </select>
             </div>
         </div>
 

@@ -76,35 +76,50 @@ namespace JediService
         public void addJedi(JediWCF jedi)
         {
             List<Jedi> jedis = bm.getJedis();
-            jedis.Add(jedi.toJedi());
+            List<Caracteristique> listCaract = new List<Caracteristique>();
+            foreach (CaracteristiqueWCF car in jedi.Caracteristiques)
+            {
+                listCaract.Add(car.toCaracteristique());
+            }
+            jedis.Add(new Jedi(jedi.Nom,jedi.IsSith,listCaract));
             bm.updateJedi(jedis);
         }
 
         public void addMatch(MatchWCF match)
         {
             List<Match> matches = bm.getMatches();
-            matches.Add(match.toMatch());
+            matches.Add(new Match(match.Jedi1.toJedi(), match.Jedi2.toJedi(), match.PhaseTournoi, match.Stade.toStade()));
             bm.updateMatch(matches);
         }
 
         public void addStade(StadeWCF stade)
         {
             List<Stade> stades = bm.getStades();
-            stades.Add(stade.toStade());
+            List<Caracteristique> listCaract = new List<Caracteristique>();
+            foreach (CaracteristiqueWCF car in stade.Caracteristiques)
+            {
+                listCaract.Add(car.toCaracteristique());
+            }
+            stades.Add(new Stade(stade.NbPlaces,stade.Planete,listCaract));
             bm.updateStades(stades);
         }
 
         public void addTournoi(TournoiWCF tournoi)
         {
             List<Tournoi> tournois = bm.getTournoi();
-            tournois.Add(tournoi.toTournoi());
+            List<Match> listMatch = new List<Match>();
+            foreach (MatchWCF match in tournoi.Matches)
+            {
+                listMatch.Add(match.toMatch());
+            }
+            tournois.Add(new Tournoi(listMatch,tournoi.Nom));
             bm.updateTournoi(tournois);
         }
 
         public void addCracteristique(CaracteristiqueWCF carac)
         {
             List<Caracteristique> caracts = bm.getCaracteristique();
-            caracts.Add(carac.toCaracteristique());
+            caracts.Add(new Caracteristique(carac.Definition,carac.Nom,carac.Type,carac.Valeur));
             bm.updateCaracteristique(caracts);
         }
 

@@ -55,5 +55,6 @@ namespace JediService.BusinessWCF
             get { return valeur; }
             set { valeur = value; }
         }
+
     }
 }

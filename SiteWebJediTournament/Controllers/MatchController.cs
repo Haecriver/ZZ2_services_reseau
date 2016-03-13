@@ -48,8 +48,19 @@ namespace SiteWebJediTournament.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                string str1 = collection[0];
+                string str2 = collection[1];
 
+                ServiceJediClient service = new ServiceJediClient();
+                List<JediWCF> listJedis = service.getAllJedi().ToList();
+                List<StadeWCF> listStades = service.getAllStade().ToList();
+                MatchWCF match = new MatchWCF();
+                match.Jedi1 = listJedis.Find(x => x.Id == Int32.Parse(collection[1]));
+                match.Jedi2 = listJedis.Find(x => x .Id == Int32.Parse(collection[2]));
+                match.PhaseTournoi = (EPhaseTournoi)Enum.Parse(typeof(EPhaseTournoi), collection[3], true);
+                match.Stade = listStades.Find(x => x.Id == Int32.Parse(collection[4]));
+
+                service.addMatch(match);
                 return RedirectToAction("Index");
             }
             catch
@@ -76,7 +87,16 @@ namespace SiteWebJediTournament.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                ServiceJediClient service = new ServiceJediClient();
+                List<JediWCF> listJedis = service.getAllJedi().ToList();
+                List<StadeWCF> listStades = service.getAllStade().ToList();
+                MatchWCF match = service.getAllMatch().ToList().Find(x => x.Id == id);
+                match.Jedi1 = listJedis.Find(x => x.Id == Int32.Parse(collection[1]));
+                match.Jedi2 = listJedis.Find(x => x.Id == Int32.Parse(collection[2]));
+                match.PhaseTournoi = (EPhaseTournoi)Enum.Parse(typeof(EPhaseTournoi), collection[3], true);
+                match.Stade = listStades.Find(x => x.Id == Int32.Parse(collection[4]));
+
+                service.updateMatch(match);
 
                 return RedirectToAction("Index");
             }
