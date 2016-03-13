@@ -2,5 +2,9 @@
 
 @foreach (var c in Model)
 {
-    <option value="@c.Id">@c.Nom</option>
+    <div class="editor-field">
+        @c.Nom
+        @Html.CheckBox("templateId", new { @value = c.Id })
+    </div>
 }
+

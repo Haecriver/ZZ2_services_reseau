@@ -48,8 +48,27 @@ namespace SiteWebJediTournament.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                ServiceJediClient service = new ServiceJediClient();
+                List<CaracteristiqueWCF> listCar = service.getAllCaracteristique().ToList();
 
+                StadeWCF stadeWCf = new StadeWCF();
+                stadeWCf.Planete = collection[1];
+                stadeWCf.NbPlaces = Int32.Parse(collection[2]);
+
+                List<CaracteristiqueWCF> listCarRes = new List<CaracteristiqueWCF>();
+                char[] delimiterChars = { ',' };
+                string[] caractStr = collection[3].Split(delimiterChars);
+                foreach (string str in caractStr)
+                {
+                    if (str != "false")
+                    {
+                        listCarRes.Add(listCar.Find(x => x.Id == Int32.Parse(str)));
+                    }
+                }
+
+                stadeWCf.Caracteristiques = listCarRes.ToArray();
+
+                service.addStade(stadeWCf);
                 return RedirectToAction("Index");
             }
             catch
@@ -76,8 +95,27 @@ namespace SiteWebJediTournament.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                ServiceJediClient service = new ServiceJediClient();
+                List<CaracteristiqueWCF> listCar = service.getAllCaracteristique().ToList();
 
+                StadeWCF stadeWCF = service.getAllStade().ToList().Find(x => x.Id == id);
+                stadeWCF.Planete = collection[2];
+                stadeWCF.NbPlaces = Int32.Parse(collection[3]);
+
+                List<CaracteristiqueWCF> listCarRes = new List<CaracteristiqueWCF>();
+                char[] delimiterChars = { ',' };
+                string[] caractStr = collection[4].Split(delimiterChars);
+                foreach (string str in caractStr)
+                {
+                    if (str != "false")
+                    {
+                        listCarRes.Add(listCar.Find(x => x.Id == Int32.Parse(str)));
+                    }
+                }
+
+                stadeWCF.Caracteristiques = listCarRes.ToArray();
+
+                service.updateStade(stadeWCF);
                 return RedirectToAction("Index");
             }
             catch

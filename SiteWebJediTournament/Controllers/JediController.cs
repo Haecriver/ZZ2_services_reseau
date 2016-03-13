@@ -54,14 +54,23 @@ namespace SiteWebJediTournament.Controllers
             {
                 ServiceJediClient service = new ServiceJediClient();
                 List<CaracteristiqueWCF> listCar = service.getAllCaracteristique().ToList();
+        
                 JediWCF jediWCF = new JediWCF();
                 jediWCF.Nom = collection[1];
                 jediWCF.IsSith = collection[2].StartsWith("true");
-                jediWCF.Caracteristiques = new CaracteristiqueWCF[collection.Count-3];
-                for (int i = 3; i < collection.Count; i++)
+
+                List<CaracteristiqueWCF> listCarRes = new List<CaracteristiqueWCF>();
+                char[] delimiterChars = {','};
+                string[] caractStr = collection[3].Split(delimiterChars);
+                foreach (string str in caractStr)
                 {
-                    jediWCF.Caracteristiques[i - 3] = listCar.Find(x => x.Id == Int32.Parse(collection[i]));
+                    if (str != "false")
+                    {
+                        listCarRes.Add(listCar.Find(x => x.Id == Int32.Parse(str)));
+                    }
                 }
+
+                jediWCF.Caracteristiques = listCarRes.ToArray();
 
                 service.addJedi(jediWCF);
                 return RedirectToAction("Index");
@@ -92,8 +101,27 @@ namespace SiteWebJediTournament.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                ServiceJediClient service = new ServiceJediClient();
+                List<CaracteristiqueWCF> listCar = service.getAllCaracteristique().ToList();
 
+                JediWCF jediWCF = service.getAllJedi().ToList().Find(x => x.Id == id);
+                jediWCF.Nom = collection[2];
+                jediWCF.IsSith = collection[3].StartsWith("true");
+
+                List<CaracteristiqueWCF> listCarRes = new List<CaracteristiqueWCF>();
+                char[] delimiterChars = { ',' };
+                string[] caractStr = collection[4].Split(delimiterChars);
+                foreach (string str in caractStr)
+                {
+                    if (str != "false")
+                    {
+                        listCarRes.Add(listCar.Find(x => x.Id == Int32.Parse(str)));
+                    }
+                }
+
+                jediWCF.Caracteristiques = listCarRes.ToArray();
+
+                service.updateJedi(jediWCF);
                 return RedirectToAction("Index");
             }
             catch

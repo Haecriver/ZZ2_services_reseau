@@ -28,6 +28,47 @@
         </dd>
 
     </dl>
+    <h5 @Html.DisplayNameFor(model => model.Caracts)></h5>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Caracts.Default.Def)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caracts.Default.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caracts.Default.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caracts.Default.Valeur)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Caracts.List)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Def)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valeur)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "../Caracteristique/Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "../Caracteristique/Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "../Caracteristique/Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()

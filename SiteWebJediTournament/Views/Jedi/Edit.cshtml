@@ -33,6 +33,52 @@
             </div>
         </div>
 
+        <h5 @Html.DisplayNameFor(model => model.Caracts)></h5>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Def)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Valeur)
+                </th>
+            </tr>
+
+            @foreach (var item in Model.Caracts.List)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Def)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Valeur)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Caracts, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="caractselect" id="caractselect">
+                    @Html.Action("ListCaracteristiqueJedi", "Caracteristique")
+                </select>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
