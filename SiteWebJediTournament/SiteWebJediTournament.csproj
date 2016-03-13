@@ -30,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -287,6 +288,8 @@
     <Content Include="Views\Caracteristique\Create.cshtml" />
     <Content Include="Views\Caracteristique\Edit.cshtml" />
     <Content Include="Views\Caracteristique\Delete.cshtml" />
+    <Content Include="Views\Caracteristique\ListCaracteristiqueJedi.cshtml" />
+    <Content Include="Views\Caracteristique\ListCaracteristiqueStade.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

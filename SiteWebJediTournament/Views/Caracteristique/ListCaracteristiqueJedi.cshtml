@@ -1,0 +1,10 @@
+﻿@model IEnumerable<SiteWebJediTournament.Models.CaracteristiqueModels>
+
+<form action="myservlet.do" method="POST">
+    <select name="myselect" id="myselect">
+        @foreach (var c in Model)
+        {
+            <option value="@c.Id">@c.Nom</option>
+        }
+    </select>
+</form>

@@ -118,5 +118,33 @@ namespace SiteWebJediTournament.Controllers
                 return View();
             }
         }
+
+        public ActionResult ListCaracteristiqueJedi()
+        {
+            ServiceJediClient service = new ServiceJediClient();
+            List<CaracteristiqueModels> list = new List<CaracteristiqueModels>();
+            foreach(CaracteristiqueWCF c in service.getAllCaracteristique())
+            {
+                if (c.Type == ETypeCaracteristique.Jedi)
+                {
+                    list.Add(new CaracteristiqueModels(c));
+                }
+            }
+            return PartialView(list);
+        }
+
+        public ActionResult ListCaracteristiqueStade()
+        {
+            ServiceJediClient service = new ServiceJediClient();
+            List<CaracteristiqueModels> list = new List<CaracteristiqueModels>();
+            foreach (CaracteristiqueWCF c in service.getAllCaracteristique())
+            {
+                if (c.Type == ETypeCaracteristique.Stade)
+                {
+                    list.Add(new CaracteristiqueModels(c));
+                }
+            }
+            return PartialView(list);
+        }
     }
 }

@@ -48,17 +48,22 @@ namespace SiteWebJediTournament.Controllers
         //
         // POST: /Jedi/Create
         [HttpPost]
-        public ActionResult Create(JediModels jedi)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
                 ServiceJediClient service = new ServiceJediClient();
+                List<CaracteristiqueWCF> listCar = service.getAllCaracteristique().ToList();
                 JediWCF jediWCF = new JediWCF();
-                jediWCF.Nom = jedi.Nom;
-                jediWCF.IsSith = jedi.IsSith;
+                jediWCF.Nom = collection[1];
+                jediWCF.IsSith = collection[2].StartsWith("true");
+                jediWCF.Caracteristiques = new CaracteristiqueWCF[collection.Count-3];
+                for (int i = 3; i < collection.Count; i++)
+                {
+                    jediWCF.Caracteristiques[i - 3] = listCar.Find(x => x.Id == Int32.Parse(collection[i]));
+                }
 
-                // service.addJedi(jedi);
-
+                service.addJedi(jediWCF);
                 return RedirectToAction("Index");
             }
             catch
