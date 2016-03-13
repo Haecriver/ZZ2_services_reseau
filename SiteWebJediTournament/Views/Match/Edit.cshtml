@@ -21,6 +21,7 @@
             @Html.LabelFor(model => model.Jedi1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select name="jediselect1" id="jediselect1">
+                    <option value="@Model.Jedi1.Jedi.Id">@Model.Jedi1.Jedi.Nom</option>
                     @Html.Action("ListJedi", "Jedi")
                 </select>
             </div>
@@ -29,6 +30,7 @@
             @Html.LabelFor(model => model.Jedi2, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select name="jediselect2" id="jediselect2">
+                    <option value="@Model.Jedi2.Jedi.Id">@Model.Jedi2.Jedi.Nom</option>
                     @Html.Action("ListJedi", "Jedi")
                 </select>
             </div>
@@ -39,6 +41,7 @@
             <div class="col-md-10">
                 <form action="myservlet.do" method="POST">
                     <select name="myselect" id="myselect">
+                        <option value="@Model.PhaseTournoi">@Model.PhaseTournoi</option>
                         <option value="HuitiemeFinale">HuitiemeFinale</option>
                         <option value="QuartFinale">QuartFinale</option>
                         <option value="DemiFinale">DemiFinale</option>
@@ -52,6 +55,7 @@
             @Html.LabelFor(model => model.Stade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select name="stadeselect" id="stadeselect">
+                    <option value="@Model.Stade.Stade.Id">@Model.Stade.Stade.Planete</option>
                     @Html.Action("ListStade", "Stade")
                 </select>
             </div>

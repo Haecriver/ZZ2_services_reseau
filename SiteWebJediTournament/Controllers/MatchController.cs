@@ -91,10 +91,10 @@ namespace SiteWebJediTournament.Controllers
                 List<JediWCF> listJedis = service.getAllJedi().ToList();
                 List<StadeWCF> listStades = service.getAllStade().ToList();
                 MatchWCF match = service.getAllMatch().ToList().Find(x => x.Id == id);
-                match.Jedi1 = listJedis.Find(x => x.Id == Int32.Parse(collection[1]));
-                match.Jedi2 = listJedis.Find(x => x.Id == Int32.Parse(collection[2]));
-                match.PhaseTournoi = (EPhaseTournoi)Enum.Parse(typeof(EPhaseTournoi), collection[3], true);
-                match.Stade = listStades.Find(x => x.Id == Int32.Parse(collection[4]));
+                match.Jedi1 = listJedis.Find(x => x.Id == Int32.Parse(collection[2]));
+                match.Jedi2 = listJedis.Find(x => x.Id == Int32.Parse(collection[3]));
+                match.PhaseTournoi = (EPhaseTournoi)Enum.Parse(typeof(EPhaseTournoi), collection[4], true);
+                match.Stade = listStades.Find(x => x.Id == Int32.Parse(collection[5]));
 
                 service.updateMatch(match);
 

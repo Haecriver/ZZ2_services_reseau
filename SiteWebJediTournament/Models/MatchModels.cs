@@ -28,6 +28,7 @@ namespace SiteWebJediTournament.Models
 
         public MatchModels(MatchWCF match)
         {
+            Id = match.Id;
             Jedi1 = new JediContainer(new JediModels(match.Jedi1));
             Jedi2 = new JediContainer(new JediModels(match.Jedi2));
             if (match.JediVainqueur != null)
