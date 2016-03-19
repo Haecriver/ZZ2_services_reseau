@@ -9,12 +9,14 @@ namespace StubDataAccessLayer
 {
     public class StubDalManager
     {
-        private List<Jedi> allJedi;
-        private List<Match> allMatch;
-        private List<Stade> allStade;
-        private List<Tournoi> allTournoi;
-        private List<Caracteristique> allCharacteristics;
-        private SortedDictionary<string, Utilisateur> allUtilisateurs;
+        static bool stub = false;
+
+        static private List<Jedi> allJedi;
+        static private List<Match> allMatch;
+        static private List<Stade> allStade;
+        static private List<Tournoi> allTournoi;
+        static private List<Caracteristique> allCharacteristics;
+        static private SortedDictionary<string, Utilisateur> allUtilisateurs;
 
         // Ajout de donnees factices
         private void stuber()
@@ -70,7 +72,11 @@ namespace StubDataAccessLayer
 
         public StubDalManager()
         {
-            stuber();
+            if (!stub)
+            {
+                stuber();
+                stub = true;
+            }
         }
 
         public List<Jedi> getAllJedi()

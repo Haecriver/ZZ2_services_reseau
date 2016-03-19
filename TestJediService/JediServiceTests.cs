@@ -131,7 +131,7 @@ namespace TestJediService
 
         //Tournois
         [TestMethod]
-        public void getAllTournoiTest()
+        public void TournoiTest()
         {
             //get
             ServiceJediReference.ServiceJediClient service = new ServiceJediReference.ServiceJediClient();
@@ -139,55 +139,34 @@ namespace TestJediService
             BusinessLayer.BusinessManager bm = new BusinessLayer.BusinessManager();
             List<Tournoi> original = bm.getTournoi();
             List<TournoiWCF> expected = new List<TournoiWCF>();
-            foreach (Tournoi t in original)
+            foreach (Tournoi tournois in original)
             {
-                expected.Add(new TournoiWCF(t));
+                expected.Add(new TournoiWCF(tournois));
             }
-            foreach (TournoiWCF t in expected)
+            foreach (TournoiWCF tournois in expected)
             {
-                Assert.IsTrue(result.Exists(x=> x.Nom == t.Nom),"Le tournoi " + t.Nom + " n'est pas present");
+                Assert.IsTrue(result.Exists(x=> x.Nom == tournois.Nom),"Le tournoi " + tournois.Nom + " n'est pas present");
             }
-        }
 
-        //STUB DONC NE MARCHE PAS
-
-        /*  [TestMethod]
-        public void addTournoiTest()
-        {
-            ServiceJediReference.ServiceJediClient service = new ServiceJediReference.ServiceJediClient();
-            BusinessLayer.BusinessManager bm = new BusinessLayer.BusinessManager();
-            bm.getTournoi();  //met a jour l'id
+            //add
             List<Match> matches = bm.getMatches();
-            TournoiWCF t = new TournoiWCF(new Tournoi(matches.FindAll(x=>x.Id==1),"tournoisTest"));
+            TournoiWCF t = new TournoiWCF(new Tournoi(matches, "Tournoistest" ));
             service.addTournoi(t);
-            List<TournoiWCF> result = service.getAllTournoi();
-            Assert.IsTrue(result.Exists(x => x.Id == t.Id), "Le tournoi " + t.Nom + " n'est pas present");
-        }
+            result = service.getAllTournoi();
+            Assert.IsTrue(result.Exists(x => x.Id == t.Id), "Le tournois " + t.Nom + " n'est pas present");
 
-        [TestMethod]
-        public void updateTournoiTest()
-        {
-            ServiceJediReference.ServiceJediClient service = new ServiceJediReference.ServiceJediClient();
-            BusinessLayer.BusinessManager bm = new BusinessLayer.BusinessManager();
-            bm.getTournoi();  //met a jour l'id
-            TournoiWCF t = service.getAllTournoi().Find(x => x.Nom.Equals("tournoisTest"));
-            t.Nom = "tournoisTest2";
+            //update
+            t = result.Find(x => x.Nom == "Tournoistest");
+            t.Nom = "Tournoistest2";
             service.updateTournois(t);
-            List<TournoiWCF> result = service.getAllTournoi();
-            Assert.IsTrue(result.Exists(x => x.Id == t.Id && x.Nom.Equals("tournoisTest2")), "Le tournoi " + t.Nom + " n'a pas ete modife");
-        }
+            result = service.getAllTournoi();
+            Assert.IsTrue(result.Exists(x => x.Nom == "Tournoistest2"), "Le tournois " + t.Nom + " n'a pas ete modife");
 
-        [TestMethod]
-        public void deleteTournoiTest()
-        {
-            ServiceJediReference.ServiceJediClient service = new ServiceJediReference.ServiceJediClient();
-            BusinessLayer.BusinessManager bm = new BusinessLayer.BusinessManager();
-            bm.getTournoi();  //met a jour l'id
-            TournoiWCF t = service.getAllTournoi().Find(x => x.Nom.Equals("tournoisTest2"));
+            //delete
             service.deleteTournois(t);
-            List<TournoiWCF> result = service.getAllTournoi();
-            Assert.IsTrue(!result.Exists(x => x.Nom == t.Nom), "Le tournoi " + t.Nom + "existe toujours");
-        }*/
+            result = service.getAllTournoi();
+            Assert.IsTrue(!result.Exists(x => x.Nom == "Tournoistest2"), "Le tournois " + t.Nom + "existe toujours");
+        }
 
         //Caracteristique
         [TestMethod]
