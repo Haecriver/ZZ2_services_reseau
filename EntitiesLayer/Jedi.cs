@@ -13,7 +13,7 @@ namespace EntitiesLayer
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private static int countId;
+        private static int countId=1;
         public static int CountId
         {
             get { return countId; }

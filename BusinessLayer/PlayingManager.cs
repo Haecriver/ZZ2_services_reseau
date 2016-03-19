@@ -47,8 +47,8 @@ namespace BusinessLayer
             //   set { playerJedi = value; }
         }
 
-        private Pool pool;
-        public Pool Pool
+        private Tournoi pool;
+        public Tournoi Pool
         {
             get { return pool; }
             //   set { pool = value; }
@@ -88,7 +88,7 @@ namespace BusinessLayer
 
             //Premiere pool a jouer
             //Le premier match de la list sera celui du joueur
-            pool = new Pool(jedis_to_pool, businessManager.getStades());
+            pool = new Tournoi(jedis_to_pool, businessManager.getStades());
 
             //On joue tout les autres matches
             foreach (Match match in pool.Matches)

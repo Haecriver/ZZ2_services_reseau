@@ -17,7 +17,7 @@ namespace JediService.BusinessWCF
         {
             this.nom = tournoi.Nom;
             matchesWCF = new List<MatchWCF>();
-            foreach (Match m in tournoi.Matchs)
+            foreach (Match m in tournoi.Matches)
 	        {
                 matchesWCF.Add(new MatchWCF(m));
 	        }

@@ -17,8 +17,8 @@ namespace BusinessLayer
             //   set { end = value; }
         }
         
-        private Pool pool;
-        public Pool Pool
+        private Tournoi pool;
+        public Tournoi Pool
         {
             get { return pool; }
             //   set { pool = value; }
@@ -68,7 +68,7 @@ namespace BusinessLayer
             }
 
             jedis = jedis_to_pool;
-            pool = new Pool(jedis_to_pool, businessManager.getStades());
+            pool = new Tournoi(jedis_to_pool, businessManager.getStades());
 
         }
 

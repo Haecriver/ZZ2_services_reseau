@@ -114,7 +114,7 @@ namespace TestJediService
             StadeWCF s = new StadeWCF(new Stade(100, "stadeTest", caracts.FindAll(x => x.Id == 1)));
             service.addStade(s);
             result = service.getAllStade();
-            Assert.IsTrue(result.Exists(x => x.Id == s.Id), "Le stade " + s.Planete + " n'est pas present");
+            Assert.IsTrue(result.Exists(x => x.Planete == s.Planete), "Le stade " + s.Planete + " n'est pas present");
 
             //update
             s = result.Find(x => x.Planete == "stadeTest");
@@ -153,7 +153,7 @@ namespace TestJediService
             TournoiWCF t = new TournoiWCF(new Tournoi(matches, "Tournoistest" ));
             service.addTournoi(t);
             result = service.getAllTournoi();
-            Assert.IsTrue(result.Exists(x => x.Id == t.Id), "Le tournois " + t.Nom + " n'est pas present");
+            Assert.IsTrue(result.Exists(x => x.Nom == t.Nom), "Le tournois " + t.Nom + " n'est pas present");
 
             //update
             t = result.Find(x => x.Nom == "Tournoistest");
