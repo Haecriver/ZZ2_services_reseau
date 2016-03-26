@@ -50,18 +50,55 @@
     </table>
 
 </div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <h4>Lancer le tournoi</h4>
+        <hr />
+
+        <div class="form-group">
+            Your money : <br />
+            <div class="col-md-10">
+                <input class="text-box single-line" data-val="true" data-val-number="Le champ A parier doit être un nombre." 
+                       data-val-required="Le champ A parier est requis." id="bet" name="bet" readonly="readonly" type="number" value=@Model.bank />
+                <span class="field-validation-valid" data-valmsg-for="bet" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.bet, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.bet)
+                @Html.ValidationMessageFor(model => model.bet)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.jediBet, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="jediBet" id="jediBet">
+                    @Html.Action("ListJedi", "Jedi")
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+
+
+
+    </div>
+}
+
 <p>
     @Html.ActionLink("Back to List", "Index")
-</p>
-<p>
-    <div>Dans votre banque : @Html.DisplayFor(model => Model.Bank)  </div>
-    
-
-    
-    
-    <div>Combien Parier :</div>
-    @Html.TextBoxFor(x=>x.bet,new { @Value = 0})
-
-    @Html.ActionLink("Play !", "Play", new { id = Model.Id, bank = Model.Bank })
-
 </p>

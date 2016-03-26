@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace SiteWebJediTournament.Models
 {
@@ -12,9 +13,12 @@ namespace SiteWebJediTournament.Models
         public int Id { get; set; }
         public TournoiWCF TournoiWCF { get; set; }
 
-        public int bet { get; set; }
-        public int jediBett { get; set; }
 
+        [Display(Name = "A parier")]
+        public int bet { get; set; }
+
+        [Display(Name = "Nom du jedi sur lequel parier")]
+        public int jediBet { get; set; }
 
         [Required]
         [Display(Name = "Nom")]
@@ -24,7 +28,7 @@ namespace SiteWebJediTournament.Models
         public MatchCollection Matches { get; set; }
         [Required]
         [Display(Name = "Argent en banque")]
-        public int Bank { get; set; }
+        public int bank { get; set; }
 
 
         public TournoiModels(TournoiWCF tournoi)
@@ -32,7 +36,7 @@ namespace SiteWebJediTournament.Models
             TournoiWCF = tournoi;
             Id = tournoi.Id;
             Nom = tournoi.Nom;
-            Bank = 500;
+            bank = 500;
             List<MatchModels> list = new List<MatchModels>();
             foreach(MatchWCF m in tournoi.Matches)
             {
