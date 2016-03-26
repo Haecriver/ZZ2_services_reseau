@@ -202,5 +202,10 @@ namespace JediService
             caracts[index_to_modify] = caract.toCaracteristique();
             bm.updateCaracteristique(caracts);
         }
+
+        public TournoiWCF playTournoi(TournoiWCF tournoi)
+        {
+            return new TournoiWCF(bm.playTournoi(tournoi.toTournoi()));
+        }
     }
 }

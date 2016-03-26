@@ -241,4 +241,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="playTournoi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="tournoi" nillable="true" type="q21:TournoiWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="playTournoiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/JediService.BusinessWCF" minOccurs="0" name="playTournoiResult" nillable="true" type="q22:TournoiWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

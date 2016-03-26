@@ -26,17 +26,10 @@ namespace BusinessLayer
 
         Random rand;
 
-        private Joueur joueur1;
-        public Joueur Joueur1
+        private List<Joueur> joueurs;
+        public List<Joueur> Joueurs
         {
-            get { return joueur1; }
-            //   set { joueur1 = value; }
-        }
-        private Joueur joueur2;
-        public Joueur Joueur2
-        {
-            get { return joueur2; }
-            //   set { joueur2 = value; }
+            get { return joueurs; }
         }
 
         private List<Jedi> jedis;
@@ -47,13 +40,16 @@ namespace BusinessLayer
         }
 
 
-        public BettingManager(BusinessManager businessManager)
+        public BettingManager(BusinessManager businessManager, int nbJoueur)
         {
             this.businessManager = businessManager;
             rand = new Random();
+            joueurs = new List<Joueur>();
 
-            joueur1 = new Joueur("player1", 0);
-            joueur2 = new Joueur("player2", 0);
+            for (int i = 0; i < nbJoueur; i++)
+            {
+                joueurs.Add(new Joueur("player" + i, 0));
+            }
 
             List<Jedi> allJedis = businessManager.getJedis();
             List<Jedi> jedis_to_pool = new List<Jedi>();
@@ -72,7 +68,7 @@ namespace BusinessLayer
 
         }
 
-        public void lancerPhaseTournoi(int parisJoueur1, Jedi jediParisJoueur1, int parisJoueur2, Jedi jediParisJoueur2)
+        public void lancerPhaseTournoi(List<int> paris, List<Jedi> jedis_paris)
         {
             foreach (Match match in pool.Matches)
             {
@@ -81,13 +77,12 @@ namespace BusinessLayer
                 {
                     pMatch.playTurn(pMatch.automaticChoose(), pMatch.automaticChoose());
                 }
-                if (match.JediVainqueur.Id == jediParisJoueur1.Id)
+                for (int i= 0;i < joueurs.Count;i++)
                 {
-                    joueur1.Score += parisJoueur1;
-                }
-                if (match.JediVainqueur.Id == jediParisJoueur2.Id)
-                {
-                    joueur2.Score += parisJoueur2;
+                    if (match.JediVainqueur.Id == jedis_paris[i].Id)
+                    {
+                        joueurs[i].Score += paris[i];
+                    }
                 }
             }
 
@@ -108,8 +103,10 @@ namespace BusinessLayer
         public string toString()
         {
             string str = "";
-            str += joueur1.toString() + "\n";
-            str += joueur2.toString() + "\n";
+            foreach(Joueur j in joueurs)
+            {
+                str += j.toString() + "\n";
+            }
 
             //affichage des gagnants
             str += "------------------------\n";

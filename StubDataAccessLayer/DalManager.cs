@@ -54,8 +54,9 @@ namespace StubDataAccessLayer
 
             // Ajout de Matchs
             allMatch = new List<Match>();
-            allMatch.Add(new Match(1, allJedi[0], allJedi[2], EPhaseTournoi.Finale, allStade[0]));
-            
+            allMatch.Add(new Match(1, allJedi[0], allJedi[2], EPhaseTournoi.DemiFinale, allStade[0]));
+            allMatch.Add(new Match(2, allJedi[1], allJedi[3], EPhaseTournoi.DemiFinale, allStade[0]));
+
             // Ajout d'Utilisateur
             allUtilisateurs = new SortedDictionary<string, Utilisateur>();
             allUtilisateurs["pierre-loup"] = new Utilisateur(1,"Pissavy", "Pierre-Loup", "pierre-loup", HashSH1.GetSHA1HashData("totoestbete"));
@@ -67,7 +68,7 @@ namespace StubDataAccessLayer
 
             // Ajout d'un tournoi
             allTournoi = new List<Tournoi>();
-            allTournoi.Add(new Tournoi(allMatch, "STUB!!"));
+            allTournoi.Add(new Tournoi(allMatch, "stubTournoi"));
         }
 
         public StubDalManager()

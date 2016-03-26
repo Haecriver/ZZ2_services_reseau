@@ -73,6 +73,9 @@ namespace JediService
 
         [OperationContract]
         void updateCaracteristique(CaracteristiqueWCF caract);
+
+        [OperationContract]
+        TournoiWCF playTournoi(TournoiWCF tournoi);
     }
 
 

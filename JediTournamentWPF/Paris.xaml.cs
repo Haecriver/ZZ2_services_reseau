@@ -1,6 +1,7 @@
 ﻿using BusinessLayer;
 using EntitiesLayer;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 
 namespace JediTournamentWPF
@@ -16,7 +17,7 @@ namespace JediTournamentWPF
         {
             InitializeComponent();
 
-             bn= new BettingManager(new BusinessManager());
+             bn= new BettingManager(new BusinessManager(),2);
              
             textBox.Text = bn.toString();
 
@@ -32,7 +33,8 @@ namespace JediTournamentWPF
         {
             if (Jedis1.SelectedItem != null && Jedis2.SelectedItem != null)
             {
-                bn.lancerPhaseTournoi(Int32.Parse(BettingPlayer1.Text), (Jedi)Jedis1.SelectedItem, Int32.Parse(BettingPlayer2.Text), (Jedi)Jedis2.SelectedItem);
+                bn.lancerPhaseTournoi(new List<int> { Int32.Parse(BettingPlayer1.Text), Int32.Parse(BettingPlayer2.Text) }, 
+                    new List<Jedi> { (Jedi)Jedis1.SelectedItem, (Jedi)Jedis2.SelectedItem });
                 Jedis1.SelectedItem = null;
                 Jedis1.ItemsSource = bn.Jedis;
                 Jedis2.SelectedItem = null;
@@ -40,11 +42,11 @@ namespace JediTournamentWPF
                 textBox.Text = bn.toString();
                 if (bn.End)
                 {
-                    if (bn.Joueur1.Score > bn.Joueur2.Score)
+                    if (bn.Joueurs[0].Score > bn.Joueurs[1].Score)
                     {
                         MessageBox.Show("Joueur 1 a gagne");
                     }
-                    else if (bn.Joueur1.Score == bn.Joueur2.Score)
+                    else if (bn.Joueurs[0].Score == bn.Joueurs[1].Score)
                     {
                         MessageBox.Show("Egalite");
 

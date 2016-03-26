@@ -538,6 +538,12 @@ namespace SiteWebJediTournament.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/updateCaracteristique", ReplyAction="http://tempuri.org/IServiceJedi/updateCaracteristiqueResponse")]
         System.Threading.Tasks.Task updateCaracteristiqueAsync(SiteWebJediTournament.ServiceReference1.CaracteristiqueWCF caract);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/playTournoi", ReplyAction="http://tempuri.org/IServiceJedi/playTournoiResponse")]
+        SiteWebJediTournament.ServiceReference1.TournoiWCF playTournoi(SiteWebJediTournament.ServiceReference1.TournoiWCF tournoi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceJedi/playTournoi", ReplyAction="http://tempuri.org/IServiceJedi/playTournoiResponse")]
+        System.Threading.Tasks.Task<SiteWebJediTournament.ServiceReference1.TournoiWCF> playTournoiAsync(SiteWebJediTournament.ServiceReference1.TournoiWCF tournoi);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -725,6 +731,14 @@ namespace SiteWebJediTournament.ServiceReference1 {
         
         public System.Threading.Tasks.Task updateCaracteristiqueAsync(SiteWebJediTournament.ServiceReference1.CaracteristiqueWCF caract) {
             return base.Channel.updateCaracteristiqueAsync(caract);
+        }
+        
+        public SiteWebJediTournament.ServiceReference1.TournoiWCF playTournoi(SiteWebJediTournament.ServiceReference1.TournoiWCF tournoi) {
+            return base.Channel.playTournoi(tournoi);
+        }
+        
+        public System.Threading.Tasks.Task<SiteWebJediTournament.ServiceReference1.TournoiWCF> playTournoiAsync(SiteWebJediTournament.ServiceReference1.TournoiWCF tournoi) {
+            return base.Channel.playTournoiAsync(tournoi);
         }
     }
 }

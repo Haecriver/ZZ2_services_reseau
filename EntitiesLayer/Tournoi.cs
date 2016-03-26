@@ -8,7 +8,7 @@ namespace EntitiesLayer
 {
     public class Tournoi : EntityObject
     {
-        private static int countId=1;
+        private static int countId = 1;
         public static int CountId
         {
             get { return countId; }
@@ -71,8 +71,8 @@ namespace EntitiesLayer
             matches = lm;
             Nom = nom;
             poolVide = false;
-           
-            if (matches.Count!=1 && matches.Count!=2 && matches.Count!=4 && matches.Count != 8)
+
+            if (matches.Count != 1 && matches.Count != 2 && matches.Count != 4 && matches.Count != 8)
             {
                 throw new Exception("Nombre de matches non reglementaire : " + matches.Count);
             }
@@ -100,7 +100,7 @@ namespace EntitiesLayer
             stades = _stades;
             poolVide = false;
             int nb_jedis = jedis.Count;
-            int matche_a_creer = jedis.Count/2;
+            int matche_a_creer = jedis.Count / 2;
             Random rand = new Random();
 
             matches = new List<Match>();
@@ -127,7 +127,7 @@ namespace EntitiesLayer
                     break;
 
                 default:
-                    throw new Exception("Nombre de jedi dans le pool incorrecte : "+jedis.Count);
+                    throw new Exception("Nombre de jedi dans le pool incorrecte : " + jedis.Count);
             }
             for (int i = 0; i < matche_a_creer && !poolVide; i++)
             {
@@ -144,7 +144,11 @@ namespace EntitiesLayer
             }
             if (stades == null)
             {
-                throw new Exception("Stades n'est pas defini");
+                stades = new List<Stade>();
+                foreach (Match match in matches)
+                {
+                    stades.Add(match.Stade);
+                }
             }
             return new Tournoi(gagnants, stades);
         }

@@ -195,6 +195,19 @@ namespace BusinessLayer
             }
             return result;
         }
+
+        public Tournoi playTournoi(Tournoi tournoi)
+        {
+            foreach (Match match in tournoi.Matches)
+            {
+                PlayingMatch pMatch = new PlayingMatch(match);
+                while (!pMatch.MatchOver)
+                {
+                    pMatch.playTurn(pMatch.automaticChoose(), pMatch.automaticChoose());
+                }
+            }
+            return tournoi.nextPool();
+        }
     }
 
 }

@@ -215,7 +215,7 @@ namespace JediTournamentConsole
                         }
                         break;
                     case 7:
-                        BettingManager bettingManager = new BettingManager(businessManager);
+                        BettingManager bettingManager = new BettingManager(businessManager,2);
                         
                         Console.Out.WriteLine("List Jedi :");
                         foreach (Match match in bettingManager.Pool.Matches)
@@ -252,7 +252,7 @@ namespace JediTournamentConsole
                             Console.Out.WriteLine("Player 2 choose your bet : ");
                             bet2 = int.Parse(Console.In.ReadLine());
 
-                            bettingManager.lancerPhaseTournoi(bet1, choosenJediBet1, bet2, choosenJediBet2);
+                            bettingManager.lancerPhaseTournoi(new List<int> { bet1, bet2 }, new List<Jedi> { choosenJediBet1, choosenJediBet2 });
                             Console.Out.WriteLine(bettingManager.toString());
 
                         }
