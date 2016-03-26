@@ -25,5 +25,7 @@ namespace SiteWebJediTournament.Models
         public System.Data.Entity.DbSet<SiteWebJediTournament.Models.StadeModels> StadeModels { get; set; }
 
         public System.Data.Entity.DbSet<SiteWebJediTournament.Models.CaracteristiqueCollection> CaracteristiqueCollections { get; set; }
+
+        public System.Data.Entity.DbSet<SiteWebJediTournament.Models.TournoiModels> TournoiModels { get; set; }
     }
 }

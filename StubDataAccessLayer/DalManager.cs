@@ -68,7 +68,8 @@ namespace StubDataAccessLayer
 
             // Ajout d'un tournoi
             allTournoi = new List<Tournoi>();
-            allTournoi.Add(new Tournoi(allMatch, "stubTournoi"));
+            List<Match> listm = new List<Match> { allMatch[0], allMatch[1] };
+            allTournoi.Add(new Tournoi(listm, "stubTournoi"));
         }
 
         public StubDalManager()

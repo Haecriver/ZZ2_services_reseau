@@ -45,4 +45,20 @@ namespace SiteWebJediTournament.Models
         }
 
     }
+
+    public class MatchCollection
+    {
+        public int Id { get; set; }
+        public List<MatchModels> List { get; set; }
+
+        public MatchCollection(List<MatchModels> list)
+        {
+            List = list;
+        }
+
+        public MatchModels Default
+        {
+            get { return new MatchModels(); }
+        }
+    }
 }

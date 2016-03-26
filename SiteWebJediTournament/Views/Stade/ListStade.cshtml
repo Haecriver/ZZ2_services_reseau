@@ -1,0 +1,6 @@
+﻿@model IEnumerable<SiteWebJediTournament.Models.StadeModels>
+
+@foreach (var c in Model)
+{
+    <option value="@c.Id">@c.Planete</option>
+}

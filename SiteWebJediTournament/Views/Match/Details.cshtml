@@ -1,0 +1,46 @@
+﻿@model SiteWebJediTournament.Models.MatchModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MatchModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Jedi1.Default.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhaseTournoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jedi2.Default.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Jedi1.Jedi.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhaseTournoi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Jedi2.Jedi.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stade.Default.Planete)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Stade.Stade.Planete)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
