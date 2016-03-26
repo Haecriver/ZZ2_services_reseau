@@ -17,15 +17,14 @@ namespace DataAccessLayer
 
         public DALSqlServer()
         {
-               /*connectionString = "Data Source=(LocalDB)\\v11.0;" +
-                //  "Data Source=(LocalDB)\\MSSQLLocalDB; "+
-                 "AttachDbFilename= " + Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.Environment.CurrentDirectory))) +
-                  "\\BaseDeDonnees\\bdd_jedi_tournament_new.mdf;" +
-                //  "\\BaseDeDonnees\\bdd_jedi_tournament_localDBv11.mdf;" +
+            connectionString =// "Data Source=(LocalDB)\\v11.0;" +
+                "Data Source=(LocalDB)\\MSSQLLocalDB; "+
+              "AttachDbFilename= " + (Path.GetFullPath("../../..")) +
+                //  "\\BaseDeDonnees\\bdd_jedi_tournament_new.mdf;" +
+                 "\\BaseDeDonnees\\bdd_jedi_tournament_localDBv11.mdf;" +
                  "Integrated Security=True;" +
-                 "Connect Timeout=30";*/
-            //connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\pichevalie1\\Source\\Repos\\ZZ2_services_reseau_WebServices2\\BaseDeDonnees\\bdd_jedi_tournament_new.mdf;Integrated Security=True;Connect Timeout=30";
-            connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Pierre\\Documents\\GitHub\\ZZ2_services_reseau_WebServices\\BaseDeDonnees\\bdd_jedi_tournament_localDBv11.mdf;Integrated Security=True;Connect Timeout=30";
+                 "Connect Timeout=30";
+            Console.Out.WriteLine(connectionString);
             SqlConnection connection = new SqlConnection(connectionString);
             // Test de la connection
             try
