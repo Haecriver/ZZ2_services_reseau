@@ -2,12 +2,19 @@
 
 <div>
    <!-- <h4>@Model.MessageEnd</h4> -->
-    <h4>Fin du Tournoi !</h4>
-    <h5>Votre argent restant : @Model.Bank</h5>
-    <h5>Le jedi gagnant du tournoi : @Model.JediGagnant</h5>
+    <hr />
+    <div class="col-lg-8">
+        <h4>Fin du Tournoi !</h4>
+        <hr />
+        <h5>Votre argent restant : @Model.Bank</h5>
+        <h5>Le jedi gagnant du tournoi est : <strong>@Model.JediGagnant</strong></h5>
+
+        <hr />
+        <p>
+            @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
+        </p>
+    </div>
+    <div class="col-lg-4">
+        <img src="~/Images/fin_tournoi.png" alt="Fin du tournoi" />
+    </div>
 </div>
-
-
-<p>
-    @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
-</p>
