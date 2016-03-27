@@ -167,10 +167,6 @@ namespace TestJediService
             result = service.getAllTournoi();
             Assert.IsTrue(!result.Exists(x => x.Nom == "Tournoistest2"), "Le tournois " + t.Nom + "existe toujours");
 
-            //play
-            TournoiWCF t2 = service.playTournoi(t);
-            Assert.IsTrue(t2.Matches.Count == 1&& t.Matches.Count == 2, "Le la methode play tournois n'a pas fonctionne");
-
         }
 
         //Caracteristique

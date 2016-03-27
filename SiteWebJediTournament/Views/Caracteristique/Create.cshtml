@@ -18,18 +18,18 @@
         @Html.ValidationSummary(true)
         <div class="form-group">
             @Html.LabelFor(model => model.Def, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+           <!-- <div class="col-md-10">
                 @Html.EditorFor(model => model.Def)
                 @Html.ValidationMessageFor(model => model.Def)
-            </div>
-            <!--<div class="col-md-10">
-                <select name="def" id="phaseselect">
-                    <option value="Chance">Chance</option>
-                    <option value="Force">Force</option>
-                    <option value="Defense">Défense</option>
-                    <option value="Sante">Santé</option>
-                </select>
             </div>-->
+            <div class="col-md-10">
+                <select class="form-control" name="Def" id="Def">
+                    <option value="0">Force</option>
+                    <option value="1">Défense</option>
+                    <option value="2">Chance</option>
+                    <option value="3">Santé</option>
+                </select>
+            </div>
         </div>
 
         <div class="form-group">
@@ -43,8 +43,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Type)
-                @Html.ValidationMessageFor(model => model.Type)
+                <select class="form-control" name="Type" id="Type">
+                    <option value="0">Jedi</option>
+                    <option value="1">Stade</option>
+                </select>
             </div>
         </div>
 

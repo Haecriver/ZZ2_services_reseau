@@ -12,7 +12,7 @@ namespace SiteWebJediTournament.Models
     {
         public int Id { get; set; }
         public TournoiWCF TournoiWCF { get; set; }
-
+        public string Phase { get; set; }
 
         [Display(Name = "A parier")]
         public int bet { get; set; }

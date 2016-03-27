@@ -10,14 +10,14 @@ namespace EntitiesLayer
     {
         Force=0,
         Defense=1,
-        Sante=3,
-        Chance=2        
+        Chance=2,
+        Sante = 3,
     }
 
     public enum ETypeCaracteristique
     {
-        Jedi,
-        Stade
+        Jedi=0,
+        Stade=1
     }
     public class Caracteristique : EntityObject
     {

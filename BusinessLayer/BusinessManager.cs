@@ -32,7 +32,16 @@ namespace BusinessLayer
         public BusinessManager()
         {
             data =  DataAccessLayer.DalManager.Instance;
-            dataStub = new StubDataAccessLayer.StubDalManager();
+            if (StubDataAccessLayer.StubDalManager.Stub)
+            {
+                dataStub = new StubDataAccessLayer.StubDalManager();
+            }
+            else
+            {
+                dataStub = new StubDataAccessLayer.StubDalManager();
+                AjoutTournoiExemple();
+            }
+           
         }
 
         public List<Stade> getStades() { return data.getAllStade(); }
@@ -207,6 +216,28 @@ namespace BusinessLayer
                 }
             }
             return tournoi.nextPool();
+        }
+
+        public void AjoutTournoiExemple()
+        {
+            List<Jedi> jedis = getJedis();
+            List<Jedi> jedis_to_pool = new List<Jedi>();
+            List<Stade> stades = getStades();
+            Random rand = new Random();
+
+
+            for (int i = 0; i <= 15; i++)
+            {
+                int index = rand.Next() % jedis.Count;
+                jedis_to_pool.Add(jedis[index]);
+                jedis.Remove(jedis[index]);
+            }
+            Tournoi tournoi = new Tournoi(jedis_to_pool, stades);
+            tournoi.Nom = "Tournoi de Test";
+
+            List<Tournoi> tournois = getTournoi();
+            tournois.Add(tournoi);
+            updateTournoi(tournois);
         }
     }
 
