@@ -10,6 +10,7 @@ namespace StubDataAccessLayer
     public class StubDalManager
     {
         static bool stub = false;
+        public static bool Stub { get { return stub; } }
 
         static private List<Jedi> allJedi;
         static private List<Match> allMatch;
@@ -68,8 +69,6 @@ namespace StubDataAccessLayer
 
             // Ajout d'un tournoi
             allTournoi = new List<Tournoi>();
-            List<Match> listm = new List<Match> { allMatch[0], allMatch[1] };
-            allTournoi.Add(new Tournoi(listm, "stubTournoi"));
         }
 
         public StubDalManager()

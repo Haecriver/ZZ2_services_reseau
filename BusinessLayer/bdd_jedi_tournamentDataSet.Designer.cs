@@ -5209,7 +5209,7 @@ SELECT numstade, numcaracteristic FROM link_stade_caracteristic WHERE (numcaract
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[match] ([nummatch], [numjedi1], [numjedi2], [phase], [numstade" +
                 "]) VALUES (@nummatch, @numjedi1, @numjedi2, @phase, @numstade);\r\nSELECT nummatch" +
-                ", numjedi1, numjedi2, phase, numstade FROM match WHERE (nummatch = @nummatch)";
+                ", numjedi1, numjedi2,\r\n\r\n, numstade FROM match WHERE (nummatch = @nummatch)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nummatch", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nummatch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numjedi1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numjedi1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

@@ -44,11 +44,18 @@ namespace SiteWebJediTournament.Controllers
 
         // POST: Caracteristique/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(int Def, string Nom, int Type, int Valeur)
         {
             try
             {
-                // TODO: Add insert logic here
+                ServiceJediClient service = new ServiceJediClient();
+                CaracteristiqueWCF c = new CaracteristiqueWCF();
+                c.Definition = (EDefCaracteristique)Def;
+                c.Nom = Nom;
+                c.Type = (ETypeCaracteristique) Type;
+                c.Valeur = Valeur;
+
+                service.addCracteristique(c);
 
                 return RedirectToAction("Index");
             }
@@ -72,11 +79,19 @@ namespace SiteWebJediTournament.Controllers
 
         // POST: Caracteristique/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, int Def, string Nom, int Type, int Valeur)
         {
             try
             {
-                // TODO: Add update logic here
+                ServiceJediClient service = new ServiceJediClient();
+
+                CaracteristiqueWCF c = service.getAllCaracteristique().ToList().Find(x => x.Id == id);
+                c.Definition = (EDefCaracteristique)Def;
+                c.Nom = Nom;
+                c.Type = (ETypeCaracteristique)Type;
+                c.Valeur = Valeur;
+
+                service.updateCaracteristique(c);
 
                 return RedirectToAction("Index");
             }
