@@ -34,12 +34,12 @@ namespace SiteWebJediTournament.Controllers
                 return HttpNotFound();
             }
             TournoiModels tModels = new TournoiModels(t);
-            tModels.Bank = bank;
+            tModels.bank = bank;
             return View(tModels);
         }
 
-        // GET: Tournoi/Create
-        public ActionResult Play(int id, int bank, int bet, int jediBet)
+        [HttpPost]
+        public ActionResult Details(int id, int bank, int bet, int jediBet)
         {
             ServiceJediClient service = new ServiceJediClient();
             TournoiWCF t = service.getAllTournoi().ToList().Find(x => x.Id == id);
@@ -47,18 +47,21 @@ namespace SiteWebJediTournament.Controllers
             {
                 return HttpNotFound();
             }
-            if (t.Matches.ToList().Count != 1)
+            if (t.Matches.ToList().Count == 1)
+            {
+                return RedirectToAction("Index");
+            }
+            else
             {
                 TournoiWCF tnew = service.playTournoi(t);
                 string nom = t.Nom + " " + tnew.Matches[0].PhaseTournoi;
                 tnew.Nom = nom;
                 service.addTournoi(tnew);
                 tnew = service.getAllTournoi().ToList().Find(x => x.Nom == nom);
+
+
+
                 return RedirectToAction("Details", new { Id = tnew.Id, });
-            }
-            else
-            {
-                return RedirectToAction("Index");
             }
 
         }

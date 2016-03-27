@@ -11,25 +11,25 @@
 </p>
 <table class="table table-striped">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nom)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nom)
-                </td>
-                <td>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
                     @Html.ActionLink("Détails", "Details", new { id = item.Id, bank = 500 }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
                     @Html.ActionLink("Supprimer", "Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger btn-xs" })
-                </td>
-            </tr>
-        }
+        </td>
+</tr>
+}
     </tbody>
 </table>
