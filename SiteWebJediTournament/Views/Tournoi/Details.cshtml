@@ -1,8 +1,11 @@
 ﻿@model SiteWebJediTournament.Models.TournoiModels
 
 <div>
-    <h4>Modification de @Html.DisplayFor(model => Model.Nom) - @Html.DisplayFor(model => Model.Matches.List[0].PhaseTournoi) </h4>
     <hr />
+    <h4>Détails de @Html.DisplayFor(model => Model.Nom) - @Html.DisplayFor(model => Model.Matches.List[0].PhaseTournoi) </h4>
+    
+    <hr />
+    <h4>Propriétés</h4>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Nom)
@@ -13,7 +16,8 @@
         </dd>
 
     </dl>
-    <h5 @Html.DisplayNameFor(model => model.Matches)></h5>
+    <hr />
+    <h4>@Html.DisplayNameFor(model => model.Matches)</h4>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -43,9 +47,9 @@
                     @Html.DisplayFor(modelItem => item.Stade.Stade.Planete)
                 </td>
                 <td>
-                        @Html.ActionLink("Modifier", "../Match/Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-warning btn-xs" })
-                        @Html.ActionLink("Détails", "../Match/Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
-                        @Html.ActionLink("Supprimer", "../Match/Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger btn-xs" })
+                        @Html.ActionLink("Modifier", "../Caracteristique/Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-warning btn-xs" })
+                        @Html.ActionLink("Détails", "../Caracteristique/Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
+                        @Html.ActionLink("Supprimer", "../Caracteristique/Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger btn-xs" })
                 </td>
             </tr>
         }
@@ -59,13 +63,14 @@
 {
     @Html.AntiForgeryToken()
 
-
+    <hr />
+    <h4>Lancer le tournoi</h4>
     <div class="form-horizontal">
-        <h4>Lancer le tournoi</h4>
-        <hr />
 
         <div class="form-group">
-            Your money : <br />
+            <label for="bet" class="control-label col-md-2">
+                Argent en banque
+            </label>
             <div class="col-md-10">
                 <input class="text-box single-line" data-val="true" data-val-number="Le champ A parier doit être un nombre." 
                        data-val-required="Le champ A parier est requis." id="bet" name="bet" readonly="readonly" type="number" value=@Model.bank />
@@ -86,7 +91,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.jediBet, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select name="jediBet" id="jediBet">
+                <select class="form-control" name="jediBet" id="jediBet">
                     @Html.Action("ListJedi", "Jedi")
                 </select>
             </div>
@@ -94,7 +99,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Parier" class="btn btn-success" />
             </div>
         </div>
 
@@ -104,5 +109,5 @@
 }
 
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
 </p>

@@ -24,7 +24,7 @@ namespace SiteWebJediTournament.Models
         [Display(Name = "Nom")]
         public string Nom { get; set; }
         [Required]
-        [Display(Name = "List des matches")]
+        [Display(Name = "Liste des matches")]
         public MatchCollection Matches { get; set; }
         [Required]
         [Display(Name = "Argent en banque")]
