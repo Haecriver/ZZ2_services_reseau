@@ -381,10 +381,10 @@ namespace SiteWebJediTournament.ServiceReference1 {
         Defense = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Sante = 3,
+        Chance = 2,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Chance = 2,
+        Sante = 3,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]

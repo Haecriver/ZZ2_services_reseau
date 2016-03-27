@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EntitiesLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EntitiesLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:28438/ServiceJedi.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:simpleType name="EDefCaracteristique">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Force" />
       <xs:enumeration value="Defense" />
-      <xs:enumeration value="Sante">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Chance">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
+      <xs:enumeration value="Chance" />
+      <xs:enumeration value="Sante" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="EDefCaracteristique" nillable="true" type="tns:EDefCaracteristique" />

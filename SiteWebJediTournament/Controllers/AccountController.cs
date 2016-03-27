@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using SiteWebJediTournament.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using SiteWebJediTournament.ServiceReference1;
 
 namespace SiteWebJediTournament.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
@@ -26,7 +25,6 @@ namespace SiteWebJediTournament.Controllers
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
-
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -43,6 +41,7 @@ namespace SiteWebJediTournament.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            ServiceJediClient service = new ServiceJediClient();
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
@@ -87,6 +86,7 @@ namespace SiteWebJediTournament.Controllers
                 }
                 else
                 {
+                    Console.WriteLine("Result PAS OK////");
                     AddErrors(result);
                 }
             }

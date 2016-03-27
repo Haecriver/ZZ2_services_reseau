@@ -11,43 +11,25 @@
             <h1>Gestion de tournoi de Jedis</h1>
             <h4 class="text-primary">Développé en .NET</h4>
             <hr />
-            <p> Pour gérer le jeu, choisissez une action dans le menu Gestion, ou bien cliquez sur l'un des boutons ci-dessous.</p>
-            <hr />
-            <div class="flow">
-                <a class="btn btn-primary" href="@Url.Action("Index","Jedi")">Gérer les Jedis</a>
-                <a class="btn btn-primary" href="@Url.Action("Index","Caracteristique")">Gérer les Caractéristiques</a>
-                <a class="btn btn-primary" href="@Url.Action("Index","Match")">Gérer les Matchs</a>
-                <a class="btn btn-primary" href="@Url.Action("Index","Stade")">Gérer les Stades</a>
-                <a class="btn btn-primary" href="@Url.Action("Index","Tournoi")">Gérer le Tournoi</a>
-            </div>
-            <hr />
-            <blockquote class="blockquote-reverse">
-                <p>May the force be with you.</p>
-                <small>Someone famous in <cite title="Star Wars">Star Wars</cite></small>
-            </blockquote>
+            @if (Request.IsAuthenticated)
+            {
+                <p class="text-justify"> Pour gérer le jeu, choisissez une action dans le menu Gestion, ou bien cliquez sur l'un des boutons ci-dessous.</p>
+                <hr />
+                <div class="flow">
+                    <a class="btn btn-primary" href="@Url.Action("Index","Jedi")">Gérer les Jedis</a>
+                    <a class="btn btn-primary" href="@Url.Action("Index","Caracteristique")">Gérer les Caractéristiques</a>
+                    <a class="btn btn-primary" href="@Url.Action("Index","Match")">Gérer les Matchs</a>
+                    <a class="btn btn-primary" href="@Url.Action("Index","Stade")">Gérer les Stades</a>
+                    <a class="btn btn-primary" href="@Url.Action("Index","Tournoi")">Gérer le Tournoi</a>
+                </div>
+                <hr />
+                <blockquote class="blockquote-reverse">
+                    <p>May the force be with you.</p>
+                    <small>Someone famous in <cite title="Star Wars">Star Wars</cite></small>
+                </blockquote>
+            } else {
+                <p class="text-warning">Pour jouer, veuillez d'abord vous connecter.</p>
+            }
         </div>
     </div>
 </div>
-<!--
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
--->

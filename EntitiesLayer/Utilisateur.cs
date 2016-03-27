@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntitiesLayer
 {
-    public class Utilisateur
+    public class Utilisateur : EntityObject
     {
         private static int countId=1;
         public static int CountId
@@ -41,12 +41,13 @@ namespace EntitiesLayer
             set { password = value; }
         }
 
-        private int id;
+        /*private int id;
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
+        */
 
         public Utilisateur()
         {
@@ -61,7 +62,7 @@ namespace EntitiesLayer
             {
                 countId = _id;
             }
-            id = _id;
+            //id = _id;
             nom = _nom;
             prenom = _prenom;
             login = _login;

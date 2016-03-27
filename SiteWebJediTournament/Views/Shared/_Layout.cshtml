@@ -22,21 +22,25 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index","Jedi")">Jedis</a></li>
-                            <li><a href="@Url.Action("Index","Caracteristique")">Caractéristiques</a></li>
-                            <li class="divider"></li>
-                            <li><a href="@Url.Action("Index","Match")">Matchs</a></li>
-                            <li><a href="@Url.Action("Index","Stade")">Stades</a></li>
-                            <li><a href="@Url.Action("Index","Tournoi")">Tournoi</a></li>
-                        </ul>
-                    </li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion <b class="caret"></b></a>
+                        
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index", "Jedi")">Jedis</a></li>
+                                    <li><a href="@Url.Action("Index", "Caracteristique")">Caractéristiques</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="@Url.Action("Index", "Match")">Matchs</a></li>
+                                    <li><a href="@Url.Action("Index", "Stade")">Stades</a></li>
+                                    <li><a href="@Url.Action("Index", "Tournoi")">Tournoi</a></li>
+                                </ul>
+                        </li>
+                    }
                     <li>@Html.ActionLink("À propos", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-                <!--@Html.Partial("_LoginPartial")-->
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>

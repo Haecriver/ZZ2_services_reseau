@@ -70,6 +70,7 @@
     <Compile Include="BusinessWCF\MatchWCF.cs" />
     <Compile Include="BusinessWCF\StadeWCF.cs" />
     <Compile Include="BusinessWCF\TournoiWCF.cs" />
+    <Compile Include="BusinessWCF\UtilisateurWCF.cs" />
     <Compile Include="ServiceJedi.svc.cs">
       <DependentUpon>ServiceJedi.svc</DependentUpon>
     </Compile>
