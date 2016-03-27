@@ -43,18 +43,17 @@ namespace SiteWebJediTournament.Controllers
         {
             ServiceJediClient service = new ServiceJediClient();
             TournoiWCF t = service.getAllTournoi().ToList().Find(x => x.Id == id);
+            bank -= bet;
             if (t == null)
             {
                 return HttpNotFound();
             }
             if (t.Matches.ToList().Count == 1)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("End",new { bank = bank, win = true, idJedi = t.Matches[0].Jedi1.Id });
             }
             else
-            {
-                bank -= bet;
-
+            { 
                 // Jouer les matches et recuperer le nouveau tournois
                 TournoiWCF tnew = service.playTournoi(t);
                 string nom = t.Nom + " " + tnew.Matches[0].PhaseTournoi;
@@ -79,46 +78,29 @@ namespace SiteWebJediTournament.Controllers
 
         }
 
-        // GET: Tournoi/Create
-        public ActionResult Create()
+        public ActionResult End(int idJedi, int bank, bool win)
         {
-            return View();
-        }
+            ServiceJediClient service = new ServiceJediClient();
 
-        // POST: Tournoi/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            TournoiEnd tournoiEnd = new TournoiEnd();
+            string str;
+            if (win)
             {
-                return RedirectToAction("Index");
+                str = "Vous avez bien parie sur ce dernier match ! Felicitation ! ";
             }
-            catch
+            else
             {
-                return View();
+                str = "Vous avez mal parie sur ce dernier match ";
             }
-        }
 
-        // GET: Tournoi/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+            JediModels jedi = new JediModels(service.getAllJedi().ToList().Find(x => x.Id == idJedi));
 
-        // POST: Tournoi/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
+            tournoiEnd.Bank = bank;
+            tournoiEnd.JediGagnant = jedi.Nom;
+            tournoiEnd.MessageEnd = str;
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+
+            return View(tournoiEnd);
         }
 
         // GET: Tournoi/Delete/5
@@ -172,6 +154,48 @@ namespace SiteWebJediTournament.Controllers
                 return x.Nom.CompareTo(y.Nom);
             });
             return PartialView(list);
+        }
+
+        // GET: Tournoi/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Tournoi/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Tournoi/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Tournoi/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

@@ -1,0 +1,13 @@
+﻿@model SiteWebJediTournament.Models.TournoiEnd
+
+<div>
+   <!-- <h4>@Model.MessageEnd</h4> -->
+    <h4>Fin du Tournoi !</h4>
+    <h5>Votre argent restant : @Model.Bank</h5>
+    <h5>Le jedi gagnant du tournoi : @Model.JediGagnant</h5>
+</div>
+
+
+<p>
+    @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
+</p>

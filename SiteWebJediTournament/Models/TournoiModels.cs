@@ -49,4 +49,15 @@ namespace SiteWebJediTournament.Models
         {
         }
     }
+
+    public class TournoiEnd
+    {
+        public string MessageEnd { get; set; }
+        public string JediGagnant { get; set; }
+        public int Bank { get; set; }
+
+        public TournoiEnd()
+        {
+        }
+    }
 }
