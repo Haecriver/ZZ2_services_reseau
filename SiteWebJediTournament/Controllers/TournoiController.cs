@@ -53,15 +53,28 @@ namespace SiteWebJediTournament.Controllers
             }
             else
             {
+                bank -= bet;
+
+                // Jouer les matches et recuperer le nouveau tournois
                 TournoiWCF tnew = service.playTournoi(t);
                 string nom = t.Nom + " " + tnew.Matches[0].PhaseTournoi;
                 tnew.Nom = nom;
                 service.addTournoi(tnew);
                 tnew = service.getAllTournoi().ToList().Find(x => x.Nom == nom);
 
+                // Determine si le joueur a gagne
+                bool win = false;
+                for(int i=0; i<tnew.Matches.ToList().Count && !win; i++)
+                {
+                    if(tnew.Matches[i].Jedi1.Id == jediBet ||
+                        tnew.Matches[i].Jedi2.Id == jediBet)
+                    {
+                        win = true;
+                        bank += bet * 2;
+                    }
+                }
 
-
-                return RedirectToAction("Details", new { Id = tnew.Id, });
+                return RedirectToAction("Details", new { Id = tnew.Id, bank = bank });
             }
 
         }
@@ -78,13 +91,6 @@ namespace SiteWebJediTournament.Controllers
         {
             try
             {
-                /*ServiceJediClient service = new ServiceJediClient();
-                List<MatchWCF> listJedis = service.getAllMatch().ToList();
-                TournoiWCF tournoi = new TournoiWCF();
-                tournoi.Nom = 
-                tournoi.Matches = 
-
-                service.addMatch(match);*/
                 return RedirectToAction("Index");
             }
             catch
@@ -147,6 +153,25 @@ namespace SiteWebJediTournament.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult ListJediConcourant(int id)
+        {
+            ServiceJediClient service = new ServiceJediClient();
+            List<JediModels> list = new List<JediModels>();
+
+            TournoiWCF t = service.getAllTournoi().ToList().Find(x => x.Id == id);
+
+            foreach (MatchWCF m in t.Matches)
+            {
+                list.Add(new JediModels(m.Jedi1));
+                list.Add(new JediModels(m.Jedi2));
+            }
+            list.Sort(delegate (JediModels x, JediModels y)
+            {
+                return x.Nom.CompareTo(y.Nom);
+            });
+            return PartialView(list);
         }
     }
 }

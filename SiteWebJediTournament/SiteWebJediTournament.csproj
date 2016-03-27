@@ -298,6 +298,7 @@
     <Content Include="Views\Tournoi\Index.cshtml" />
     <Content Include="Views\Tournoi\Details.cshtml" />
     <Content Include="Views\Tournoi\Delete.cshtml" />
+    <Content Include="Views\Tournoi\ListJediConcourant.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

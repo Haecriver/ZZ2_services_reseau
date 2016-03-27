@@ -68,23 +68,23 @@
     <div class="form-horizontal">
 
         <div class="form-group">
-            <label for="bet" class="control-label col-md-2">
+            <label for="bank" class="control-label col-md-2">
                 Argent en banque
             </label>
             <div class="col-md-10">
-                <input class="text-box single-line" data-val="true" data-val-number="Le champ A parier doit être un nombre." 
-                       data-val-required="Le champ A parier est requis." id="bet" name="bet" readonly="readonly" type="number" value=@Model.bank />
-                <span class="field-validation-valid" data-valmsg-for="bet" data-valmsg-replace="true"></span>
+                <input class="text-box single-line" data-val="true" data-val-number="Bank not number" 
+                       data-val-required="Bank not filled" id="bank" name="bank" readonly="readonly" type="number" value=@Model.bank />
+                <span class="field-validation-valid" data-valmsg-for="bank" data-valmsg-replace="true"></span>
             </div>
         </div>
 
 
-        @Html.ValidationSummary(true)
         <div class="form-group">
-            @Html.LabelFor(model => model.bet, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="bet">A parier</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.bet)
-                @Html.ValidationMessageFor(model => model.bet)
+                <input class="text-box single-line" data-val="true" data-val-number="Le champ A parier doit être un nombre."
+                        data-val-required="Le champ A parier est requis." id="bet" name="bet" type="number" value="0" max=@Model.bank />
+                <span class="field-validation-valid" data-valmsg-for="bet" data-valmsg-replace="false">mauvaise saisie du paris</span>
             </div>
         </div>
 
@@ -92,7 +92,7 @@
             @Html.LabelFor(model => model.jediBet, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="jediBet" id="jediBet">
-                    @Html.Action("ListJedi", "Jedi")
+                    @Html.Action("ListJediConcourant", "Tournoi", new { id = Model.Id })
                 </select>
             </div>
         </div>
