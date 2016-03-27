@@ -1,15 +1,16 @@
 ﻿@model SiteWebJediTournament.Models.JediModels
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Suppression de Jedi";
 }
 
-<h2>Delete</h2>
+<h2>Suppression de Jedi</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Etes-vous bien sûr de vouloir supprimer le Jedi @Html.DisplayFor(model => model.Nom) ?</h3>
 <div>
-    <h4>JediModels</h4>
+    
     <hr />
+    <h4>Propriétés</h4>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Nom)
@@ -28,45 +29,53 @@
         </dd>
 
     </dl>
-    <h5 @Html.DisplayNameFor(model => model.Caracts)></h5>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Caracts.Default.Def)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Caracts.Default.Nom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Caracts.Default.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Caracts.Default.Valeur)
-            </th>
-        </tr>
 
-        @foreach (var item in Model.Caracts.List)
-        {
+    <hr />
+    <h4>@Html.DisplayNameFor(model => model.Caracts)</h4>
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Def)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nom)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Valeur)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "../Caracteristique/Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "../Caracteristique/Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "../Caracteristique/Delete", new { id = item.Id })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Def)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Valeur)
+                </th>
+                <th>
+                    Actions
+                </th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Caracts.List)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Def)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Valeur)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modifier", "../Caracteristique/Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-warning btn-xs" })
+                        @Html.ActionLink("Détails", "../Caracteristique/Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
+                        @Html.ActionLink("Supprimer", "../Caracteristique/Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger btn-xs" })
+                    </td>
+                </tr>
+            }
+        </tbody>
 
     </table>
 
@@ -74,8 +83,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> 
+            @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
         </div>
     }
 </div>

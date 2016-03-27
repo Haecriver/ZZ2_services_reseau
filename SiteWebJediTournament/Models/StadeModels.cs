@@ -11,13 +11,13 @@ namespace SiteWebJediTournament.Models
     {
         public int Id { get; set; }
         [Required]
-        [Display(Name = "Nom planete")]
+        [Display(Name = "Nom planète")]
         public string Planete { get; set; }
         [Required]
         [Display(Name = "Nombre de places")]
         public int NbPlaces { get; set; }
 
-        [Display(Name = "List caracteristque")]
+        [Display(Name = "Caractéristiques")]
         public CaracteristiqueCollection Caracts { get; set; }
 
         public StadeModels(StadeWCF stade)

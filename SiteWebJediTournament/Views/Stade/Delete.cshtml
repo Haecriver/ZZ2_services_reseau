@@ -1,15 +1,16 @@
 ﻿@model SiteWebJediTournament.Models.StadeModels
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Suppression d'un stade";
 }
 
-<h2>Delete</h2>
+<h2>Suppression d'un stade</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Etes-vous bien sûr de vouloir supprimer ce stade ?</h3>
 <div>
-    <h4>StadeModels</h4>
+    
     <hr />
+    <h4>Propriétés</h4>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Planete)
@@ -28,40 +29,43 @@
         </dd>
 
     </dl>
-    <h5 @Html.DisplayNameFor(model => model.Caracts)></h5>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Caracts.Default.Def)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Caracts.Default.Nom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Caracts.Default.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Caracts.Default.Valeur)
-            </th>
-        </tr>
-
-        @foreach (var item in Model.Caracts.List)
-            {
+    <h4>@Html.DisplayNameFor(model => model.Caracts)</h4>
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Def)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nom)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Valeur)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Def)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Caracts.Default.Valeur)
+                </th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Caracts.List)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Def)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Valeur)
+                    </td>
+                </tr>
+            }
+        </tbody>
 
     </table>
 
@@ -69,8 +73,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> 
+            @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
         </div>
     }
 </div>

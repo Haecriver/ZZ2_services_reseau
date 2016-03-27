@@ -1,51 +1,55 @@
 ﻿@model IEnumerable<SiteWebJediTournament.Models.MatchModels>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Matchs";
 }
 
-<h2>Index</h2>
+<h2>Gestion des Matchs</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Ajouter un match", "Create", null, htmlAttributes: new { @class = "btn btn-success btn-sm" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Jedi1.Default.Nom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Jedi2.Default.Nom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhaseTournoi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Stade.Default.Planete)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <th>
-            @Html.DisplayFor(modelItem => item.Jedi1.Jedi.Nom)
-        </th>
-        <th>
-            @Html.DisplayFor(modelItem => item.Jedi2.Jedi.Nom)
-        </th>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhaseTournoi)
-        </td>
-        <th>
-            @Html.DisplayFor(modelItem => item.Stade.Stade.Planete)
-        </th>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jedi1.Default.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jedi2.Default.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhaseTournoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stade.Default.Planete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Jedi1.Jedi.Nom)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Jedi2.Jedi.Nom)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhaseTournoi)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Stade.Stade.Planete)
+                </th>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-warning btn-xs" })
+                    @Html.ActionLink("Détails", "Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger btn-xs" })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>

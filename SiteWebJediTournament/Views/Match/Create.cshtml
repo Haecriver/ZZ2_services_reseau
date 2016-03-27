@@ -1,10 +1,10 @@
 ﻿@model SiteWebJediTournament.Models.MatchModels
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Création de match";
 }
 
-<h2>Create</h2>
+<h2>Ajout d'un match</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,13 +12,14 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>MatchModels</h4>
+        
         <hr />
+        <h4>Propriétés</h4>
         @Html.ValidationSummary(true)
         <div class="form-group">
             @Html.LabelFor(model => model.Jedi1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select name="jediselect1" id="jediselect1">
+                <select class="form-control" name="jediselect1" id="jediselect1">
                     @Html.Action("ListJedi", "Jedi")
                 </select>
             </div>
@@ -26,7 +27,7 @@
        <div class="form-group">
             @Html.LabelFor(model => model.Jedi2, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select name="jediselect2" id="jediselect2">
+                <select class="form-control" name="jediselect2" id="jediselect2">
                     @Html.Action("ListJedi", "Jedi")
                 </select>
             </div>
@@ -34,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PhaseTournoi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                    <select name="phaseselect" id="phaseselect">
+                    <select class="form-control" name="phaseselect" id="phaseselect">
                         <option value="HuitiemeFinale">HuitiemeFinale</option>    
                         <option value="QuartFinale">QuartFinale</option>
                         <option value="DemiFinale">DemiFinale</option>
@@ -45,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Stade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select name="stadeselect" id="stadeselect">
+                <select class="form-control" name="stadeselect" id="stadeselect">
                     @Html.Action("ListStade", "Stade")
                 </select>
             </div>
@@ -53,14 +54,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Créer" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
 </div>
 
 @section Scripts {

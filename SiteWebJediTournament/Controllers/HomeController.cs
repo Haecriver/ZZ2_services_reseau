@@ -15,15 +15,21 @@ namespace SiteWebJediTournament.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "A propos de ce projet.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Voici les informations pour nous contacter.";
 
+            return View();
+        }
+
+        public ActionResult Test()
+        {
+            ViewBag.Message = "test.";
             return View();
         }
     }

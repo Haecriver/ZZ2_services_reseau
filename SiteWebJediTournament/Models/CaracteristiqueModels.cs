@@ -11,7 +11,7 @@ namespace SiteWebJediTournament.Models
     {
         public int Id { get; set; }
         [Required]
-        [Display(Name = "Definition")]
+        [Display(Name = "Définition")]
         public EDefCaracteristique Def {get; set;}
         [Required]
         [Display(Name = "Nom")]

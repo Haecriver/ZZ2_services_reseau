@@ -1,10 +1,10 @@
 ﻿@model SiteWebJediTournament.Models.StadeModels
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Modification d'un stade";
 }
 
-<h2>Edit</h2>
+<h2>Modification d'un stade</h2>
 
 
 @using (Html.BeginForm())
@@ -12,8 +12,9 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>StadeModels</h4>
+        
         <hr />
+        <h4>Propriétés</h4>
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
 
@@ -32,62 +33,67 @@
                 @Html.ValidationMessageFor(model => model.NbPlaces)
             </div>
         </div>
-        <h5 @Html.DisplayNameFor(model => model.Caracts)></h5>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Caracts.Default.Def)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Caracts.Default.Nom)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Caracts.Default.Type)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Caracts.Default.Valeur)
-                </th>
-            </tr>
 
-            @foreach (var item in Model.Caracts.List)
-            {
+        <hr />
+        <h4>@Html.DisplayNameFor(model => model.Caracts)</h4>
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Def)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nom)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Type)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Valeur)
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Caracts.Default.Def)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Caracts.Default.Nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Caracts.Default.Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Caracts.Default.Valeur)
+                    </th>
                 </tr>
-            }
+            </thead>
+            <tbody>
 
+                @foreach (var item in Model.Caracts.List)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Def)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valeur)
+                        </td>
+                    </tr>
+                }
+            </tbody>
         </table>
 
+        <hr />
+        <h4>Choix des caractéristiques</h4>
         <div class="form-group">
             @Html.LabelFor(model => model.Caracts, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select name="caractselect" id="caractselect">
-                    @Html.Action("ListCaracteristiqueStade", "Caracteristique")
-                </select>
+                @Html.Action("ListCaracteristiqueStade", "Caracteristique")
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Valider" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
 </div>
 
 @section Scripts {

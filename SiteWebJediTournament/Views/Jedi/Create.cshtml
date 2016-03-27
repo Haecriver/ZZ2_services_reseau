@@ -1,10 +1,10 @@
 ﻿@model SiteWebJediTournament.Models.JediModels
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Création d'un Jedi";
 }
 
-<h2>Create</h2>
+<h2>Création d'un Jedi</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,13 +12,16 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>JediModels</h4>
-        <hr />
+        
+        
         @Html.ValidationSummary(true)
+
+        <hr />
+        <h4>Propriétés</h4>
         <div class="form-group">
             @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nom)
+                @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class="form-control" } })
                 @Html.ValidationMessageFor(model => model.Nom)
             </div>
         </div>
@@ -31,25 +34,25 @@
             </div>
         </div>
 
+        <hr />
+        <h4>Choisir les caractéristiques du Jedi</h4>
         <div class="form-group">
             @Html.LabelFor(model => model.Caracts, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select name="caractselect" id="caractselect">
-                    @Html.Action("ListCaracteristiqueJedi", "Caracteristique")
-                </select>
+                @Html.Action("ListCaracteristiqueJedi", "Caracteristique")
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Créer" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
 </div>
 
 @section Scripts {

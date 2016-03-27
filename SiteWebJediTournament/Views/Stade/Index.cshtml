@@ -1,39 +1,43 @@
 ﻿@model IEnumerable<SiteWebJediTournament.Models.StadeModels>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Stades";
 }
 
-<h2>Index</h2>
+<h2>Gestion des Stades</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Ajouter un stade", "Create", null, htmlAttributes: new { @class = "btn btn-success btn-sm" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Planete)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NbPlaces)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Planete)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NbPlaces)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Planete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbPlaces)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Planete)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NbPlaces)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-warning btn-xs" })
+                    @Html.ActionLink("Détails", "Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger btn-xs" })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
